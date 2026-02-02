@@ -1,22 +1,143 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>Lovable App</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
-
-    <!-- TODO: Update og:title to match your application name -->
-    <meta property="og:title" content="Lovable App" />
-    <meta property="og:description" content="Lovable Generated Project" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Findolor | Centro Médico Especializado en Manejo del Dolor - Bogotá</title>
+    <meta name="title" content="Findolor | Centro Médico Especializado en Manejo del Dolor - Bogotá" />
+    <meta name="description" content="Centro médico especializado en manejo del dolor crónico, cuidados paliativos y rehabilitación. Más de 20 años de experiencia en Bogotá. Agenda tu cita hoy." />
+    <meta name="keywords" content="manejo del dolor, dolor crónico, cuidados paliativos, fisioterapia, rehabilitación, clínica del dolor Bogotá, medicina del dolor, anestesiología, tratamiento dolor" />
+    <meta name="author" content="Findolor" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.findolor.com" />
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:url" content="https://www.findolor.com" />
+    <meta property="og:title" content="Findolor | Centro Médico Especializado en Manejo del Dolor" />
+    <meta property="og:description" content="Recupera tu bienestar con nuestro equipo de especialistas en dolor crónico y cuidados paliativos. Más de 20 años de experiencia en Bogotá." />
+    <meta property="og:image" content="https://www.findolor.com/images/findolor-og-image.jpg" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:site_name" content="Findolor" />
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:url" content="https://www.findolor.com" />
+    <meta name="twitter:title" content="Findolor | Centro Médico Especializado en Manejo del Dolor" />
+    <meta name="twitter:description" content="Recupera tu bienestar con nuestro equipo de especialistas en dolor crónico y cuidados paliativos. Agenda tu cita hoy." />
+    <meta name="twitter:image" content="https://www.findolor.com/images/findolor-og-image.jpg" />
+
+    <!-- Additional SEO -->
+    <meta name="geo.region" content="CO-DC" />
+    <meta name="geo.placename" content="Bogotá" />
+    <meta name="geo.position" content="4.6097;-74.0817" />
+    <meta name="ICBM" content="4.6097, -74.0817" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    
+    <!-- Schema.org Markup for Medical Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "name": "Findolor - Centro Médico Especializado en Manejo del Dolor",
+      "alternateName": "Findolor",
+      "url": "https://www.findolor.com",
+      "logo": "https://www.findolor.com/images/findolor-logo.svg",
+      "image": "https://www.findolor.com/images/findolor-og-image.jpg",
+      "description": "Centro médico especializado en manejo del dolor crónico, cuidados paliativos, fisioterapia y rehabilitación funcional en Bogotá, Colombia.",
+      "telephone": ["+573186912799", "+576016736707"],
+      "email": "info@findolor.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bogotá",
+        "addressRegion": "Cundinamarca",
+        "addressCountry": "CO"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 4.6097,
+        "longitude": -74.0817
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "medicalSpecialty": [
+        "Pain Medicine",
+        "Palliative Care",
+        "Physical Therapy",
+        "Anesthesiology"
+      ],
+      "availableService": [
+        {
+          "@type": "MedicalProcedure",
+          "name": "Manejo del Dolor Crónico",
+          "description": "Tratamiento especializado para dolor crónico con enfoque multidisciplinario"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Cuidados Paliativos",
+          "description": "Atención integral para mejorar la calidad de vida del paciente"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Fisioterapia y Rehabilitación",
+          "description": "Rehabilitación funcional personalizada"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/findolor",
+        "https://www.instagram.com/findolor"
+      ],
+      "priceRange": "$$",
+      "currenciesAccepted": "COP",
+      "paymentAccepted": "Cash, Credit Card, Debit Card, Health Insurance",
+      "areaServed": {
+        "@type": "City",
+        "name": "Bogotá"
+      }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué tipos de dolor tratan en Findolor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tratamos dolor crónico de espalda, migrañas, fibromialgia, artritis, neuropatías, dolor oncológico y dolor postoperatorio, entre otros."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Aceptan seguros de salud?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, tenemos convenios con Allianz, Seguros Bolívar, Seguros Alfa y Sura. También atendemos pacientes particulares."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es el horario de atención?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nuestro horario es de Lunes a Viernes de 8:00 AM a 6:00 PM."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
 
   <body>
