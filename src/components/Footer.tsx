@@ -3,7 +3,7 @@ const logo = "/images/findolor-logo.svg";
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background py-16">
+    <footer className="bg-[#1a2332] text-white py-16">
       <div className="container">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
           {/* Logo and description */}
@@ -11,9 +11,9 @@ export function Footer() {
             <img
               src={logo}
               alt="Findolor"
-              className="h-16 w-auto mb-6 brightness-0 invert"
+              className="h-16 w-auto mb-6 brightness-200"
             />
-            <p className="text-background/70 leading-relaxed max-w-md mb-6">
+            <p className="text-white/80 leading-relaxed max-w-md mb-6">
               Centro médico especializado en el manejo del dolor crónico y
               cuidados paliativos. Más de 20 años de experiencia brindando
               atención integral y personalizada en Bogotá.
@@ -22,21 +22,21 @@ export function Footer() {
             <div className="flex gap-4">
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
@@ -46,12 +46,12 @@ export function Footer() {
 
           {/* Quick links */}
           <div>
-            <h4 className="font-semibold text-lg mb-6">Enlaces Rápidos</h4>
+            <h4 className="font-semibold text-lg mb-6 text-white">Enlaces Rápidos</h4>
             <ul className="space-y-3">
               <li>
                 <a
                   href="#"
-                  className="text-background/70 hover:text-primary transition-colors"
+                  className="text-white/70 hover:text-primary transition-colors"
                 >
                   Inicio
                 </a>
@@ -59,7 +59,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-background/70 hover:text-primary transition-colors"
+                  className="text-white/70 hover:text-primary transition-colors"
                 >
                   Sobre Nosotros
                 </a>
@@ -67,7 +67,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-background/70 hover:text-primary transition-colors"
+                  className="text-white/70 hover:text-primary transition-colors"
                 >
                   Servicios
                 </a>
@@ -75,7 +75,7 @@ export function Footer() {
               <li>
                 <a
                   href="#contacto"
-                  className="text-background/70 hover:text-primary transition-colors"
+                  className="text-white/70 hover:text-primary transition-colors"
                 >
                   Contacto
                 </a>
@@ -85,12 +85,12 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold text-lg mb-6">Contacto</h4>
+            <h4 className="font-semibold text-lg mb-6 text-white">Contacto</h4>
             <ul className="space-y-4">
               <li>
                 <a
                   href="tel:+573186912799"
-                  className="flex items-center gap-3 text-background/70 hover:text-primary transition-colors"
+                  className="flex items-center gap-3 text-white/70 hover:text-primary transition-colors"
                 >
                   <Phone className="w-5 h-5 flex-shrink-0" />
                   <span>318 6912799</span>
@@ -99,7 +99,7 @@ export function Footer() {
               <li>
                 <a
                   href="tel:+576016736707"
-                  className="flex items-center gap-3 text-background/70 hover:text-primary transition-colors"
+                  className="flex items-center gap-3 text-white/70 hover:text-primary transition-colors"
                 >
                   <Phone className="w-5 h-5 flex-shrink-0" />
                   <span>601 6736707</span>
@@ -108,14 +108,14 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:info@findolor.com"
-                  className="flex items-center gap-3 text-background/70 hover:text-primary transition-colors"
+                  className="flex items-center gap-3 text-white/70 hover:text-primary transition-colors"
                 >
                   <Mail className="w-5 h-5 flex-shrink-0" />
                   <span>info@findolor.com</span>
                 </a>
               </li>
               <li>
-                <div className="flex items-start gap-3 text-background/70">
+                <div className="flex items-start gap-3 text-white/70">
                   <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
                   <span>Bogotá, Colombia</span>
                 </div>
@@ -125,8 +125,8 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-background/50 text-sm">
+        <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-white/60 text-sm">
             © {new Date().getFullYear()} Findolor. Todos los derechos reservados.
           </p>
           <div className="flex gap-6 text-sm">
@@ -134,7 +134,7 @@ export function Footer() {
               href="https://www.findolor.com/politica-de-uso-de-contenidos-pagina-web/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-background/50 hover:text-primary transition-colors"
+              className="text-white/60 hover:text-primary transition-colors"
             >
               Política de uso de contenidos
             </a>
@@ -142,7 +142,7 @@ export function Footer() {
               href="https://www.findolor.com/manual-de-politicas-de-tratamiento/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-background/50 hover:text-primary transition-colors"
+              className="text-white/60 hover:text-primary transition-colors"
             >
               Políticas de tratamiento
             </a>
