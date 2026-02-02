@@ -9,17 +9,20 @@ const insurers = [
 
 export function TrustBar() {
   return (
-    <section className="py-12 bg-card border-y border-border">
+    <section className="py-16 md:py-20 bg-card border-y border-border">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-8"
+          className="text-center mb-10"
         >
-          <p className="text-muted-foreground text-sm font-medium uppercase tracking-wider">
+          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
             Contamos con convenios con diferentes entidades de salud
+          </h3>
+          <p className="text-muted-foreground">
+            Facilitamos el acceso a nuestros servicios
           </p>
         </motion.div>
 
@@ -28,7 +31,7 @@ export function TrustBar() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16"
+          className="flex flex-wrap justify-center items-center gap-6 md:gap-10 lg:gap-14"
         >
           {insurers.map((insurer, index) => (
             <motion.div
@@ -37,13 +40,14 @@ export function TrustBar() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
               className="group cursor-pointer"
             >
-              <div className="px-6 py-4 border border-border rounded-lg bg-muted/30 hover:bg-primary-light hover:border-primary/30 transition-all duration-300">
+              <div className="px-8 py-6 md:px-10 md:py-8 border-2 border-border rounded-2xl bg-white hover:bg-primary-light hover:border-primary/40 hover:shadow-lg transition-all duration-300">
                 <img
                   src={insurer.logo}
                   alt={insurer.name}
-                  className="h-10 md:h-12 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                  className="h-14 md:h-20 lg:h-24 w-auto object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
                 />
               </div>
             </motion.div>
