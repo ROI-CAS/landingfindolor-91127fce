@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* Paleta Findolor - Verde Esmeralda/Turquesa Premium */
+    /* Paleta Findolor - Azul #27AAE1 */
     --background: 0 0% 100%;
     --foreground: 210 20% 20%;
 
@@ -16,33 +16,33 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 20% 20%;
 
-    /* Primary: Turquesa/Esmeralda del logo */
-    --primary: 174 85% 40%;
+    /* Primary: Findolor Blue #27AAE1 = hsl(199, 76%, 52%) */
+    --primary: 199 76% 52%;
     --primary-foreground: 0 0% 100%;
     
     /* Primary variants */
-    --primary-light: 174 70% 92%;
-    --primary-dark: 180 75% 28%;
-    --primary-glow: 174 85% 50%;
+    --primary-light: 199 70% 92%;
+    --primary-dark: 199 75% 38%;
+    --primary-glow: 199 76% 60%;
 
-    /* Secondary: Azul profundo de las manos del logo */
-    --secondary: 195 65% 35%;
+    /* Secondary: Darker blue from brand */
+    --secondary: 200 65% 35%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Accent: Verde más claro para highlights */
-    --accent: 165 70% 45%;
+    /* Accent: Green #50D87F from brand */
+    --accent: 145 62% 58%;
     --accent-foreground: 0 0% 100%;
 
-    --muted: 180 15% 96%;
+    --muted: 200 15% 96%;
     --muted-foreground: 210 15% 45%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     /* Grises suaves */
-    --border: 180 10% 90%;
-    --input: 180 10% 90%;
-    --ring: 174 85% 40%;
+    --border: 200 10% 90%;
+    --input: 200 10% 90%;
+    --ring: 199 76% 52%;
 
     --radius: 0.75rem;
     
@@ -50,16 +50,16 @@
     --star: 45 93% 58%;
 
     /* Gradientes Premium */
-    --gradient-primary: linear-gradient(135deg, hsl(174 85% 40%), hsl(165 70% 45%));
-    --gradient-hero: linear-gradient(180deg, hsl(180 30% 98%) 0%, hsl(174 25% 95%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(199 76% 52%), hsl(145 62% 58%));
+    --gradient-hero: linear-gradient(180deg, hsl(200 30% 98%) 0%, hsl(199 25% 95%) 100%);
     --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.9), hsl(0 0% 100% / 0.7));
-    --gradient-cta: linear-gradient(135deg, hsl(174 85% 40%), hsl(180 75% 28%));
+    --gradient-cta: linear-gradient(135deg, hsl(145 62% 48%), hsl(145 62% 40%));
     
     /* Sombras elegantes */
-    --shadow-soft: 0 4px 20px -4px hsl(174 85% 40% / 0.15);
+    --shadow-soft: 0 4px 20px -4px hsl(199 76% 52% / 0.15);
     --shadow-card: 0 8px 30px -8px hsl(210 20% 20% / 0.08);
     --shadow-elevated: 0 20px 50px -12px hsl(210 20% 20% / 0.15);
-    --shadow-glow: 0 0 40px -10px hsl(174 85% 40% / 0.3);
+    --shadow-glow: 0 0 40px -10px hsl(199 76% 52% / 0.3);
 
     /* Glassmorphism */
     --glass-bg: hsl(0 0% 100% / 0.7);
@@ -68,46 +68,46 @@
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 174 85% 40%;
+    --sidebar-primary: 199 76% 52%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 174 25% 95%;
+    --sidebar-accent: 199 25% 95%;
     --sidebar-accent-foreground: 210 20% 20%;
-    --sidebar-border: 180 10% 90%;
-    --sidebar-ring: 174 85% 40%;
+    --sidebar-border: 200 10% 90%;
+    --sidebar-ring: 199 76% 52%;
   }
 
   .dark {
     --background: 210 25% 8%;
-    --foreground: 180 15% 95%;
+    --foreground: 200 15% 95%;
 
     --card: 210 25% 12%;
-    --card-foreground: 180 15% 95%;
+    --card-foreground: 200 15% 95%;
 
     --popover: 210 25% 12%;
-    --popover-foreground: 180 15% 95%;
+    --popover-foreground: 200 15% 95%;
 
-    --primary: 174 75% 45%;
+    --primary: 199 76% 52%;
     --primary-foreground: 0 0% 100%;
     
-    --primary-light: 174 40% 20%;
-    --primary-dark: 180 75% 35%;
-    --primary-glow: 174 85% 55%;
+    --primary-light: 199 40% 20%;
+    --primary-dark: 199 75% 40%;
+    --primary-glow: 199 76% 60%;
 
-    --secondary: 195 55% 45%;
+    --secondary: 200 55% 45%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 165 60% 50%;
+    --accent: 145 55% 55%;
     --accent-foreground: 0 0% 100%;
 
     --muted: 210 20% 18%;
-    --muted-foreground: 180 10% 60%;
+    --muted-foreground: 200 10% 60%;
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 210 20% 22%;
     --input: 210 20% 22%;
-    --ring: 174 75% 45%;
+    --ring: 199 76% 52%;
 
     --glass-bg: hsl(210 25% 12% / 0.8);
     --glass-border: hsl(210 20% 25% / 0.5);

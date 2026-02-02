@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ContactForm } from "./ContactForm";
 import { Check, Heart, Users, Activity, Brain } from "lucide-react";
-import logo from "@/assets/findolor-logo.png";
+const logo = "/images/findolor-logo.svg";
 
 const benefits = [
   { icon: Heart, text: "Atención en cuidados paliativos" },

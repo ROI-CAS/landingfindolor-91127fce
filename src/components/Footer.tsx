@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
-import logo from "@/assets/findolor-logo.png";
+const logo = "/images/findolor-logo.svg";
 
 export function Footer() {
   return (
@@ -131,16 +131,20 @@ export function Footer() {
           </p>
           <div className="flex gap-6 text-sm">
             <a
-              href="#"
+              href="https://www.findolor.com/politica-de-uso-de-contenidos-pagina-web/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-background/50 hover:text-primary transition-colors"
             >
-              Política de Privacidad
+              Política de uso de contenidos
             </a>
             <a
-              href="#"
+              href="https://www.findolor.com/manual-de-politicas-de-tratamiento/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-background/50 hover:text-primary transition-colors"
             >
-              Términos y Condiciones
+              Políticas de tratamiento
             </a>
           </div>
         </div>
