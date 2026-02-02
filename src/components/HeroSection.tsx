@@ -45,7 +45,7 @@ export function HeroSection() {
                 Centro médico especializado en manejo del dolor
               </span>
 
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight mb-6">
+              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
                 Recupera tu bienestar y{" "}
                 <span className="text-gradient">vuelve a disfrutar</span> tu vida
               </h1>
