@@ -1,0 +1,150 @@
+import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+import logo from "@/assets/findolor-logo.png";
+
+export function Footer() {
+  return (
+    <footer className="bg-foreground text-background py-16">
+      <div className="container">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
+          {/* Logo and description */}
+          <div className="lg:col-span-2">
+            <img
+              src={logo}
+              alt="Findolor"
+              className="h-16 w-auto mb-6 brightness-0 invert"
+            />
+            <p className="text-background/70 leading-relaxed max-w-md mb-6">
+              Centro médico especializado en el manejo del dolor crónico y
+              cuidados paliativos. Más de 20 años de experiencia brindando
+              atención integral y personalizada en Bogotá.
+            </p>
+            {/* Social links */}
+            <div className="flex gap-4">
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick links */}
+          <div>
+            <h4 className="font-semibold text-lg mb-6">Enlaces Rápidos</h4>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  className="text-background/70 hover:text-primary transition-colors"
+                >
+                  Inicio
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-background/70 hover:text-primary transition-colors"
+                >
+                  Sobre Nosotros
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-background/70 hover:text-primary transition-colors"
+                >
+                  Servicios
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contacto"
+                  className="text-background/70 hover:text-primary transition-colors"
+                >
+                  Contacto
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-semibold text-lg mb-6">Contacto</h4>
+            <ul className="space-y-4">
+              <li>
+                <a
+                  href="tel:+573186912799"
+                  className="flex items-center gap-3 text-background/70 hover:text-primary transition-colors"
+                >
+                  <Phone className="w-5 h-5 flex-shrink-0" />
+                  <span>318 6912799</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+576016736707"
+                  className="flex items-center gap-3 text-background/70 hover:text-primary transition-colors"
+                >
+                  <Phone className="w-5 h-5 flex-shrink-0" />
+                  <span>601 6736707</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:info@findolor.com"
+                  className="flex items-center gap-3 text-background/70 hover:text-primary transition-colors"
+                >
+                  <Mail className="w-5 h-5 flex-shrink-0" />
+                  <span>info@findolor.com</span>
+                </a>
+              </li>
+              <li>
+                <div className="flex items-start gap-3 text-background/70">
+                  <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                  <span>Bogotá, Colombia</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-background/50 text-sm">
+            © {new Date().getFullYear()} Findolor. Todos los derechos reservados.
+          </p>
+          <div className="flex gap-6 text-sm">
+            <a
+              href="#"
+              className="text-background/50 hover:text-primary transition-colors"
+            >
+              Política de Privacidad
+            </a>
+            <a
+              href="#"
+              className="text-background/50 hover:text-primary transition-colors"
+            >
+              Términos y Condiciones
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
