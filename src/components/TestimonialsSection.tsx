@@ -1,31 +1,28 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { useState } from "react";
-import testimonial1 from "@/assets/testimonial-1.jpg";
-import testimonial2 from "@/assets/testimonial-2.jpg";
-import testimonial3 from "@/assets/testimonial-3.jpg";
 
 const testimonials = [
   {
-    name: "Carlos Rodríguez",
-    role: "Paciente con dolor lumbar",
-    image: testimonial1,
+    name: "Andrea Blanco",
+    role: "Local Guide · 120 opiniones",
+    initial: "A",
     rating: 5,
-    text: "Después de años sufriendo de dolor lumbar, encontré en Findolor la atención profesional que necesitaba. El equipo médico me escuchó y diseñó un tratamiento personalizado que cambió mi vida. Hoy puedo disfrutar de mis nietos sin dolor.",
+    text: "La verdad que no tengo palabras para agradecer al Dr. Luis Garzon quien atendió a mi mamá cuando el dolor era tan intenso (por la artritis la artrosis y el reumatismo) que ella comenzó a hablarnos de la eutanasia por que no aguantaba estar así. Literal mi mamá llego al consultorio encogida casi sin poder caminar y luego de dos horas donde el dr le dio total atención y buenos tratos ella salio muy relajada y hasta el momento no se ha presentado otra crisis similar. De todo corazón lo recomiendo se que hay que esforzarse pero es mejor ir donde el especialista",
   },
   {
-    name: "María Elena Gómez",
-    role: "Paciente con fibromialgia",
-    image: testimonial2,
-    rating: 5,
-    text: "La atención en Findolor es excepcional. Me sentí acompañada desde el primer momento. El enfoque integral que manejan me ayudó no solo con el dolor físico sino también con mi bienestar emocional.",
+    name: "Leidy Escobar",
+    role: "Local Guide · 40 opiniones",
+    initial: "L",
+    rating: 4,
+    text: "En general, la atención al cliente es muy buena. Tuve varias sesiones de fisioterapia y los profesionales fueron muy amables y atentos, además de contar con instalaciones limpias y bien cuidadas. Sin embargo, me gustaría que prestaran un poco más de atención a los ejercicios durante las sesiones, ya que en mi caso sentí un nivel de dolor considerable, y la terapia me pareció algo pasiva en relación con el malestar que experimentaba en ese momento. Agradezco el esfuerzo de todo el equipo",
   },
   {
-    name: "Roberto Martínez",
-    role: "Paciente con síndrome del túnel carpiano",
-    image: testimonial3,
+    name: "Claudia Angelica Camargo Molina",
+    role: "3 opiniones",
+    initial: "C",
     rating: 5,
-    text: "Llegué a Findolor sin esperanzas después de visitar varios especialistas. Aquí encontré profesionales comprometidos que lograron aliviar mi dolor sin necesidad de cirugía. Estoy eternamente agradecido.",
+    text: "Es un lugar fantástico se siente el servicio humano y acogedor!",
   },
 ];
 
@@ -82,25 +79,29 @@ export function TestimonialsSection() {
                     className="w-5 h-5 fill-star text-star"
                   />
                 ))}
+                {Array.from({ length: 5 - testimonial.rating }).map((_, i) => (
+                  <Star
+                    key={i}
+                    className="w-5 h-5 text-muted-foreground/30"
+                  />
+                ))}
               </div>
 
               {/* Text */}
-              <p className="text-muted-foreground leading-relaxed mb-6">
+              <p className="text-muted-foreground leading-relaxed mb-6 text-sm line-clamp-6">
                 "{testimonial.text}"
               </p>
 
               {/* Author */}
               <div className="flex items-center gap-4">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-14 h-14 rounded-full object-cover border-2 border-primary-light"
-                />
+                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-semibold text-lg">
+                  {testimonial.initial}
+                </div>
                 <div>
-                  <h4 className="font-semibold text-foreground">
+                  <h4 className="font-semibold text-foreground text-sm">
                     {testimonial.name}
                   </h4>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs text-muted-foreground">
                     {testimonial.role}
                   </p>
                 </div>

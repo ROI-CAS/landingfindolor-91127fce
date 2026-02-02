@@ -1,13 +1,10 @@
 import { motion } from "framer-motion";
 
-// Insurance company logos represented as text (would be replaced with actual logos)
 const insurers = [
-  { name: "Seguros Alfa", logo: "SEGUROS ALFA" },
-  { name: "Sura", logo: "SURA" },
-  { name: "Seguros Bolívar", logo: "BOLIVAR" },
-  { name: "Allianz", logo: "ALLIANZ" },
-  { name: "Colsanitas", logo: "COLSANITAS" },
-  { name: "Compensar", logo: "COMPENSAR" },
+  { name: "Allianz", logo: "/images/insurers/allianz.png" },
+  { name: "Seguros Alfa", logo: "/images/insurers/seguros-alfa.png" },
+  { name: "Seguros Bolívar", logo: "/images/insurers/seguros-bolivar.png" },
+  { name: "Sura", logo: "/images/insurers/sura.png" },
 ];
 
 export function TrustBar() {
@@ -40,12 +37,14 @@ export function TrustBar() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
-              className="trust-logo cursor-pointer"
+              className="group cursor-pointer"
             >
-              <div className="px-6 py-3 border border-border rounded-lg bg-muted/30 hover:bg-primary-light hover:border-primary/30 transition-all duration-300">
-                <span className="font-semibold text-lg tracking-wide text-muted-foreground hover:text-primary transition-colors">
-                  {insurer.logo}
-                </span>
+              <div className="px-6 py-4 border border-border rounded-lg bg-muted/30 hover:bg-primary-light hover:border-primary/30 transition-all duration-300">
+                <img
+                  src={insurer.logo}
+                  alt={insurer.name}
+                  className="h-10 md:h-12 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                />
               </div>
             </motion.div>
           ))}
