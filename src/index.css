@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,15 +6,16 @@
 
 @layer base {
   :root {
-    /* Paleta Findolor - Azul #27AAE1 */
+    /* Paleta Findolor - Colores oficiales de marca */
     --background: 0 0% 100%;
-    --foreground: 210 20% 20%;
+    /* Text color #4B4B4B = hsl(0, 0%, 29%) */
+    --foreground: 0 0% 29%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 20% 20%;
+    --card-foreground: 0 0% 29%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 20% 20%;
+    --popover-foreground: 0 0% 29%;
 
     /* Primary: Findolor Blue #27AAE1 = hsl(199, 76%, 52%) */
     --primary: 199 76% 52%;
@@ -25,23 +26,24 @@
     --primary-dark: 199 75% 38%;
     --primary-glow: 199 76% 60%;
 
-    /* Secondary: Darker blue from brand */
-    --secondary: 200 65% 35%;
+    /* Secondary: Brand green #50D87F = hsl(145, 58%, 58%) */
+    --secondary: 145 58% 58%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Accent: Green #50D87F from brand */
-    --accent: 145 62% 58%;
+    /* Accent: Same green for CTAs #50D87F */
+    --accent: 145 58% 58%;
     --accent-foreground: 0 0% 100%;
 
     --muted: 200 15% 96%;
-    --muted-foreground: 210 15% 45%;
+    /* Muted foreground slightly lighter than main text */
+    --muted-foreground: 0 0% 45%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     /* Grises suaves */
-    --border: 200 10% 90%;
-    --input: 200 10% 90%;
+    --border: 200 10% 88%;
+    --input: 200 10% 88%;
     --ring: 199 76% 52%;
 
     --radius: 0.75rem;
@@ -49,16 +51,16 @@
     /* Gold/Star rating color */
     --star: 45 93% 58%;
 
-    /* Gradientes Premium */
-    --gradient-primary: linear-gradient(135deg, hsl(199 76% 52%), hsl(145 62% 58%));
+    /* Gradientes Premium - CTA uses green #50D87F */
+    --gradient-primary: linear-gradient(135deg, hsl(199 76% 52%), hsl(145 58% 58%));
     --gradient-hero: linear-gradient(180deg, hsl(200 30% 98%) 0%, hsl(199 25% 95%) 100%);
     --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.9), hsl(0 0% 100% / 0.7));
-    --gradient-cta: linear-gradient(135deg, hsl(145 62% 48%), hsl(145 62% 40%));
+    --gradient-cta: linear-gradient(135deg, hsl(145 58% 52%), hsl(145 58% 45%));
     
     /* Sombras elegantes */
     --shadow-soft: 0 4px 20px -4px hsl(199 76% 52% / 0.15);
-    --shadow-card: 0 8px 30px -8px hsl(210 20% 20% / 0.08);
-    --shadow-elevated: 0 20px 50px -12px hsl(210 20% 20% / 0.15);
+    --shadow-card: 0 8px 30px -8px hsl(0 0% 29% / 0.08);
+    --shadow-elevated: 0 20px 50px -12px hsl(0 0% 29% / 0.15);
     --shadow-glow: 0 0 40px -10px hsl(199 76% 52% / 0.3);
 
     /* Glassmorphism */
@@ -67,24 +69,24 @@
     --glass-blur: 16px;
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-foreground: 0 0% 29%;
     --sidebar-primary: 199 76% 52%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 199 25% 95%;
-    --sidebar-accent-foreground: 210 20% 20%;
-    --sidebar-border: 200 10% 90%;
+    --sidebar-accent-foreground: 0 0% 29%;
+    --sidebar-border: 200 10% 88%;
     --sidebar-ring: 199 76% 52%;
   }
 
   .dark {
     --background: 210 25% 8%;
-    --foreground: 200 15% 95%;
+    --foreground: 0 0% 85%;
 
     --card: 210 25% 12%;
-    --card-foreground: 200 15% 95%;
+    --card-foreground: 0 0% 85%;
 
     --popover: 210 25% 12%;
-    --popover-foreground: 200 15% 95%;
+    --popover-foreground: 0 0% 85%;
 
     --primary: 199 76% 52%;
     --primary-foreground: 0 0% 100%;
@@ -93,14 +95,14 @@
     --primary-dark: 199 75% 40%;
     --primary-glow: 199 76% 60%;
 
-    --secondary: 200 55% 45%;
+    --secondary: 145 50% 50%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 145 55% 55%;
+    --accent: 145 50% 50%;
     --accent-foreground: 0 0% 100%;
 
     --muted: 210 20% 18%;
-    --muted-foreground: 200 10% 60%;
+    --muted-foreground: 0 0% 55%;
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
@@ -125,7 +127,9 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Roboto', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
   }
 
   h1, h2, h3, h4 {
@@ -211,8 +215,8 @@
   }
 
   .section-subheading {
-    @apply text-lg md:text-xl text-muted-foreground max-w-2xl;
-    font-family: 'Inter', system-ui, sans-serif;
+    @apply text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed;
+    font-family: 'Roboto', system-ui, sans-serif;
   }
 }
 
