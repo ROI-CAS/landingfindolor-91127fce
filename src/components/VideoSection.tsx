@@ -4,7 +4,7 @@ import { useState } from "react";
 import videoThumbnail from "@/assets/video-thumbnail.jpg";
 
 const benefits = [
-  "Valoración médica integral desde la primera consulta",
+  "Valoración médica integral",
   "Opciones de tratamiento mínimamente invasivas",
   "Seguimiento personalizado durante tu proceso",
   "Equipo multidisciplinario especializado",
@@ -64,13 +64,13 @@ export function VideoSection() {
             {/* Video Stats */}
             <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white rounded-xl shadow-lg px-6 py-3 flex gap-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">2,500+</div>
-                <div className="text-xs text-muted-foreground">Pacientes</div>
+                <div className="text-2xl font-bold text-primary">20+</div>
+                <div className="text-xs text-muted-foreground">Años de experiencia</div>
               </div>
               <div className="w-px bg-border" />
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">98%</div>
-                <div className="text-xs text-muted-foreground">Satisfacción</div>
+                <div className="text-2xl font-bold text-primary">10+</div>
+                <div className="text-xs text-muted-foreground">Especialistas</div>
               </div>
             </div>
           </motion.div>

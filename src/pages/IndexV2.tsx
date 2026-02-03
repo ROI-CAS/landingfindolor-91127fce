@@ -13,6 +13,7 @@ import { TrustBadges } from "@/components/TrustBadges";
 import { BookingCalendar } from "@/components/BookingCalendar";
 import { StickyHeader } from "@/components/StickyHeader";
 import { ClickToCallButton } from "@/components/ClickToCallButton";
+import { VideoSection } from "@/components/VideoSection";
 
 const IndexV2 = () => {
   return (
@@ -21,6 +22,7 @@ const IndexV2 = () => {
       <HeroV2 />
       <TrustBadges />
       <SocialProofV2 />
+      <VideoSection />
       <DoctorsSection />
       <ProcessTimeline />
       <BenefitsV2 />
