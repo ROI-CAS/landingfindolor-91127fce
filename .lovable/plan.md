@@ -1,127 +1,162 @@
 
+# Plan: Formulario con Tracking + Tabs para Autoagendar
 
-# Plan: Sistema Centralizado de Disponibilidad de Citas
+## Resumen
 
-## Problema Identificado
-
-Actualmente hay **3 componentes** mostrando números de disponibilidad **desconectados**:
-
-| Componente | Ubicación | Problema |
-|------------|-----------|----------|
-| Hero Badge | "Solo 4 citas disponibles hoy" | Usa `getCitasDisponiblesHoy()` con `Math.random()` |
-| Formulario | "Solo quedan 3 citas disponibles" | Calcula internamente con `Math.random()` diferente |
-| LiveCounter | "14 consultas hoy" | Lógica completamente diferente |
-
-Esto genera **inconsistencias visibles** que restan credibilidad.
+Implementar un sistema de doble opcion de agendamiento en la seccion "Agenda Tu Cita" con:
+1. Formulario visible por defecto (identico al del Hero pero con tracking diferenciado)
+2. Opcion de autoagendarse mediante calendario en drawer
 
 ---
 
-## Solución Propuesta
-
-Crear un **Context de React** centralizado que:
-- Mantenga un estado global sincronizado
-- Calcule disponibilidad basada en hora del dia
-- Reaccione a envios de formulario (descontar citas, sumar consultas)
-
----
-
-## Arquitectura
+## Estructura Visual
 
 ```text
-+----------------------------------+
-|     AppointmentProvider          |
-|  (Context global en App.tsx)     |
-+----------------------------------+
-         |
-         v
-+----------------------------------+
-|   useAppointments() Hook         |
-|                                  |
-|  - citasDisponibles: number      |
-|  - consultasHoy: number          |
-|  - registrarConsulta(): void     |
-+----------------------------------+
-         |
-    +----+----+----+
-    |         |    |
-    v         v    v
-  Hero    Form   LiveCounter
-  Badge   Step4   Widget
++--------------------------------------------------+
+|              Agenda Tu Cita Ahora                |
+|    Elige como prefieres agendar tu valoracion    |
++--------------------------------------------------+
+|                                                  |
+|  [ Te llamamos ]  [ Prefiero elegir mi horario ] |
+|       (activo)           (inactivo)              |
++--------------------------------------------------+
+|                                                  |
+|  Tab 1 (visible por defecto):                    |
+|  +--------------------------------------------+  |
+|  |         MultiStepForm                      |  |
+|  |         formSource="booking-section"       |  |
+|  +--------------------------------------------+  |
+|                                                  |
+|  Tab 2 (al hacer click):                         |
+|  +--------------------------------------------+  |
+|  |  Descripcion + Boton "Abrir Calendario"    |  |
+|  |  Click -> Drawer con iframe GHL            |  |
+|  +--------------------------------------------+  |
+|                                                  |
++--------------------------------------------------+
 ```
 
 ---
 
-## Logica de Disponibilidad
+## Cambios por Archivo
 
-**Citas disponibles segun hora (conservador):**
-- 8am-11am: 4-5 citas (mas disponibilidad)
-- 12pm-2pm: 3-4 citas (media)
-- 3pm-6pm: 2-3 citas (urgencia)
-- Fuera de horario: 3 citas
+### 1. MultiStepForm.tsx
 
-**Al enviar formulario:**
-- `citasDisponibles` se descuenta en 1 (minimo 1)
-- `consultasHoy` se incrementa en 1
+**Agregar prop `formSource` para tracking:**
+
+```tsx
+interface MultiStepFormProps {
+  formSource?: "hero" | "booking-section";
+}
+
+export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
+  // ...existing code...
+  
+  const handleSubmit = () => {
+    if (!formData.acceptedPolicies) return;
+    
+    // Log para analytics (futuro: enviar a webhook/analytics)
+    console.log("[Lead] Form submitted", {
+      source: formSource,
+      ...formData
+    });
+    
+    registrarConsulta();
+    setIsSubmitted(true);
+  };
+}
+```
+
+Esto permite diferenciar leads del Hero vs seccion de booking.
 
 ---
 
-## Implementacion
+### 2. BookingCalendar.tsx
 
-### Paso 1: Crear Context y Hook
+**Redisenar completamente con Tabs y Drawer:**
 
-Nuevo archivo: `src/context/AppointmentContext.tsx`
+Nuevos imports necesarios:
+- `Tabs, TabsList, TabsTrigger, TabsContent` de ui/tabs
+- `Drawer, DrawerContent, DrawerTrigger, DrawerHeader, DrawerTitle` de ui/drawer
+- `MultiStepForm` para el formulario
+- Iconos: `Phone, CalendarDays`
+
+**Estructura del componente:**
 
 ```tsx
-// Estado inicial calculado por hora
-// Sin Math.random() para consistencia
-// Funciones para registrar consultas
-
-export function AppointmentProvider({ children }) {
-  const [citasDisponibles, setCitasDisponibles] = useState(calcularCitasIniciales);
-  const [consultasHoy, setConsultasHoy] = useState(calcularConsultasIniciales);
-
-  const registrarConsulta = () => {
-    setCitasDisponibles(prev => Math.max(1, prev - 1));
-    setConsultasHoy(prev => prev + 1);
-  };
+export function BookingCalendar() {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  
+  // Script de GHL solo se carga cuando drawer esta abierto
+  useEffect(() => {
+    if (drawerOpen) {
+      // Cargar script GHL...
+    }
+  }, [drawerOpen]);
 
   return (
-    <AppointmentContext.Provider value={{ citasDisponibles, consultasHoy, registrarConsulta }}>
-      {children}
-    </AppointmentContext.Provider>
+    <section id="agendar">
+      {/* Header existente */}
+      
+      <Tabs defaultValue="callback" className="...">
+        <TabsList className="grid grid-cols-2 w-full max-w-md mx-auto">
+          <TabsTrigger value="callback">
+            <Phone /> Te llamamos
+          </TabsTrigger>
+          <TabsTrigger value="calendar">
+            <CalendarDays /> Prefiero elegir
+          </TabsTrigger>
+        </TabsList>
+        
+        <TabsContent value="callback">
+          {/* Card con formulario */}
+          <MultiStepForm formSource="booking-section" />
+        </TabsContent>
+        
+        <TabsContent value="calendar">
+          {/* Card con CTA para abrir drawer */}
+          <Button onClick={() => setDrawerOpen(true)}>
+            Abrir Calendario
+          </Button>
+          
+          <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
+            <DrawerContent className="max-h-[90vh]">
+              <DrawerHeader>
+                <DrawerTitle>Selecciona fecha y hora</DrawerTitle>
+              </DrawerHeader>
+              {/* iframe GHL - solo renderiza cuando drawer abierto */}
+              {drawerOpen && (
+                <iframe src="..." />
+              )}
+            </DrawerContent>
+          </Drawer>
+        </TabsContent>
+      </Tabs>
+    </section>
   );
 }
 ```
 
-### Paso 2: Integrar en App.tsx
+---
 
-Envolver la aplicacion con el Provider.
+## Beneficios del Tracking
 
-### Paso 3: Actualizar HeroV2.tsx
+| formSource | Ubicacion | Proposito |
+|------------|-----------|-----------|
+| `"hero"` | Seccion Hero inicial | Leads de alta intencion (llegaron y convirtieron rapido) |
+| `"booking-section"` | Seccion Agenda Tu Cita | Leads que necesitaron mas informacion antes de decidir |
 
-- Eliminar funcion `getCitasDisponiblesHoy()`
-- Usar `useAppointments().citasDisponibles`
-
-### Paso 4: Actualizar MultiStepForm.tsx
-
-- Usar `useAppointments().citasDisponibles` para mostrar urgencia
-- Llamar `registrarConsulta()` al confirmar envio
-
-### Paso 5: Actualizar LiveCounter.tsx
-
-- Eliminar logica duplicada de consultas
-- Usar `useAppointments().consultasHoy`
-- Mantener solo la simulacion de "viendo ahora"
+Esto permite medir cual formulario convierte mejor y optimizar la pagina.
 
 ---
 
-## Cambios Adicionales Solicitados
+## UX en Mobile
 
-**Texto del formulario paso 2:**
-- Cambiar "Trabajamos con las principales aseguradoras" por texto mas amigable como "Selecciona tu forma de pago"
-
-**Texto del Hero:**
-- Eliminar "+2,500 pacientes atendidos este ano" (inicio de ano, poco convincente)
+- **Tab 1 (Formulario):** Se muestra completo, scroll normal
+- **Tab 2 (Calendario):** Boton abre drawer desde abajo (bottom sheet)
+  - Altura maxima: 90vh
+  - Incluye handle para cerrar deslizando
+  - iframe GHL carga solo al abrir (mejor performance)
 
 ---
 
@@ -129,18 +164,6 @@ Envolver la aplicacion con el Provider.
 
 | Archivo | Accion |
 |---------|--------|
-| `src/context/AppointmentContext.tsx` | **Crear** - Context centralizado |
-| `src/App.tsx` | Agregar Provider |
-| `src/components/HeroV2.tsx` | Usar hook, eliminar stats de pacientes |
-| `src/components/MultiStepForm.tsx` | Usar hook, actualizar texto |
-| `src/components/LiveCounter.tsx` | Usar hook para consultasHoy |
-
----
-
-## Resultado Esperado
-
-- Badge del Hero y formulario mostraran **el mismo numero**
-- Al enviar un formulario, las citas bajan y las consultas suben
-- Numeros prudentes y realistas (no mas de 5-6 citas disponibles)
-- Sin `Math.random()` que cause inconsistencias entre renders
+| `src/components/MultiStepForm.tsx` | Agregar prop `formSource` con tipo y logging |
+| `src/components/BookingCalendar.tsx` | Redisenar con Tabs, integrar formulario y drawer |
 
