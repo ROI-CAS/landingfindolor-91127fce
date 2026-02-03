@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useAppointments } from "@/context/AppointmentContext";
 
 const especialidades = [
   { id: "dolor", label: "Medicina del dolor", icon: "💊" },
@@ -41,6 +42,7 @@ const steps = [
 ];
 
 export function MultiStepForm() {
+  const { citasDisponibles, registrarConsulta } = useAppointments();
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -67,6 +69,7 @@ export function MultiStepForm() {
 
   const handleSubmit = () => {
     if (!formData.acceptedPolicies) return;
+    registrarConsulta();
     setIsSubmitted(true);
   };
 
@@ -182,7 +185,7 @@ export function MultiStepForm() {
                   ¿Cómo pagarás tu consulta?
                 </h3>
                 <p className="text-muted-foreground text-sm mt-1">
-                  Trabajamos con las principales aseguradoras
+                  Selecciona tu forma de pago
                 </p>
               </div>
               <div className="space-y-2">
@@ -315,21 +318,12 @@ export function MultiStepForm() {
                 </div>
               </div>
 
-              {/* Urgency message */}
-              {(() => {
-                const hour = new Date().getHours();
-                let citas = 3;
-                if (hour >= 8 && hour < 12) citas = 5 + Math.floor(Math.random() * 2);
-                else if (hour >= 12 && hour < 15) citas = 3 + Math.floor(Math.random() * 2);
-                else if (hour >= 15 && hour < 18) citas = 2 + Math.floor(Math.random() * 2);
-                return (
-                  <div className="bg-primary/10 border border-primary/30 rounded-xl p-4 text-center">
-                    <p className="text-sm font-medium text-foreground">
-                      🕐 Solo quedan <strong className="text-primary">{citas} citas disponibles</strong> hoy
-                    </p>
-                  </div>
-                );
-              })()}
+              {/* Urgency message - sincronizado con contexto global */}
+              <div className="bg-primary/10 border border-primary/30 rounded-xl p-4 text-center">
+                <p className="text-sm font-medium text-foreground">
+                  🕐 Solo quedan <strong className="text-primary">{citasDisponibles} citas disponibles</strong> hoy
+                </p>
+              </div>
 
               {/* Policy checkbox */}
               <div className="flex items-start space-x-3">

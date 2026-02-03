@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { MultiStepForm } from "./MultiStepForm";
-import { Shield, Clock, Award, Users, Star, ChevronDown } from "lucide-react";
+import { Shield, Clock, Award, Star, ChevronDown } from "lucide-react";
+import { useAppointments } from "@/context/AppointmentContext";
 import heroImage from "@/assets/hero-latina.jpg";
 
 const logo = "/images/findolor-logo.svg";
@@ -11,24 +12,8 @@ const trustPoints = [
   { icon: Award, text: "+20 años experiencia" },
 ];
 
-const getCitasDisponiblesHoy = () => {
-  const hour = new Date().getHours();
-  
-  if (hour >= 8 && hour < 12) {
-    // Mañana: más disponibilidad
-    return 5 + Math.floor(Math.random() * 2); // 5-6
-  } else if (hour >= 12 && hour < 15) {
-    // Mediodía: disponibilidad media
-    return 3 + Math.floor(Math.random() * 2); // 3-4
-  } else if (hour >= 15 && hour < 18) {
-    // Tarde: menos disponibilidad (urgencia)
-    return 2 + Math.floor(Math.random() * 2); // 2-3
-  }
-  // Fuera de horario
-  return 3;
-};
-
 export function HeroV2() {
+  const { citasDisponibles } = useAppointments();
   const scrollToContent = () => {
     window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
   };
@@ -73,10 +58,10 @@ export function HeroV2() {
             transition={{ duration: 0.6 }}
             className="text-white"
           >
-            {/* Urgency Badge - varía según hora del día */}
+            {/* Urgency Badge - sincronizado con contexto global */}
             <div className="inline-flex items-center gap-2 bg-secondary/20 border border-secondary/40 text-secondary px-4 py-2 rounded-full text-sm font-medium mb-6">
               <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
-              Solo {getCitasDisponiblesHoy()} citas disponibles hoy
+              Solo {citasDisponibles} citas disponibles hoy
             </div>
 
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
@@ -86,11 +71,11 @@ export function HeroV2() {
 
             <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg">
               Centro especializado en diagnóstico y tratamiento del dolor en Bogotá. 
-              <strong className="text-white"> Más de 2,500 pacientes</strong> confían en nuestro equipo médico.
+              Confía en nuestro equipo médico certificado.
             </p>
 
             {/* Trust Points */}
-            <div className="flex flex-wrap gap-6 mb-10">
+            <div className="flex flex-wrap gap-6">
               {trustPoints.map((point, index) => (
                 <motion.div
                   key={index}
@@ -105,24 +90,6 @@ export function HeroV2() {
                   <span className="text-sm text-white/90">{point.text}</span>
                 </motion.div>
               ))}
-            </div>
-
-            {/* Social Proof */}
-            <div className="flex items-center gap-4">
-              <div className="flex -space-x-3">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary border-2 border-[#1a2332] flex items-center justify-center"
-                  >
-                    <Users className="w-4 h-4 text-white" />
-                  </div>
-                ))}
-              </div>
-              <div className="text-sm">
-                <div className="text-white font-semibold">+2,500 pacientes</div>
-                <div className="text-white/60">atendidos este año</div>
-              </div>
             </div>
           </motion.div>
 

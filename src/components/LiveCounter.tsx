@@ -1,37 +1,14 @@
 import { motion } from "framer-motion";
 import { Eye, Calendar } from "lucide-react";
 import { useState, useEffect } from "react";
-
-// Rangos de consultas por día de la semana
-const BASE_BY_DAY: Record<number, { min: number; max: number }> = {
-  0: { min: 5, max: 8 },    // Domingo
-  1: { min: 14, max: 18 },  // Lunes
-  2: { min: 12, max: 16 },  // Martes
-  3: { min: 10, max: 14 },  // Miércoles
-  4: { min: 13, max: 17 },  // Jueves
-  5: { min: 15, max: 20 },  // Viernes
-  6: { min: 8, max: 12 },   // Sábado
-};
-
-const getDailyConsultas = (): number => {
-  const now = new Date();
-  const day = now.getDay();
-  const hour = now.getHours();
-  
-  const dayConfig = BASE_BY_DAY[day];
-  // Incremento progresivo según hora del día (8am-8pm)
-  const hourFactor = Math.max(0, Math.min(hour - 8, 12)) / 12;
-  const range = dayConfig.max - dayConfig.min;
-  
-  return Math.floor(dayConfig.min + (range * hourFactor));
-};
+import { useAppointments } from "@/context/AppointmentContext";
 
 export function LiveCounter() {
+  const { consultasHoy } = useAppointments();
   const [viewingNow, setViewingNow] = useState(7);
-  const [citasHoy, setCitasHoy] = useState(getDailyConsultas);
 
   useEffect(() => {
-    // Simulate real-time viewers
+    // Simulate real-time viewers (mantener solo esta simulación)
     const viewerInterval = setInterval(() => {
       setViewingNow(prev => {
         const change = Math.random() > 0.5 ? 1 : -1;
@@ -40,18 +17,7 @@ export function LiveCounter() {
       });
     }, 8000);
 
-    // Incrementar consultas cada ~3 minutos durante horario laboral
-    const consultasInterval = setInterval(() => {
-      const hour = new Date().getHours();
-      if (hour >= 8 && hour <= 20) {
-        setCitasHoy(prev => prev + 1);
-      }
-    }, 180000);
-
-    return () => {
-      clearInterval(viewerInterval);
-      clearInterval(consultasInterval);
-    };
+    return () => clearInterval(viewerInterval);
   }, []);
 
   return (
@@ -74,7 +40,7 @@ export function LiveCounter() {
       <div className="flex items-center gap-2 sm:gap-3 pt-2 sm:pt-3 border-t border-border">
         <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-secondary flex-shrink-0" />
         <div className="text-xs sm:text-sm">
-          <span className="font-semibold text-foreground">{citasHoy}</span>
+          <span className="font-semibold text-foreground">{consultasHoy}</span>
           <span className="text-muted-foreground"> consultas hoy</span>
         </div>
       </div>
