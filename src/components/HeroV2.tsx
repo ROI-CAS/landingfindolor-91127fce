@@ -11,6 +11,23 @@ const trustPoints = [
   { icon: Award, text: "+20 años experiencia" },
 ];
 
+const getCitasDisponiblesHoy = () => {
+  const hour = new Date().getHours();
+  
+  if (hour >= 8 && hour < 12) {
+    // Mañana: más disponibilidad
+    return 5 + Math.floor(Math.random() * 2); // 5-6
+  } else if (hour >= 12 && hour < 15) {
+    // Mediodía: disponibilidad media
+    return 3 + Math.floor(Math.random() * 2); // 3-4
+  } else if (hour >= 15 && hour < 18) {
+    // Tarde: menos disponibilidad (urgencia)
+    return 2 + Math.floor(Math.random() * 2); // 2-3
+  }
+  // Fuera de horario
+  return 3;
+};
+
 export function HeroV2() {
   const scrollToContent = () => {
     window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
@@ -56,13 +73,10 @@ export function HeroV2() {
             transition={{ duration: 0.6 }}
             className="text-white"
           >
-            {/* Urgency Badge - varía según semana del año */}
+            {/* Urgency Badge - varía según hora del día */}
             <div className="inline-flex items-center gap-2 bg-secondary/20 border border-secondary/40 text-secondary px-4 py-2 rounded-full text-sm font-medium mb-6">
               <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
-              Solo {(() => {
-                const week = Math.floor(Date.now() / (1000 * 60 * 60 * 24 * 7));
-                return [3, 4, 2, 5, 3, 4, 2][week % 7];
-              })()} citas disponibles esta semana
+              Solo {getCitasDisponiblesHoy()} citas disponibles hoy
             </div>
 
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
