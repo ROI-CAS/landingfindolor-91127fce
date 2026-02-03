@@ -4,9 +4,9 @@ import { useState } from "react";
 import videoThumbnail from "@/assets/video-thumbnail.jpg";
 
 const benefits = [
-  "Diagnóstico preciso en la primera consulta",
-  "Tratamientos mínimamente invasivos",
-  "Seguimiento personalizado post-tratamiento",
+  "Valoración médica integral desde la primera consulta",
+  "Opciones de tratamiento mínimamente invasivas",
+  "Seguimiento personalizado durante tu proceso",
   "Equipo multidisciplinario especializado",
 ];
 

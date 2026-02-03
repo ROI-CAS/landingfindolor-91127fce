@@ -2,9 +2,7 @@ import { motion } from "framer-motion";
 import { 
   Heart, 
   Brain, 
-  Activity, 
   Users, 
-  Clock, 
   Shield,
   Sparkles,
   CheckCircle
@@ -22,32 +20,21 @@ const benefits = [
     description: "Médicos, fisioterapeutas y psicólogos trabajando juntos por tu bienestar.",
   },
   {
-    icon: Activity,
-    title: "Tecnología Avanzada",
-    description: "Equipos de última generación para diagnósticos precisos y tratamientos efectivos.",
-  },
-  {
     icon: Users,
-    title: "Equipo Especializado",
-    description: "Más de 20 años de experiencia en el manejo del dolor crónico.",
-  },
-  {
-    icon: Clock,
-    title: "Respuesta Rápida",
-    description: "Confirmamos tu cita en menos de 2 horas. Tu tiempo es valioso.",
+    title: "Equipo con +20 Años",
+    description: "Experiencia sólida en el manejo clínico del dolor y cuidados paliativos.",
   },
   {
     icon: Shield,
-    title: "Seguros Aceptados",
-    description: "Trabajamos con las principales aseguradoras del país.",
+    title: "Convenios con EPS",
+    description: "Trabajamos con Sura, Seguros Bolívar, Allianz y otras aseguradoras.",
   },
 ];
 
 const guarantees = [
-  "Valoración inicial de orientación",
-  "Atención sin largas esperas",
-  "Plan de tratamiento personalizado",
-  "Seguimiento continuo incluido",
+  "Valoración médica integral",
+  "Atención personalizada sin largas esperas",
+  "Acompañamiento continuo durante tu proceso",
 ];
 
 export function BenefitsV2() {
@@ -67,13 +54,13 @@ export function BenefitsV2() {
             </span>
             
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">
-              El Centro de Dolor Más{" "}
-              <span className="text-gradient">Confiable</span> de Bogotá
+              Centro Especializado en{" "}
+              <span className="text-gradient">Manejo del Dolor</span>
             </h2>
             
             <p className="text-muted-foreground text-lg mb-8">
               No solo tratamos el dolor, tratamos a la persona completa. 
-              Nuestro enfoque integral garantiza resultados duraderos.
+              Nuestro enfoque integral busca mejorar tu calidad de vida.
             </p>
 
             {/* Guarantees */}
