@@ -63,13 +63,13 @@ export function HeroV2() {
             </div>
 
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Deja de sufrir.{" "}
-              <span className="text-secondary">Recupera tu vida</span> hoy.
+              Especialistas en{" "}
+              <span className="text-secondary">Manejo del Dolor</span>
             </h1>
 
             <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg">
-              Somos el centro #1 en manejo del dolor en Bogotá. 
-              <strong className="text-white"> Miles de pacientes</strong> ya viven sin dolor gracias a nuestro tratamiento especializado.
+              Centro especializado en diagnóstico y tratamiento del dolor en Bogotá. 
+              <strong className="text-white"> Más de 2,500 pacientes</strong> confían en nuestro equipo médico.
             </p>
 
             {/* Trust Points */}
@@ -118,10 +118,10 @@ export function HeroV2() {
           >
             <div className="text-center mb-6">
               <h2 className="text-xl font-bold text-foreground mb-1">
-                Agenda tu Cita Gratis
+                Solicita tu Valoración
               </h2>
               <p className="text-sm text-muted-foreground">
-                Primera valoración sin costo • Sin compromiso
+                Primera consulta de orientación • Sin compromiso
               </p>
             </div>
             <MultiStepForm />

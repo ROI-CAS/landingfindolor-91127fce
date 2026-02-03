@@ -26,8 +26,8 @@ const steps = [
   {
     icon: HeartPulse,
     number: "04",
-    title: "Vida sin Dolor",
-    description: "Seguimiento continuo hasta que recuperes tu calidad de vida completamente.",
+    title: "Acompañamiento Continuo",
+    description: "Te acompañamos durante tu proceso de recuperación con seguimiento personalizado.",
     duration: "Continuo",
   },
 ];
@@ -43,13 +43,13 @@ export function ProcessTimeline() {
           className="text-center mb-16"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-            Tu Camino a la Recuperación
+            Tu Proceso de Atención
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4">
-            4 Pasos Hacia una Vida sin Dolor
+            4 Pasos para Iniciar tu Tratamiento
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Un proceso simple y transparente diseñado para que recuperes tu bienestar lo antes posible
+            Un proceso simple y transparente diseñado para brindarte la mejor atención médica especializada
           </p>
         </motion.div>
 

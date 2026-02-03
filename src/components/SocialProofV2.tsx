@@ -8,31 +8,31 @@ const testimonials = [
   {
     name: "María García",
     condition: "Dolor crónico de espalda",
-    quote: "Después de 5 años sufriendo, finalmente puedo dormir sin dolor. El equipo de Findolor cambió mi vida completamente.",
+    quote: "El equipo de Findolor me brindó un diagnóstico claro y un plan de tratamiento que se adaptó a mis necesidades. La atención fue excepcional.",
     image: testimonial1,
     rating: 5,
   },
   {
     name: "Carlos Rodríguez",
     condition: "Fibromialgia",
-    quote: "El trato humano y profesional es excepcional. Me explicaron cada paso del tratamiento y los resultados fueron inmediatos.",
+    quote: "El trato humano y profesional es excepcional. Me explicaron cada paso del tratamiento y me sentí acompañado en todo momento.",
     image: testimonial2,
     rating: 5,
   },
   {
     name: "Ana Martínez",
     condition: "Migraña crónica",
-    quote: "Pasé de tener migrañas diarias a vivir semanas enteras sin dolor. No puedo agradecer lo suficiente a este equipo.",
+    quote: "Encontré un equipo que realmente escucha y entiende mi condición. El enfoque multidisciplinario me dio nuevas opciones de tratamiento.",
     image: testimonial3,
     rating: 5,
   },
 ];
 
 const stats = [
-  { value: "98%", label: "Pacientes satisfechos" },
+  { value: "4.9/5", label: "Calificación promedio" },
   { value: "2hrs", label: "Tiempo de respuesta" },
   { value: "20+", label: "Años de experiencia" },
-  { value: "10k+", label: "Vidas mejoradas" },
+  { value: "2,500+", label: "Pacientes atendidos" },
 ];
 
 export function SocialProofV2() {
@@ -64,10 +64,10 @@ export function SocialProofV2() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Lo Que Dicen Nuestros Pacientes
+            Experiencias de Nuestros Pacientes
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Miles de personas han recuperado su calidad de vida gracias a nuestro tratamiento especializado
+            Conoce las experiencias de quienes han confiado en nuestro equipo médico especializado
           </p>
         </motion.div>
 

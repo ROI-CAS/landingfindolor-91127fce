@@ -72,10 +72,10 @@ export function ExitIntentPopup() {
               {/* Content */}
               <div className="p-6">
                 <h4 className="text-xl font-bold text-foreground mb-2">
-                  Guía Gratuita: "10 Ejercicios para Aliviar el Dolor de Espalda"
+                  Guía Informativa: "10 Ejercicios para el Cuidado de la Espalda"
                 </h4>
                 <p className="text-muted-foreground text-sm mb-6">
-                  Descarga nuestra guía elaborada por especialistas y empieza a sentir alivio desde casa.
+                  Descarga nuestra guía elaborada por especialistas con recomendaciones para el cuidado de tu espalda.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">

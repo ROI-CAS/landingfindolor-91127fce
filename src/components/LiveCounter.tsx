@@ -39,8 +39,8 @@ export function LiveCounter() {
       <div className="flex items-center gap-3 pt-3 border-t border-border">
         <Calendar className="w-5 h-5 text-secondary" />
         <div>
-          <span className="font-semibold text-foreground">{citasHoy} citas</span>
-          <span className="text-muted-foreground text-sm"> agendadas hoy</span>
+          <span className="font-semibold text-foreground">{citasHoy} consultas</span>
+          <span className="text-muted-foreground text-sm"> solicitadas hoy</span>
         </div>
       </div>
     </motion.div>
