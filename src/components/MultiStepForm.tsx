@@ -316,11 +316,20 @@ export function MultiStepForm() {
               </div>
 
               {/* Urgency message */}
-              <div className="bg-secondary/10 border border-secondary/30 rounded-xl p-4 text-center">
-                <p className="text-sm font-medium text-secondary-foreground">
-                  🕐 Solo quedan <strong className="text-secondary">3 citas disponibles</strong> esta semana
-                </p>
-              </div>
+              {(() => {
+                const hour = new Date().getHours();
+                let citas = 3;
+                if (hour >= 8 && hour < 12) citas = 5 + Math.floor(Math.random() * 2);
+                else if (hour >= 12 && hour < 15) citas = 3 + Math.floor(Math.random() * 2);
+                else if (hour >= 15 && hour < 18) citas = 2 + Math.floor(Math.random() * 2);
+                return (
+                  <div className="bg-primary/10 border border-primary/30 rounded-xl p-4 text-center">
+                    <p className="text-sm font-medium text-foreground">
+                      🕐 Solo quedan <strong className="text-primary">{citas} citas disponibles</strong> hoy
+                    </p>
+                  </div>
+                );
+              })()}
 
               {/* Policy checkbox */}
               <div className="flex items-start space-x-3">
