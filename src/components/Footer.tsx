@@ -21,21 +21,27 @@ export function Footer() {
             {/* Social links */}
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://www.facebook.com/FinDolorSAS/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/fin.dolor/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/findolor-s-a-s/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
                 aria-label="LinkedIn"
               >
@@ -117,7 +123,12 @@ export function Footer() {
               <li>
                 <div className="flex items-start gap-3 text-white/70">
                   <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                  <span>Bogotá, Colombia</span>
+                  <div className="text-sm">
+                    <p>Carrera 16 # 97-46</p>
+                    <p>Edificio Torre 97, Torre 2</p>
+                    <p>Consultorios 705-706</p>
+                    <p className="mt-1">Bogotá, Colombia</p>
+                  </div>
                 </div>
               </li>
             </ul>

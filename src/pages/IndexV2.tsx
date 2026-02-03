@@ -14,6 +14,7 @@ import { VersionSwitcher } from "@/components/VersionSwitcher";
 import { LiveCounter } from "@/components/LiveCounter";
 import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 import { TrustBadges } from "@/components/TrustBadges";
+import { BookingCalendar } from "@/components/BookingCalendar";
 
 const IndexV2 = () => {
   return (
@@ -28,6 +29,7 @@ const IndexV2 = () => {
       <BenefitsV2 />
       <GuaranteeSection />
       <ConditionsGrid />
+      <BookingCalendar />
       <FAQSection />
       <FinalCTAV2 />
       <Footer />

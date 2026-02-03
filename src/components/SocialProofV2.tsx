@@ -1,30 +1,30 @@
 import { motion } from "framer-motion";
-import { TestimonialCardV2 } from "./TestimonialCardV2";
-import testimonial1 from "@/assets/testimonial-1.jpg";
-import testimonial2 from "@/assets/testimonial-2.jpg";
-import testimonial3 from "@/assets/testimonial-3.jpg";
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "María García",
-    condition: "Dolor crónico de espalda",
-    quote: "El equipo de Findolor me brindó un diagnóstico claro y un plan de tratamiento que se adaptó a mis necesidades. La atención fue excepcional.",
-    image: testimonial1,
+    name: "Andrea Blanco",
+    role: "Local Guide · 120 opiniones",
+    initial: "A",
     rating: 5,
+    text: "La verdad que no tengo palabras para agradecer al Dr. Luis Garzon quien atendió a mi mamá cuando el dolor era tan intenso (por la artritis la artrosis y el reumatismo) que ella comenzó a hablarnos de la eutanasia por que no aguantaba estar así. Literal mi mamá llego al consultorio encogida casi sin poder caminar y luego de dos horas donde el dr le dio total atención y buenos tratos ella salio muy relajada y hasta el momento no se ha presentado otra crisis similar. De todo corazón lo recomiendo se que hay que esforzarse pero es mejor ir donde el especialista",
+    bgColor: "bg-primary",
   },
   {
-    name: "Carlos Rodríguez",
-    condition: "Fibromialgia",
-    quote: "El trato humano y profesional es excepcional. Me explicaron cada paso del tratamiento y me sentí acompañado en todo momento.",
-    image: testimonial2,
-    rating: 5,
+    name: "Leidy Escobar",
+    role: "Local Guide · 40 opiniones",
+    initial: "L",
+    rating: 4,
+    text: "En general, la atención al cliente es muy buena. Tuve varias sesiones de fisioterapia y los profesionales fueron muy amables y atentos, además de contar con instalaciones limpias y bien cuidadas. Sin embargo, me gustaría que prestaran un poco más de atención a los ejercicios durante las sesiones, ya que en mi caso sentí un nivel de dolor considerable, y la terapia me pareció algo pasiva en relación con el malestar que experimentaba en ese momento. Agradezco el esfuerzo de todo el equipo",
+    bgColor: "bg-[#4285F4]",
   },
   {
-    name: "Ana Martínez",
-    condition: "Migraña crónica",
-    quote: "Encontré un equipo que realmente escucha y entiende mi condición. El enfoque multidisciplinario me dio nuevas opciones de tratamiento.",
-    image: testimonial3,
+    name: "Claudia Angelica Camargo Molina",
+    role: "3 opiniones",
+    initial: "C",
     rating: 5,
+    text: "Es un lugar fantástico se siente el servicio humano y acogedor!",
+    bgColor: "bg-primary",
   },
 ];
 
@@ -64,17 +64,55 @@ export function SocialProofV2() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Experiencias de Nuestros Pacientes
+            Lo Que Dicen Nuestros Pacientes
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Conoce las experiencias de quienes han confiado en nuestro equipo médico especializado
+            Opiniones reales de pacientes que han confiado en nuestro equipo médico especializado
           </p>
         </motion.div>
 
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
-            <TestimonialCardV2 key={index} {...testimonial} index={index} />
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="relative bg-card rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl transition-shadow duration-300"
+            >
+              {/* Quote icon */}
+              <div className="absolute top-4 right-4 opacity-10">
+                <Quote className="w-10 h-10 text-secondary" />
+              </div>
+
+              {/* Stars */}
+              <div className="flex gap-1 mb-4">
+                {Array.from({ length: testimonial.rating }).map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                ))}
+                {Array.from({ length: 5 - testimonial.rating }).map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-muted-foreground/30" />
+                ))}
+              </div>
+
+              {/* Quote */}
+              <p className="text-foreground leading-relaxed mb-6 text-sm line-clamp-5">
+                "{testimonial.text}"
+              </p>
+
+              {/* Author */}
+              <div className="flex items-center gap-4 pt-4 border-t border-border">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center text-primary-foreground font-semibold text-lg flex-shrink-0 ${index === 1 ? 'bg-[#4285F4]' : 'bg-primary'}`}>
+                  {testimonial.initial}
+                </div>
+                <div className="min-w-0">
+                  <h4 className="font-semibold text-foreground text-sm truncate">{testimonial.name}</h4>
+                  <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
 
