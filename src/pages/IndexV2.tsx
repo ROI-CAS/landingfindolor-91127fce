@@ -14,6 +14,7 @@ import { BookingCalendar } from "@/components/BookingCalendar";
 import { StickyHeader } from "@/components/StickyHeader";
 import { ClickToCallButton } from "@/components/ClickToCallButton";
 import { VideoSection } from "@/components/VideoSection";
+import { LiveCounter } from "@/components/LiveCounter";
 
 const IndexV2 = () => {
   return (
@@ -33,6 +34,7 @@ const IndexV2 = () => {
       <Footer />
       <WhatsAppButton />
       <ClickToCallButton />
+      <LiveCounter />
       <ExitIntentPopup />
     </div>
   );
