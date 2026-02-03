@@ -135,7 +135,7 @@ export function BookingCalendar() {
 
         {/* Drawer with calendar iframe */}
         <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
-          <DrawerContent className="max-h-[90vh]">
+          <DrawerContent className="h-[95vh]">
             <DrawerHeader className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-t-[10px] -mt-2 mx-0">
               <DrawerTitle className="flex items-center gap-2 text-lg">
                 <Calendar className="w-5 h-5" />
@@ -146,21 +146,28 @@ export function BookingCalendar() {
               </p>
             </DrawerHeader>
             
-            <div className="p-4 md:p-6 overflow-y-auto">
+            <div className="p-4 md:p-6 overflow-y-auto flex-1">
               {drawerOpen && (
                 <div className="booking-calendar-wrapper">
                   <style>{`
                     .booking-calendar-wrapper iframe {
                       width: 100%;
-                      min-height: 550px;
+                      min-height: 700px;
+                      height: calc(95vh - 120px);
                       border: none;
                       border-radius: 12px;
-                      background: transparent;
+                      background: white;
+                    }
+                    @media (max-width: 768px) {
+                      .booking-calendar-wrapper iframe {
+                        min-height: 600px;
+                        height: calc(90vh - 100px);
+                        border-radius: 8px;
+                      }
                     }
                   `}</style>
                   <iframe 
                     src="https://api.leadconnectorhq.com/widget/booking/eXMBIpszBnRoCNW5sp4N" 
-                    scrolling="no" 
                     id="eXMBIpszBnRoCNW5sp4N_1770078616894"
                     title="Calendario de citas Findolor"
                   />
