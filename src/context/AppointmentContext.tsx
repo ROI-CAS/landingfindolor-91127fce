@@ -1,3 +1,4 @@
+// Centralized appointment state management
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 interface AppointmentContextType {
