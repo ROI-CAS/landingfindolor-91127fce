@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, BadgeCheck } from "lucide-react";
 
 const testimonials = [
   {
@@ -7,7 +7,7 @@ const testimonials = [
     role: "Local Guide · 120 opiniones",
     initial: "A",
     rating: 5,
-    text: "La verdad que no tengo palabras para agradecer al Dr. Luis Garzon quien atendió a mi mamá cuando el dolor era tan intenso (por la artritis la artrosis y el reumatismo) que ella comenzó a hablarnos de la eutanasia por que no aguantaba estar así. Literal mi mamá llego al consultorio encogida casi sin poder caminar y luego de dos horas donde el dr le dio total atención y buenos tratos ella salio muy relajada y hasta el momento no se ha presentado otra crisis similar. De todo corazón lo recomiendo se que hay que esforzarse pero es mejor ir donde el especialista",
+    text: "La verdad que no tengo palabras para agradecer al Dr. Luis Garzon quien atendió a mi mamá cuando el dolor era tan intenso (por la artritis la artrosis y el reumatismo) que ella comenzó a hablarnos de la eutanasia por que no aguantaba estar así. Literal mi mamá llego al consultorio encogida casi sin poder caminar y luego de dos horas donde el dr le dio total atención y buenos tratos |ella salio muy relajada y hasta el momento no se ha presentado otra crisis similar|. De todo corazón lo recomiendo se que hay que esforzarse pero es mejor ir donde el especialista",
     bgColor: "bg-primary",
   },
   {
@@ -15,7 +15,7 @@ const testimonials = [
     role: "Local Guide · 40 opiniones",
     initial: "L",
     rating: 4,
-    text: "En general, la atención al cliente es muy buena. Tuve varias sesiones de fisioterapia y los profesionales fueron muy amables y atentos, además de contar con instalaciones limpias y bien cuidadas. Sin embargo, me gustaría que prestaran un poco más de atención a los ejercicios durante las sesiones, ya que en mi caso sentí un nivel de dolor considerable, y la terapia me pareció algo pasiva en relación con el malestar que experimentaba en ese momento. Agradezco el esfuerzo de todo el equipo",
+    text: "En general, |la atención al cliente es muy buena|. Tuve varias sesiones de fisioterapia y los profesionales fueron muy amables y atentos, además de contar con instalaciones limpias y bien cuidadas. Sin embargo, me gustaría que prestaran un poco más de atención a los ejercicios durante las sesiones, ya que en mi caso sentí un nivel de dolor considerable, y la terapia me pareció algo pasiva en relación con el malestar que experimentaba en ese momento. Agradezco el esfuerzo de todo el equipo",
     bgColor: "bg-[#4285F4]",
   },
   {
@@ -23,10 +23,26 @@ const testimonials = [
     role: "3 opiniones",
     initial: "C",
     rating: 5,
-    text: "Es un lugar fantástico se siente el servicio humano y acogedor!",
+    text: "|Es un lugar fantástico| se siente el servicio humano y acogedor!",
     bgColor: "bg-primary",
   },
 ];
+
+// Helper function to render text with bold highlights (marked with |text|)
+function renderHighlightedText(text: string) {
+  const parts = text.split(/\|([^|]+)\|/);
+  return parts.map((part, index) => {
+    // Odd indices are the highlighted parts
+    if (index % 2 === 1) {
+      return (
+        <strong key={index} className="text-foreground font-semibold">
+          {part}
+        </strong>
+      );
+    }
+    return part;
+  });
+}
 
 const stats = [
   { value: "4.9/5", label: "Calificación promedio" },
@@ -80,36 +96,71 @@ export function SocialProofV2() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative bg-card rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl transition-shadow duration-300"
+              className="relative overflow-hidden rounded-3xl"
+              style={{
+                boxShadow: "0 8px 32px -8px hsla(0, 0%, 0%, 0.08)",
+              }}
             >
-              {/* Quote icon */}
-              <div className="absolute top-4 right-4 opacity-10">
-                <Quote className="w-10 h-10 text-secondary" />
-              </div>
-
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                ))}
-                {Array.from({ length: 5 - testimonial.rating }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-muted-foreground/30" />
-                ))}
-              </div>
-
-              {/* Quote */}
-              <p className="text-foreground leading-relaxed mb-6 text-sm line-clamp-5">
-                "{testimonial.text}"
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center gap-4 pt-4 border-t border-border">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center text-primary-foreground font-semibold text-lg flex-shrink-0 ${index === 1 ? 'bg-[#4285F4]' : 'bg-primary'}`}>
-                  {testimonial.initial}
+              {/* Card with glassmorphism */}
+              <div
+                className="relative h-full bg-card p-6 md:p-7 border border-border/60 hover:border-primary/30 transition-all duration-300"
+                style={{
+                  background: "linear-gradient(180deg, hsl(var(--card)) 0%, hsl(var(--muted) / 0.3) 100%)",
+                }}
+              >
+                {/* Quote icon */}
+                <div className="absolute top-4 right-4 opacity-5">
+                  <Quote className="w-16 h-16 text-primary" />
                 </div>
-                <div className="min-w-0">
-                  <h4 className="font-semibold text-foreground text-sm truncate">{testimonial.name}</h4>
-                  <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+
+                {/* Google Badge */}
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="flex items-center gap-1.5 bg-muted/60 border border-border rounded-full px-3 py-1.5">
+                    <BadgeCheck className="w-4 h-4 text-[#4285F4]" />
+                    <span className="text-xs font-medium text-muted-foreground">
+                      Reseña real de Google My Business
+                    </span>
+                  </div>
+                </div>
+
+                {/* Stars - golden style */}
+                <div className="flex gap-1 mb-4">
+                  {Array.from({ length: testimonial.rating }).map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5"
+                      style={{
+                        fill: "hsl(45, 93%, 58%)",
+                        color: "hsl(45, 93%, 58%)",
+                        filter: "drop-shadow(0 1px 2px hsla(45, 93%, 40%, 0.3))",
+                      }}
+                    />
+                  ))}
+                  {Array.from({ length: 5 - testimonial.rating }).map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-muted-foreground/20" />
+                  ))}
+                </div>
+
+                {/* Quote with highlighted text */}
+                <p className="text-foreground leading-relaxed mb-6 text-sm line-clamp-5">
+                  "{renderHighlightedText(testimonial.text)}"
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center gap-4 pt-4 border-t border-border/50">
+                  <div
+                    className={`w-11 h-11 rounded-2xl flex items-center justify-center text-primary-foreground font-bold text-lg flex-shrink-0 ${
+                      index === 1 ? "bg-[#4285F4]" : "bg-primary"
+                    }`}
+                  >
+                    {testimonial.initial}
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="font-bold text-foreground text-sm truncate">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                  </div>
                 </div>
               </div>
             </motion.div>

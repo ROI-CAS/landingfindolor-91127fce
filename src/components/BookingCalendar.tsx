@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Calendar, Clock, CheckCircle } from "lucide-react";
 import { useEffect } from "react";
+import { QuickBenefits } from "./QuickBenefits";
 
 export function BookingCalendar() {
   useEffect(() => {
@@ -16,7 +17,7 @@ export function BookingCalendar() {
   }, []);
 
   return (
-    <section id="agendar" className="py-20 bg-muted/30">
+    <section id="agendar" className="py-20 lg:py-28 bg-muted/30">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,6 +37,9 @@ export function BookingCalendar() {
           </p>
         </motion.div>
 
+        {/* Quick Benefits Section - NEW */}
+        <QuickBenefits />
+
         {/* Benefits */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -49,7 +53,7 @@ export function BookingCalendar() {
             { icon: Calendar, text: "Horarios flexibles" },
             { icon: CheckCircle, text: "Sin filas ni esperas" },
           ].map((item, index) => (
-            <div key={index} className="flex items-center justify-center gap-2 text-sm text-muted-foreground bg-card rounded-lg py-3 px-4 border border-border">
+            <div key={index} className="flex items-center justify-center gap-2 text-sm text-muted-foreground bg-card rounded-3xl py-3 px-4 border border-border/60">
               <item.icon className="w-4 h-4 text-primary" />
               <span>{item.text}</span>
             </div>
@@ -64,7 +68,7 @@ export function BookingCalendar() {
           transition={{ delay: 0.2 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="bg-card rounded-2xl shadow-xl border border-border overflow-hidden">
+          <div className="bg-card rounded-3xl shadow-xl border border-border/60 overflow-hidden">
             {/* Custom header */}
             <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-6 py-4">
               <h3 className="font-semibold text-lg flex items-center gap-2">

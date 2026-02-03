@@ -14,10 +14,13 @@ import { LiveCounter } from "@/components/LiveCounter";
 import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 import { TrustBadges } from "@/components/TrustBadges";
 import { BookingCalendar } from "@/components/BookingCalendar";
+import { StickyHeader } from "@/components/StickyHeader";
+import { ClickToCallButton } from "@/components/ClickToCallButton";
 
 const IndexV2 = () => {
   return (
     <div className="min-h-screen bg-background">
+      <StickyHeader />
       <HeroV2 />
       <TrustBadges />
       <SocialProofV2 />
@@ -32,6 +35,7 @@ const IndexV2 = () => {
       <FinalCTAV2 />
       <Footer />
       <WhatsAppButton />
+      <ClickToCallButton />
       <LiveCounter />
       <ExitIntentPopup />
     </div>

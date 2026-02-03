@@ -126,22 +126,44 @@ export function HeroV2() {
             </div>
           </motion.div>
 
-          {/* Right - Form */}
+          {/* Right - Form with Glassmorphism */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white rounded-3xl p-6 md:p-8 shadow-2xl"
+            className="relative"
           >
-            <div className="text-center mb-6">
-              <h2 className="text-xl font-bold text-foreground mb-1">
-                Solicita tu Valoración
-              </h2>
-              <p className="text-sm text-muted-foreground">
-                Te contactamos para agendar tu cita
-              </p>
+            {/* Glassmorphism card */}
+            <div
+              className="relative rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden"
+              style={{
+                background: "hsla(0, 0%, 100%, 0.92)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                border: "1px solid hsla(0, 0%, 100%, 0.6)",
+                boxShadow: "0 25px 50px -12px hsla(0, 0%, 0%, 0.25), 0 0 0 1px hsla(0, 0%, 100%, 0.1) inset",
+              }}
+            >
+              {/* Decorative gradient overlay */}
+              <div
+                className="absolute inset-0 opacity-30 pointer-events-none"
+                style={{
+                  background: "radial-gradient(circle at top right, hsla(199, 76%, 52%, 0.08), transparent 50%)",
+                }}
+              />
+
+              <div className="relative z-10">
+                <div className="text-center mb-6">
+                  <h2 className="text-xl font-bold text-foreground mb-1">
+                    Solicita tu Valoración
+                  </h2>
+                  <p className="text-sm text-muted-foreground">
+                    Te contactamos para agendar tu cita
+                  </p>
+                </div>
+                <MultiStepForm />
+              </div>
             </div>
-            <MultiStepForm />
           </motion.div>
         </div>
 
