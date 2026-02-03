@@ -45,10 +45,9 @@ function renderHighlightedText(text: string) {
 }
 
 const stats = [
-  { value: "4.9/5", label: "Calificación promedio" },
-  { value: "2hrs", label: "Tiempo de respuesta" },
+  { value: "4.9/5", label: "Calificación en Google" },
   { value: "20+", label: "Años de experiencia" },
-  { value: "2,500+", label: "Pacientes atendidos" },
+  { value: "10+", label: "Especialistas certificados" },
 ];
 
 export function SocialProofV2() {
@@ -60,7 +59,7 @@ export function SocialProofV2() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+          className="grid grid-cols-3 gap-6 mb-16 max-w-2xl mx-auto"
         >
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
@@ -176,7 +175,7 @@ export function SocialProofV2() {
           className="mt-16 text-center"
         >
           <p className="text-sm text-muted-foreground mb-6">
-            Trabajamos con las principales aseguradoras de Colombia
+            Convenio con aseguradoras
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8">
             {["allianz", "seguros-bolivar", "seguros-alfa", "sura"].map((insurer) => (

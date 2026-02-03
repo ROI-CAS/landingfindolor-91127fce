@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Phone, MessageCircle, Clock, ArrowRight } from "lucide-react";
+import { MessageCircle, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function FinalCTAV2() {
@@ -55,24 +55,6 @@ export function FinalCTAV2() {
                 Escríbenos por WhatsApp
               </a>
             </Button>
-          </div>
-
-          {/* Phone Numbers */}
-          <div className="flex flex-wrap justify-center gap-8">
-            <a
-              href="tel:+573186912799"
-              className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
-            >
-              <Phone className="w-5 h-5" />
-              <span>318 691 2799</span>
-            </a>
-            <a
-              href="tel:+576016736707"
-              className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
-            >
-              <Phone className="w-5 h-5" />
-              <span>601 673 6707</span>
-            </a>
           </div>
         </motion.div>
       </div>

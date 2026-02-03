@@ -39,9 +39,15 @@ const guarantees = [
 
 export function BenefitsV2() {
   return (
-    <section className="py-20 bg-background">
-      <div className="container">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="py-20 lg:py-28 relative overflow-hidden bg-gradient-to-br from-muted/80 via-background to-primary/5">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />
+      </div>
+      
+      <div className="container relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left - Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
