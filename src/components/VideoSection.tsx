@@ -46,7 +46,7 @@ export function VideoSection() {
                 </>
               ) : (
                 <iframe
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+                  src="https://www.youtube.com/embed/2_Gku2MN8YI?autoplay=1"
                   title="Video institucional Findolor"
                   className="absolute inset-0 w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
