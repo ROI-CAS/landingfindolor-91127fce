@@ -18,19 +18,19 @@ export function FinalCTAV2() {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto text-center"
         >
-          {/* Urgency */}
+          {/* Availability */}
           <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
             <Clock className="w-4 h-4" />
-            Oferta válida solo esta semana
+            Agenda disponible esta semana
           </div>
 
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            ¿Listo para vivir sin dolor?
+            ¿Listo para dar el primer paso?
           </h2>
           
           <p className="text-xl text-white/80 mb-10">
-            Tu primera consulta es <strong className="text-white">completamente gratis</strong>. 
-            Sin compromisos, sin letras pequeñas.
+            Solicita tu valoración inicial con nuestros especialistas. 
+            <strong className="text-white"> Sin compromiso</strong>, te orientamos sobre tu caso.
           </p>
 
           {/* CTAs */}
@@ -41,7 +41,7 @@ export function FinalCTAV2() {
               className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6 rounded-xl shadow-lg"
             >
               <a href="#contacto">
-                Agendar Cita Gratis
+                Solicitar Valoración
                 <ArrowRight className="w-5 h-5 ml-2" />
               </a>
             </Button>

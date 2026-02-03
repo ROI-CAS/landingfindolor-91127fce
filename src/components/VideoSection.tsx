@@ -80,7 +80,7 @@ export function VideoSection() {
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2 mb-6">
               Un enfoque integral para{" "}
-              <span className="text-primary">eliminar tu dolor</span>
+              <span className="text-primary">el manejo del dolor</span>
             </h2>
             <p className="text-muted-foreground mb-8 text-lg">
               Combinamos las técnicas más avanzadas de medicina del dolor con un 

@@ -44,9 +44,9 @@ const benefits = [
 ];
 
 const guarantees = [
-  "Primera valoración sin costo",
-  "Sin filas ni esperas largas",
-  "Resultados desde la primera sesión",
+  "Valoración inicial de orientación",
+  "Atención sin largas esperas",
+  "Plan de tratamiento personalizado",
   "Seguimiento continuo incluido",
 ];
 
