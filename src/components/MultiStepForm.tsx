@@ -41,7 +41,11 @@ const steps = [
   { id: 4, title: "Confirmar", icon: CheckCircle },
 ];
 
-export function MultiStepForm() {
+interface MultiStepFormProps {
+  formSource?: "hero" | "booking-section";
+}
+
+export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
   const { citasDisponibles, registrarConsulta } = useAppointments();
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -69,6 +73,13 @@ export function MultiStepForm() {
 
   const handleSubmit = () => {
     if (!formData.acceptedPolicies) return;
+    
+    // Log para analytics - permite diferenciar leads por ubicación
+    console.log("[Lead] Form submitted", {
+      source: formSource,
+      ...formData
+    });
+    
     registrarConsulta();
     setIsSubmitted(true);
   };
