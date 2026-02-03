@@ -95,7 +95,7 @@ export function BenefitsV2() {
 
             {/* CTA */}
             <a
-              href="#contacto"
+              href="#agendar"
               className="inline-flex items-center gap-2 btn-cta px-8 py-4 rounded-xl text-lg"
             >
               Agenda Tu Cita Ahora

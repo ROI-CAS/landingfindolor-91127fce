@@ -40,7 +40,7 @@ export function FinalCTAV2() {
               size="lg"
               className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6 rounded-xl shadow-lg"
             >
-              <a href="#contacto">
+              <a href="#agendar">
                 Solicitar Valoración
                 <ArrowRight className="w-5 h-5 ml-2" />
               </a>
@@ -50,7 +50,7 @@ export function FinalCTAV2() {
               size="lg"
               className="bg-[#25D366] text-white hover:bg-[#20BD5A] text-lg px-8 py-6 rounded-xl shadow-lg"
             >
-              <a href="https://wa.me/573186912799" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/573186912799?text=Hola%2C%20quiero%20agendar%20mi%20cita%20para%20valoraci%C3%B3n%20del%20dolor.%20%C2%BFCu%C3%A1les%20son%20los%20horarios%20disponibles%3F" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Escríbenos por WhatsApp
               </a>
