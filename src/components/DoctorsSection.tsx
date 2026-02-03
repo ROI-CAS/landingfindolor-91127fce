@@ -75,7 +75,7 @@ export function DoctorsSection() {
                   <img
                     src={doctor.image}
                     alt={doctor.name}
-                    className="w-full h-64 object-cover object-top"
+                    className={`w-full h-64 object-cover ${index === 0 ? 'object-[center_15%]' : 'object-top'}`}
                   />
                   <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
                     <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
