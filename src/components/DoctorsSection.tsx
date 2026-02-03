@@ -1,18 +1,19 @@
 import { motion } from "framer-motion";
 import { Award, GraduationCap, Star, Linkedin } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import drGarzonImage from "@/assets/dr-garzon.png";
 
 const doctors = [
   {
-    name: "Dr. Carlos Mendoza",
-    specialty: "Anestesiología y Medicina del Dolor",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&crop=face",
-    experience: "25 años",
-    education: "Universidad Nacional de Colombia",
-    certifications: ["ASRA", "IASP", "SED"],
+    name: "Dr. Luis A. Garzón",
+    specialty: "Anestesiología, Medicina del Dolor y Cuidados Paliativos",
+    image: drGarzonImage,
+    experience: "20+ años",
+    education: "Especialista Certificado",
+    certifications: ["ASRA", "IASP", "ACED"],
     rating: 4.9,
-    reviews: 342,
-    bio: "Especialista en tratamientos intervencionistas para dolor crónico de columna y neuropatías.",
+    reviews: 456,
+    bio: "Médico Anestesiólogo especialista en medicina del dolor y cuidados paliativos. Director médico de Findolor.",
   },
   {
     name: "Dra. María Elena Ruiz",

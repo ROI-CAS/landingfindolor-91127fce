@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Play, CheckCircle } from "lucide-react";
 import { useState } from "react";
+import videoThumbnail from "@/assets/video-thumbnail.jpg";
 
 const benefits = [
   "Diagnóstico preciso en la primera consulta",
@@ -27,6 +28,11 @@ export function VideoSection() {
               {!isPlaying ? (
                 <>
                   {/* Video Thumbnail */}
+                  <img 
+                    src={videoThumbnail} 
+                    alt="Video institucional Findolor" 
+                    className="w-full h-full object-cover"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/40" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <motion.button
