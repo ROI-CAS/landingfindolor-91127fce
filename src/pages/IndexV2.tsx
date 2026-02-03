@@ -10,7 +10,6 @@ import { FAQSection } from "@/components/FAQSection";
 import { FinalCTAV2 } from "@/components/FinalCTAV2";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { VersionSwitcher } from "@/components/VersionSwitcher";
 import { LiveCounter } from "@/components/LiveCounter";
 import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 import { TrustBadges } from "@/components/TrustBadges";
@@ -19,7 +18,6 @@ import { BookingCalendar } from "@/components/BookingCalendar";
 const IndexV2 = () => {
   return (
     <div className="min-h-screen bg-background">
-      <VersionSwitcher currentVersion="v2" />
       <HeroV2 />
       <TrustBadges />
       <SocialProofV2 />
