@@ -30,7 +30,7 @@ export function FinalCTAV2() {
           
           <p className="text-xl text-white/80 mb-10">
             Solicita tu valoración inicial con nuestros especialistas. 
-            <strong className="text-white"> Sin compromiso</strong>, te orientamos sobre tu caso.
+            <strong className="text-white"> Te contactamos hoy</strong> para orientarte sobre tu caso.
           </p>
 
           {/* CTAs */}

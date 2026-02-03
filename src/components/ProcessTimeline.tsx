@@ -13,7 +13,7 @@ const steps = [
     icon: Stethoscope,
     number: "02",
     title: "Valoración Inicial",
-    description: "Evaluación completa con nuestros especialistas para un diagnóstico preciso.",
+    description: "Evaluación integral con nuestros especialistas para entender tu caso.",
     duration: "45 minutos",
   },
   {
