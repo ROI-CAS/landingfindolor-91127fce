@@ -136,9 +136,12 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-white/20 flex flex-col items-center gap-4 text-center">
           <p className="text-white/60 text-sm">
             © {new Date().getFullYear()} Findolor. Todos los derechos reservados.
+          </p>
+          <p className="text-white/50 text-xs max-w-md">
+            Los resultados del tratamiento pueden variar según las condiciones individuales de cada paciente.
           </p>
           <div className="flex gap-6 text-sm">
             <a
