@@ -4,7 +4,7 @@ import { MessageCircle, X, QrCode, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const WHATSAPP_NUMBER = "573186912799";
-const WHATSAPP_MESSAGE = encodeURIComponent("Hola, me gustaría agendar una cita para valoración del dolor.");
+const WHATSAPP_MESSAGE = encodeURIComponent("Hola, quiero agendar mi cita para valoración del dolor. ¿Cuáles son los horarios disponibles?");
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
 
 export function WhatsAppButton() {

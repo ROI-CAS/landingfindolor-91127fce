@@ -53,7 +53,7 @@ export function FinalCTAV3() {
               size="lg"
               className="bg-background text-primary hover:bg-background/95 text-base md:text-lg px-6 md:px-8 py-5 md:py-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl"
             >
-              <a href="#contacto">
+              <a href="#agendar">
                 Agendar Valoración
                 <ArrowRight className="w-5 h-5 ml-2" />
               </a>
@@ -65,7 +65,7 @@ export function FinalCTAV3() {
               className="border-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-base md:text-lg px-6 md:px-8 py-5 md:py-6 rounded-xl transition-all duration-300"
             >
               <a
-                href="https://wa.me/573186912799"
+                href="https://wa.me/573186912799?text=Hola%2C%20quiero%20agendar%20mi%20cita%20para%20valoraci%C3%B3n%20del%20dolor.%20%C2%BFCu%C3%A1les%20son%20los%20horarios%20disponibles%3F"
                 target="_blank"
                 rel="noopener noreferrer"
               >
