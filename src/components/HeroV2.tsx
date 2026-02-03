@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { MultiStepForm } from "./MultiStepForm";
 import { Shield, Clock, Award, Users, Star, ChevronDown } from "lucide-react";
-import heroImage from "@/assets/hero-relief.jpg";
+import heroImage from "@/assets/hero-latina.jpg";
 
 const logo = "/images/findolor-logo.svg";
 
@@ -56,10 +56,13 @@ export function HeroV2() {
             transition={{ duration: 0.6 }}
             className="text-white"
           >
-            {/* Urgency Badge */}
+            {/* Urgency Badge - varía según semana del año */}
             <div className="inline-flex items-center gap-2 bg-secondary/20 border border-secondary/40 text-secondary px-4 py-2 rounded-full text-sm font-medium mb-6">
               <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
-              Solo 3 citas disponibles esta semana
+              Solo {(() => {
+                const week = Math.floor(Date.now() / (1000 * 60 * 60 * 24 * 7));
+                return [3, 4, 2, 5, 3, 4, 2][week % 7];
+              })()} citas disponibles esta semana
             </div>
 
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
@@ -121,7 +124,7 @@ export function HeroV2() {
                 Solicita tu Valoración
               </h2>
               <p className="text-sm text-muted-foreground">
-                Primera consulta de orientación • Sin compromiso
+                Te contactamos para agendar tu cita
               </p>
             </div>
             <MultiStepForm />
