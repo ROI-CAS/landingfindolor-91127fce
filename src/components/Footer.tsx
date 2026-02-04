@@ -112,12 +112,12 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href="mailto:info@findolor.com"
+              <a
+                  href="mailto:administracion@findolor.com"
                   className="flex items-center gap-3 text-white/70 hover:text-primary transition-colors"
                 >
                   <Mail className="w-5 h-5 flex-shrink-0" />
-                  <span>info@findolor.com</span>
+                  <span>administracion@findolor.com</span>
                 </a>
               </li>
               <li>
