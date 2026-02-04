@@ -50,7 +50,11 @@ export function CTASection() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Ubicación</h4>
-                  <p className="text-muted-foreground">Bogotá, Colombia</p>
+                  <p className="text-muted-foreground text-sm">
+                    Carrera 16 # 97-46, Edificio Torre 97
+                    <br />
+                    Torre 2, Consultorios 705-706, Bogotá
+                  </p>
                 </div>
               </div>
 
