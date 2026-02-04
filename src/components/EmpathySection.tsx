@@ -84,7 +84,7 @@ export function EmpathySection() {
               >
                 <a href="tel:+573186912799" className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  318 6912799
+                  318 691 2799
                 </a>
               </Button>
             </div>

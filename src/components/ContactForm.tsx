@@ -64,14 +64,14 @@ export function ContactForm() {
           className="flex items-center gap-2 px-4 py-2 bg-primary-light rounded-lg text-primary font-medium text-sm hover:bg-primary hover:text-primary-foreground transition-colors"
         >
           <Phone className="w-4 h-4" />
-          318 6912799
+          318 691 2799
         </a>
         <a
           href="tel:+576016736707"
           className="flex items-center gap-2 px-4 py-2 bg-primary-light rounded-lg text-primary font-medium text-sm hover:bg-primary hover:text-primary-foreground transition-colors"
         >
           <Phone className="w-4 h-4" />
-          601 6736707
+          601 673 6707
         </a>
       </div>
 

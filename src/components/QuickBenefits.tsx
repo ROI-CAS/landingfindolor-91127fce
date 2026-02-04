@@ -11,8 +11,8 @@ const benefits = [
     highlight: "20 años",
   },
   {
-    text: "Convenio con principales EPS",
-    highlight: "principales EPS",
+    text: "Programa Paciente Experto",
+    highlight: "Paciente Experto",
   },
 ];
 

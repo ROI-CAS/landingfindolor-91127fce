@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { 
   Heart, 
   Brain, 
-  Users, 
-  Shield,
+  Users,
   Sparkles,
   CheckCircle
 } from "lucide-react";
@@ -25,9 +24,9 @@ const benefits = [
     description: "Experiencia sólida en el manejo clínico del dolor y cuidados paliativos.",
   },
   {
-    icon: Shield,
-    title: "Convenios con EPS",
-    description: "Trabajamos con Sura, Seguros Bolívar, Allianz y otras aseguradoras.",
+    icon: Users,
+    title: "Programa Paciente Experto",
+    description: "Pacientes que culminaron su tratamiento guían y acompañan a quienes inician su camino.",
   },
 ];
 

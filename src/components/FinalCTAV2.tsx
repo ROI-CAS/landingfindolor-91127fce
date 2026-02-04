@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MessageCircle, Clock, ArrowRight } from "lucide-react";
+import { MessageCircle, Clock, ArrowRight, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function FinalCTAV2() {
@@ -55,6 +55,28 @@ export function FinalCTAV2() {
                 Escríbenos por WhatsApp
               </a>
             </Button>
+          </div>
+
+          {/* Contact Info */}
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6">
+            <a
+              href="tel:+573186912799"
+              className="flex items-center justify-center gap-2 text-white/80 hover:text-white transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              <span className="text-sm">318 691 2799</span>
+            </a>
+            <a
+              href="tel:+576016736707"
+              className="flex items-center justify-center gap-2 text-white/80 hover:text-white transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              <span className="text-sm">601 673 6707</span>
+            </a>
+            <div className="flex items-center justify-center gap-2 text-white/80">
+              <MapPin className="w-4 h-4" />
+              <span className="text-sm">Cra 16 # 97-46, Torre 97, Bogotá</span>
+            </div>
           </div>
         </motion.div>
       </div>
