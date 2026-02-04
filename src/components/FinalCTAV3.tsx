@@ -99,7 +99,7 @@ export function FinalCTAV3() {
             </a>
             <div className="flex items-center justify-center gap-2 text-primary-foreground/80">
               <MapPin className="w-4 h-4 md:w-5 md:h-5" />
-              <span className="text-sm md:text-base">Bogotá, Colombia</span>
+              <span className="text-sm md:text-base">Cra 16 # 97-46, Torre 97, Bogotá</span>
             </div>
           </motion.div>
         </motion.div>

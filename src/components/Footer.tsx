@@ -99,7 +99,7 @@ export function Footer() {
                   className="flex items-center gap-3 text-white/70 hover:text-primary transition-colors"
                 >
                   <Phone className="w-5 h-5 flex-shrink-0" />
-                  <span>318 6912799</span>
+                  <span>318 691 2799</span>
                 </a>
               </li>
               <li>
@@ -108,7 +108,7 @@ export function Footer() {
                   className="flex items-center gap-3 text-white/70 hover:text-primary transition-colors"
                 >
                   <Phone className="w-5 h-5 flex-shrink-0" />
-                  <span>601 6736707</span>
+                  <span>601 673 6707</span>
                 </a>
               </li>
               <li>

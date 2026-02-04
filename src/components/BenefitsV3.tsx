@@ -5,7 +5,7 @@ import {
   Clock,
   UserCheck,
   HeartPulse,
-  BadgeCheck,
+  Users,
 } from "lucide-react";
 
 const benefits = [
@@ -40,10 +40,10 @@ const benefits = [
       "Te acompañamos en cada etapa de tu recuperación con controles periódicos y ajustes de tratamiento.",
   },
   {
-    icon: BadgeCheck,
-    title: "Convenios con aseguradoras",
+    icon: Users,
+    title: "Programa Paciente Experto",
     description:
-      "Trabajamos con las principales entidades de salud del país para facilitar tu atención.",
+      "Pacientes que culminaron su tratamiento se convierten en guías y testimonio para otros que inician su camino hacia el bienestar.",
   },
 ];
 

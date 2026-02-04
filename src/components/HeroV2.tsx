@@ -8,7 +8,7 @@ const logo = "/images/findolor-logo.svg";
 
 const trustPoints = [
   { icon: Shield, text: "Médicos certificados" },
-  { icon: Clock, text: "Respuesta en 2 horas" },
+  { icon: Clock, text: "Respuesta en menos de 2 horas" },
   { icon: Award, text: "+20 años experiencia" },
 ];
 

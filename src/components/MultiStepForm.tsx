@@ -112,7 +112,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
         </p>
         <div className="flex items-center justify-center gap-2 text-sm text-primary">
           <Phone className="w-4 h-4" />
-          <span>También puedes llamarnos: 318 691 2799</span>
+          <span>También puedes llamarnos: 318 691 2799 / 601 673 6707</span>
         </div>
       </motion.div>
     );
