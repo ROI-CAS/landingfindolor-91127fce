@@ -1,98 +1,162 @@
 
-# Plan: Ajustar iframe del calendario para PC y móvil
+# Plan: Sistema de FOMO Sincronizado y Coherente
 
-## Problema identificado
+## Resumen
 
-El calendario GHL se corta en la parte inferior porque:
-1. La altura mínima del iframe (550px) es insuficiente para el contenido completo
-2. El atributo `scrolling="no"` impide el scroll interno
-3. El drawer tiene `max-h-[90vh]` que limita el espacio disponible
-
-## Solución
-
-Ajustar los estilos del iframe y drawer para que el calendario se muestre correctamente en ambos dispositivos.
+Mejorar el sistema de urgencia/FOMO para que los 3 indicadores clave esten matematicamente relacionados y reflejen una logica de negocio realista usando la zona horaria de Bogota.
 
 ---
 
-## Cambios a realizar
-
-### Archivo: `src/components/BookingCalendar.tsx`
-
-**1. Aumentar altura del drawer y habilitar scroll interno:**
+## Los 3 Indicadores y su Relacion
 
 ```text
-Cambios en DrawerContent:
-- De: max-h-[90vh]
-- A: h-[95vh] (ocupa casi toda la pantalla)
++---------------------------+     +---------------------------+
+|      CITAS DISPONIBLES    |     |      CONSULTAS HOY        |
+|   (Hero + Formulario)     |     |      (LiveCounter)        |
++---------------------------+     +---------------------------+
+         |                                    |
+         |  Inversamente proporcionales       |
+         +-------------- + -------------------+
+                         |
+                         v
+              CAPACIDAD TOTAL DEL DIA
+              (Fija por dia de semana)
+
+Logica: consultasHoy = capacidadTotal - citasDisponibles
 ```
 
-**2. Ajustar estilos del iframe para ser responsive:**
+---
+
+## Capacidad Total por Dia de Semana
+
+| Dia | Capacidad Total | Razonamiento |
+|-----|-----------------|--------------|
+| Domingo | 8 | Dia de menor demanda |
+| Lunes | 18 | Dia de alta demanda post-fin de semana |
+| Martes | 16 | Demanda media-alta |
+| Miercoles | 14 | Demanda media |
+| Jueves | 16 | Demanda media-alta |
+| Viernes | 20 | Dia de mayor demanda |
+| Sabado | 12 | Demanda moderada |
+
+---
+
+## Logica de Citas Disponibles por Hora
+
+La disponibilidad disminuye conforme avanza el dia:
+
+| Franja Horaria | Citas Disponibles | FOMO Level |
+|----------------|-------------------|------------|
+| 6am - 8am | 6-7 | Bajo |
+| 8am - 10am | 5-6 | Bajo |
+| 10am - 12pm | 4-5 | Medio |
+| 12pm - 2pm | 3-4 | Medio-Alto |
+| 2pm - 4pm | 2-3 | Alto |
+| 4pm - 6pm | 1-2 | Muy Alto |
+| 6pm - 8pm | 1-2 | Urgente |
+| 8pm - 6am | 5 | Reinicio (dia siguiente) |
+
+---
+
+## Formula de Sincronizacion
 
 ```text
-Cambios en los estilos del iframe:
-- Aumentar min-height a 700px para PC
-- Usar altura dinámica con calc() para móvil
-- Permitir scrolling dentro del iframe
-- Añadir media queries para móvil
+capacidadDia = getCapacidadPorDia(diaSemana)
+citasDisponibles = calcularPorHora(hora)  // Disminuye durante el dia
+consultasHoy = capacidadDia - citasDisponibles
+
+Ejemplo Viernes 3pm:
+- capacidadDia = 20
+- citasDisponibles = 3 (tarde, alta urgencia)
+- consultasHoy = 20 - 3 = 17 consultas realizadas
 ```
 
-**3. Cambiar atributo scrolling del iframe:**
+---
+
+## Comportamiento del Contador "Viendo Ahora"
+
+Mantener la simulacion actual pero con limites coherentes:
+
+| Franja | Rango "Viendo Ahora" | Razonamiento |
+|--------|---------------------|--------------|
+| 6am - 10am | 4-8 | Inicio de actividad |
+| 10am - 2pm | 7-14 | Pico de busqueda |
+| 2pm - 6pm | 5-12 | Actividad moderada |
+| 6pm - 10pm | 3-8 | Fin del dia |
+| 10pm - 6am | 2-5 | Actividad baja |
+
+---
+
+## Zona Horaria Bogota (UTC-5)
+
+Crear funcion helper que obtiene la hora en Bogota:
+
+```typescript
+const getBogotaHour = (): number => {
+  return new Date().toLocaleString('en-US', { 
+    timeZone: 'America/Bogota', 
+    hour: 'numeric', 
+    hour12: false 
+  });
+};
+```
+
+---
+
+## Cuando se Agenda una Cita Real
+
+Al llamar `registrarConsulta()`:
+1. citasDisponibles -= 1 (minimo 1)
+2. consultasHoy += 1 (automatico por la formula)
+
+Esto ya funciona actualmente, solo necesita mantener la coherencia con la nueva formula.
+
+---
+
+## Cambios por Archivo
+
+### 1. `src/context/AppointmentContext.tsx`
+
+**Cambios principales:**
+- Agregar funcion `getBogotaHour()` para zona horaria correcta
+- Agregar funcion `getBogotaDay()` para dia de semana
+- Nueva constante `CAPACIDAD_POR_DIA` con capacidad total por dia
+- Modificar `calcularCitasIniciales()` para usar hora de Bogota con mas granularidad
+- Modificar `calcularConsultasIniciales()` para usar formula: `capacidad - citas`
+- Asegurar que `registrarConsulta()` mantiene la coherencia
+
+### 2. `src/components/LiveCounter.tsx`
+
+**Cambios principales:**
+- Ajustar rangos de "viendo ahora" segun franja horaria de Bogota
+- Usar `getBogotaHour()` del contexto (o crear localmente)
+
+---
+
+## Ejemplo de Comportamiento
 
 ```text
-- De: scrolling="no"
-- A: (sin atributo o scrolling="yes")
+Viernes 9:00 AM (Bogota):
+- Citas disponibles: 6
+- Consultas hoy: 20 - 6 = 14
+- Viendo ahora: 7-12
+
+Viernes 4:00 PM (Bogota):
+- Citas disponibles: 2
+- Consultas hoy: 20 - 2 = 18
+- Viendo ahora: 5-10
+
+Usuario agenda cita:
+- Citas disponibles: 1
+- Consultas hoy: 20 - 1 = 19
 ```
 
 ---
 
-## Estilos responsive propuestos
+## Archivos a Modificar
 
-```css
-.booking-calendar-wrapper iframe {
-  width: 100%;
-  min-height: 700px;
-  height: calc(95vh - 120px);
-  border: none;
-  border-radius: 12px;
-  background: white;
-}
+| Archivo | Cambios |
+|---------|---------|
+| `src/context/AppointmentContext.tsx` | Nueva logica de calculo con zona horaria Bogota, formula sincronizada |
+| `src/components/LiveCounter.tsx` | Rangos de "viendo ahora" basados en hora de Bogota |
 
-@media (max-width: 768px) {
-  .booking-calendar-wrapper iframe {
-    min-height: 600px;
-    height: calc(90vh - 100px);
-    border-radius: 8px;
-  }
-}
-```
-
----
-
-## Resumen de cambios
-
-| Aspecto | Antes | Después |
-|---------|-------|---------|
-| Altura drawer | max-h-[90vh] | h-[95vh] |
-| Min-height iframe | 550px | 700px (PC), 600px (móvil) |
-| Scrolling iframe | no | sí (por defecto) |
-| Altura dinámica | No | Sí, con calc() |
-
----
-
-## Sección técnica
-
-### Archivo a modificar
-
-`src/components/BookingCalendar.tsx`
-
-### Cambios específicos
-
-1. **Línea 138**: Cambiar clase del DrawerContent de `max-h-[90vh]` a `h-[95vh]`
-
-2. **Líneas 152-160**: Reemplazar los estilos inline del iframe con media queries responsive
-
-3. **Líneas 161-166**: Remover atributo `scrolling="no"` del iframe para permitir scroll interno
-
-### Consideraciones GHL
-
-El widget de GoHighLevel tiene altura variable dependiendo del contenido mostrado (días del mes, slots disponibles, formulario de confirmación). Permitir scroll y aumentar la altura garantiza que todo el contenido sea visible y accesible.
