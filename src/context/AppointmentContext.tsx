@@ -1,67 +1,90 @@
-// Centralized appointment state management
+// Centralized appointment state management with Bogotá timezone
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 interface AppointmentContextType {
   citasDisponibles: number;
   consultasHoy: number;
+  capacidadTotal: number;
   registrarConsulta: () => void;
 }
 
 const AppointmentContext = createContext<AppointmentContextType | undefined>(undefined);
 
-// Calcula citas disponibles basado en hora del día (sin Math.random para consistencia)
-const calcularCitasIniciales = (): number => {
-  const hour = new Date().getHours();
-  
-  if (hour >= 8 && hour < 12) {
-    // Mañana: más disponibilidad
-    return 5;
-  } else if (hour >= 12 && hour < 15) {
-    // Mediodía: disponibilidad media
-    return 4;
-  } else if (hour >= 15 && hour < 18) {
-    // Tarde: menos disponibilidad (urgencia)
-    return 2;
-  }
-  // Fuera de horario
-  return 3;
+// Capacidad total por día de la semana
+const CAPACIDAD_POR_DIA: Record<number, number> = {
+  0: 8,   // Domingo - menor demanda
+  1: 18,  // Lunes - alta demanda post-fin de semana
+  2: 16,  // Martes - demanda media-alta
+  3: 14,  // Miércoles - demanda media
+  4: 16,  // Jueves - demanda media-alta
+  5: 20,  // Viernes - mayor demanda
+  6: 12,  // Sábado - demanda moderada
 };
 
-// Calcula consultas del día basado en hora y día de semana
-const calcularConsultasIniciales = (): number => {
-  const now = new Date();
-  const day = now.getDay();
-  const hour = now.getHours();
-  
-  // Rangos de consultas base por día de la semana
-  const baseByDay: Record<number, { min: number; max: number }> = {
-    0: { min: 5, max: 8 },    // Domingo
-    1: { min: 14, max: 18 },  // Lunes
-    2: { min: 12, max: 16 },  // Martes
-    3: { min: 10, max: 14 },  // Miércoles
-    4: { min: 13, max: 17 },  // Jueves
-    5: { min: 15, max: 20 },  // Viernes
-    6: { min: 8, max: 12 },   // Sábado
+// Obtener hora actual en Bogotá (UTC-5)
+export const getBogotaHour = (): number => {
+  const bogotaTime = new Date().toLocaleString('en-US', { 
+    timeZone: 'America/Bogota', 
+    hour: 'numeric', 
+    hour12: false 
+  });
+  return parseInt(bogotaTime, 10);
+};
+
+// Obtener día de la semana en Bogotá
+export const getBogotaDay = (): number => {
+  const bogotaTime = new Date().toLocaleString('en-US', { 
+    timeZone: 'America/Bogota', 
+    weekday: 'short' 
+  });
+  const dayMap: Record<string, number> = {
+    'Sun': 0, 'Mon': 1, 'Tue': 2, 'Wed': 3, 'Thu': 4, 'Fri': 5, 'Sat': 6
   };
+  return dayMap[bogotaTime] ?? new Date().getDay();
+};
+
+// Calcula citas disponibles basado en hora del día (Bogotá)
+const calcularCitasIniciales = (): number => {
+  const hour = getBogotaHour();
   
-  const dayConfig = baseByDay[day];
-  // Incremento progresivo según hora del día (8am-8pm)
-  const hourFactor = Math.max(0, Math.min(hour - 8, 12)) / 12;
-  const range = dayConfig.max - dayConfig.min;
-  
-  return Math.floor(dayConfig.min + (range * hourFactor));
+  if (hour >= 6 && hour < 8) {
+    return 7; // Muy temprano: máxima disponibilidad
+  } else if (hour >= 8 && hour < 10) {
+    return 6; // Mañana temprana
+  } else if (hour >= 10 && hour < 12) {
+    return 5; // Media mañana
+  } else if (hour >= 12 && hour < 14) {
+    return 4; // Mediodía
+  } else if (hour >= 14 && hour < 16) {
+    return 3; // Tarde temprana
+  } else if (hour >= 16 && hour < 18) {
+    return 2; // Tarde: alta urgencia
+  } else if (hour >= 18 && hour < 20) {
+    return 2; // Fin del día: urgente
+  }
+  // Fuera de horario (8pm - 6am): reinicio para día siguiente
+  return 5;
+};
+
+// Obtener capacidad del día actual
+const getCapacidadDia = (): number => {
+  const day = getBogotaDay();
+  return CAPACIDAD_POR_DIA[day] ?? 14;
 };
 
 export function AppointmentProvider({ children }: { children: ReactNode }) {
+  const [capacidadTotal] = useState(getCapacidadDia);
   const [citasDisponibles, setCitasDisponibles] = useState(calcularCitasIniciales);
-  const [consultasHoy, setConsultasHoy] = useState(calcularConsultasIniciales);
+  
+  // consultasHoy se deriva de la fórmula: capacidadTotal - citasDisponibles
+  const consultasHoy = capacidadTotal - citasDisponibles;
 
   // Actualizar cada hora para reflejar cambios en disponibilidad real
   useEffect(() => {
     const interval = setInterval(() => {
-      const hour = new Date().getHours();
-      // Recalcular citas solo al cambiar de franja horaria
-      if (hour >= 8 && hour <= 18) {
+      const hour = getBogotaHour();
+      // Recalcular citas según franja horaria de Bogotá
+      if (hour >= 6 && hour <= 20) {
         setCitasDisponibles(calcularCitasIniciales());
       }
     }, 3600000); // Cada hora
@@ -70,12 +93,13 @@ export function AppointmentProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const registrarConsulta = () => {
+    // Decrementar citas disponibles (mínimo 1)
     setCitasDisponibles(prev => Math.max(1, prev - 1));
-    setConsultasHoy(prev => prev + 1);
+    // consultasHoy se actualiza automáticamente por la fórmula
   };
 
   return (
-    <AppointmentContext.Provider value={{ citasDisponibles, consultasHoy, registrarConsulta }}>
+    <AppointmentContext.Provider value={{ citasDisponibles, consultasHoy, capacidadTotal, registrarConsulta }}>
       {children}
     </AppointmentContext.Provider>
   );
