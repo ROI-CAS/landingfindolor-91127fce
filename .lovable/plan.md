@@ -1,162 +1,166 @@
 
-# Plan: Sistema de FOMO Sincronizado y Coherente
+# Plan: FAQs Optimizados con Categorias y Correccion de Informacion
 
 ## Resumen
 
-Mejorar el sistema de urgencia/FOMO para que los 3 indicadores clave esten matematicamente relacionados y reflejen una logica de negocio realista usando la zona horaria de Bogota.
+Reorganizar las preguntas frecuentes en 4 categorias navegables con tabs, corregir informacion erronea (aseguradoras, email, ubicacion) y optimizar el contenido para conversion basado en los 30 puntos oficiales de FinDolor.
 
 ---
 
-## Los 3 Indicadores y su Relacion
+## Problemas Identificados y Correcciones
+
+### Informacion Erronea Actual
+
+| Componente | Problema | Correccion |
+|------------|----------|------------|
+| FAQSection (linea 28, 33) | Menciona "convenios con aseguradoras y EPS" | Cambiar a "Modalidad particular. No gestionamos tramites con aseguradoras" |
+| FAQSection (linea 38) | Menciona "carne de aseguradora o EPS" | Eliminar referencia a aseguradoras |
+| FAQSection (linea 64) | Direccion vaga "Bogota con facil acceso" | Direccion exacta: Carrera 16 # 97-46, Torre 97, Torre 2, Cons. 705-706 |
+| Footer (linea 120) | Email info@findolor.com | Cambiar a administracion@findolor.com |
+| CTASection (linea 53) | Solo dice "Bogota, Colombia" | Agregar direccion completa |
+
+---
+
+## Estructura de FAQs por Categorias
+
+Usar Tabs de Radix UI para navegacion visual entre categorias:
 
 ```text
-+---------------------------+     +---------------------------+
-|      CITAS DISPONIBLES    |     |      CONSULTAS HOY        |
-|   (Hero + Formulario)     |     |      (LiveCounter)        |
-+---------------------------+     +---------------------------+
-         |                                    |
-         |  Inversamente proporcionales       |
-         +-------------- + -------------------+
-                         |
-                         v
-              CAPACIDAD TOTAL DEL DIA
-              (Fija por dia de semana)
-
-Logica: consultasHoy = capacidadTotal - citasDisponibles
++------------------+------------------+------------------+------------------+
+|     CITAS        |    SERVICIOS     |  PROCEDIMIENTOS  |    UBICACION     |
++------------------+------------------+------------------+------------------+
+         |
+         v
+   [Preguntas de la categoria seleccionada]
 ```
 
 ---
 
-## Capacidad Total por Dia de Semana
+## Contenido de Cada Categoria (12 FAQs Optimizados)
 
-| Dia | Capacidad Total | Razonamiento |
-|-----|-----------------|--------------|
-| Domingo | 8 | Dia de menor demanda |
-| Lunes | 18 | Dia de alta demanda post-fin de semana |
-| Martes | 16 | Demanda media-alta |
-| Miercoles | 14 | Demanda media |
-| Jueves | 16 | Demanda media-alta |
-| Viernes | 20 | Dia de mayor demanda |
-| Sabado | 12 | Demanda moderada |
+### Tab 1: Citas (3 preguntas)
 
----
+1. **Puedo agendar sin remision?**
+   - Si, puedes agendar valoracion inicial directamente
 
-## Logica de Citas Disponibles por Hora
+2. **Como agendo una cita?**
+   - Telefono/WhatsApp (318 691 2799), fijo (601 673 6707) o formulario web
 
-La disponibilidad disminuye conforme avanza el dia:
+3. **Cual es la politica de cancelacion?**
+   - 24 horas de aviso para reprogramar sin cargos
 
-| Franja Horaria | Citas Disponibles | FOMO Level |
-|----------------|-------------------|------------|
-| 6am - 8am | 6-7 | Bajo |
-| 8am - 10am | 5-6 | Bajo |
-| 10am - 12pm | 4-5 | Medio |
-| 12pm - 2pm | 3-4 | Medio-Alto |
-| 2pm - 4pm | 2-3 | Alto |
-| 4pm - 6pm | 1-2 | Muy Alto |
-| 6pm - 8pm | 1-2 | Urgente |
-| 8pm - 6am | 5 | Reinicio (dia siguiente) |
+### Tab 2: Servicios (4 preguntas)
 
----
+4. **Que tipos de dolor tratan?**
+   - Musculoesqueletico, neuropatico, postquirurgico, oncologico, cefaleas, lumbalgia, lesiones deportivas
 
-## Formula de Sincronizacion
+5. **Que especialidades conforman el equipo?**
+   - Medicina del dolor, anestesiologia, psicologia y rehabilitacion
 
-```text
-capacidadDia = getCapacidadPorDia(diaSemana)
-citasDisponibles = calcularPorHora(hora)  // Disminuye durante el dia
-consultasHoy = capacidadDia - citasDisponibles
+6. **Ofrecen telemedicina?**
+   - Si, para seguimiento y casos que no requieran examen fisico presencial
 
-Ejemplo Viernes 3pm:
-- capacidadDia = 20
-- citasDisponibles = 3 (tarde, alta urgencia)
-- consultasHoy = 20 - 3 = 17 consultas realizadas
-```
+7. **Que es el programa Paciente Experto?**
+   - Programa que empodera a pacientes que culminaron tratamiento para ser testimonio y guia de otros
 
----
+### Tab 3: Procedimientos (3 preguntas)
 
-## Comportamiento del Contador "Viendo Ahora"
+8. **Realizan procedimientos intervencionistas?**
+   - Si: bloqueos, infiltraciones guiadas, radiofrecuencia, neuromodulacion
 
-Mantener la simulacion actual pero con limites coherentes:
+9. **Requieren hospitalizacion?**
+   - La mayoria son ambulatorios; entregamos instrucciones de preparacion y cuidados
 
-| Franja | Rango "Viendo Ahora" | Razonamiento |
-|--------|---------------------|--------------|
-| 6am - 10am | 4-8 | Inicio de actividad |
-| 10am - 2pm | 7-14 | Pico de busqueda |
-| 2pm - 6pm | 5-12 | Actividad moderada |
-| 6pm - 10pm | 3-8 | Fin del dia |
-| 10pm - 6am | 2-5 | Actividad baja |
+10. **Cuando vere mejoria?**
+    - Depende del diagnostico; la mejoria es progresiva y se evalua en controles
 
----
+### Tab 4: Ubicacion y Pagos (2 preguntas)
 
-## Zona Horaria Bogota (UTC-5)
+11. **Donde estan ubicados?**
+    - Carrera 16 # 97-46, Edificio Torre 97, Torre 2, Consultorios 705-706, Bogota
+    - Parqueadero en la zona, accesibilidad para movilidad reducida
 
-Crear funcion helper que obtiene la hora en Bogota:
-
-```typescript
-const getBogotaHour = (): number => {
-  return new Date().toLocaleString('en-US', { 
-    timeZone: 'America/Bogota', 
-    hour: 'numeric', 
-    hour12: false 
-  });
-};
-```
-
----
-
-## Cuando se Agenda una Cita Real
-
-Al llamar `registrarConsulta()`:
-1. citasDisponibles -= 1 (minimo 1)
-2. consultasHoy += 1 (automatico por la formula)
-
-Esto ya funciona actualmente, solo necesita mantener la coherencia con la nueva formula.
+12. **Atienden por aseguradora o particular?**
+    - Modalidad particular. No gestionamos tramites con aseguradoras ni reembolsos
+    - Medios de pago: efectivo, tarjetas y transferencia
 
 ---
 
 ## Cambios por Archivo
 
-### 1. `src/context/AppointmentContext.tsx`
+### 1. `src/components/FAQSection.tsx` (Cambio Principal)
 
-**Cambios principales:**
-- Agregar funcion `getBogotaHour()` para zona horaria correcta
-- Agregar funcion `getBogotaDay()` para dia de semana
-- Nueva constante `CAPACIDAD_POR_DIA` con capacidad total por dia
-- Modificar `calcularCitasIniciales()` para usar hora de Bogota con mas granularidad
-- Modificar `calcularConsultasIniciales()` para usar formula: `capacidad - citas`
-- Asegurar que `registrarConsulta()` mantiene la coherencia
+**Transformacion completa:**
+- Importar Tabs de Radix UI
+- Crear estructura de datos con categorias
+- Renderizar tabs navegables con preguntas por categoria
+- Animaciones Framer Motion por tab
 
-### 2. `src/components/LiveCounter.tsx`
+**Estructura de datos propuesta:**
 
-**Cambios principales:**
-- Ajustar rangos de "viendo ahora" segun franja horaria de Bogota
-- Usar `getBogotaHour()` del contexto (o crear localmente)
+```typescript
+const faqCategories = [
+  {
+    id: "citas",
+    label: "Citas",
+    icon: Calendar,
+    faqs: [
+      { question: "...", answer: "..." },
+      // ...
+    ]
+  },
+  {
+    id: "servicios",
+    label: "Servicios", 
+    icon: Stethoscope,
+    faqs: [...]
+  },
+  // ...
+];
+```
+
+### 2. `src/components/Footer.tsx`
+
+- Linea 120: Cambiar email de `info@findolor.com` a `administracion@findolor.com`
+
+### 3. `src/components/CTASection.tsx`
+
+- Lineas 52-53: Agregar direccion completa en lugar de solo "Bogota, Colombia"
 
 ---
 
-## Ejemplo de Comportamiento
+## Diseno Visual de Tabs
 
 ```text
-Viernes 9:00 AM (Bogota):
-- Citas disponibles: 6
-- Consultas hoy: 20 - 6 = 14
-- Viendo ahora: 7-12
+[ Citas ]  [ Servicios ]  [ Procedimientos ]  [ Ubicacion ]
+     ^
+  Activo: fondo primary, texto blanco
+  Inactivo: fondo muted, texto gris
 
-Viernes 4:00 PM (Bogota):
-- Citas disponibles: 2
-- Consultas hoy: 20 - 2 = 18
-- Viendo ahora: 5-10
-
-Usuario agenda cita:
-- Citas disponibles: 1
-- Consultas hoy: 20 - 1 = 19
++--------------------------------------------------------+
+| (icon) Pregunta frecuente de la categoria?       [v]   |
++--------------------------------------------------------+
+| Respuesta expandible con informacion detallada         |
++--------------------------------------------------------+
 ```
+
+---
+
+## Beneficios de la Nueva Estructura
+
+1. **Navegacion clara**: Usuario encuentra rapidamente lo que busca
+2. **Reduccion de friccion**: Menos scroll, informacion organizada
+3. **SEO mejorado**: Contenido estructurado por temas
+4. **Informacion correcta**: Sin referencias a aseguradoras, datos de contacto actualizados
+5. **Diferenciador**: Programa Paciente Experto visible
 
 ---
 
 ## Archivos a Modificar
 
-| Archivo | Cambios |
-|---------|---------|
-| `src/context/AppointmentContext.tsx` | Nueva logica de calculo con zona horaria Bogota, formula sincronizada |
-| `src/components/LiveCounter.tsx` | Rangos de "viendo ahora" basados en hora de Bogota |
+| Archivo | Tipo de Cambio |
+|---------|----------------|
+| `src/components/FAQSection.tsx` | Reescritura con Tabs + nuevo contenido |
+| `src/components/Footer.tsx` | Correccion email (1 linea) |
+| `src/components/CTASection.tsx` | Agregar direccion completa |
 
