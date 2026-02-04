@@ -1,166 +1,179 @@
 
-# Plan: FAQs Optimizados con Categorias y Correccion de Informacion
+# Plan: Sincronización de Información y Mejoras de Conversión
 
 ## Resumen
 
-Reorganizar las preguntas frecuentes en 4 categorias navegables con tabs, corregir informacion erronea (aseguradoras, email, ubicacion) y optimizar el contenido para conversion basado en los 30 puntos oficiales de FinDolor.
-
----
-
-## Problemas Identificados y Correcciones
-
-### Informacion Erronea Actual
-
-| Componente | Problema | Correccion |
-|------------|----------|------------|
-| FAQSection (linea 28, 33) | Menciona "convenios con aseguradoras y EPS" | Cambiar a "Modalidad particular. No gestionamos tramites con aseguradoras" |
-| FAQSection (linea 38) | Menciona "carne de aseguradora o EPS" | Eliminar referencia a aseguradoras |
-| FAQSection (linea 64) | Direccion vaga "Bogota con facil acceso" | Direccion exacta: Carrera 16 # 97-46, Torre 97, Torre 2, Cons. 705-706 |
-| Footer (linea 120) | Email info@findolor.com | Cambiar a administracion@findolor.com |
-| CTASection (linea 53) | Solo dice "Bogota, Colombia" | Agregar direccion completa |
-
----
-
-## Estructura de FAQs por Categorias
-
-Usar Tabs de Radix UI para navegacion visual entre categorias:
-
-```text
-+------------------+------------------+------------------+------------------+
-|     CITAS        |    SERVICIOS     |  PROCEDIMIENTOS  |    UBICACION     |
-+------------------+------------------+------------------+------------------+
-         |
-         v
-   [Preguntas de la categoria seleccionada]
-```
-
----
-
-## Contenido de Cada Categoria (12 FAQs Optimizados)
-
-### Tab 1: Citas (3 preguntas)
-
-1. **Puedo agendar sin remision?**
-   - Si, puedes agendar valoracion inicial directamente
-
-2. **Como agendo una cita?**
-   - Telefono/WhatsApp (318 691 2799), fijo (601 673 6707) o formulario web
-
-3. **Cual es la politica de cancelacion?**
-   - 24 horas de aviso para reprogramar sin cargos
-
-### Tab 2: Servicios (4 preguntas)
-
-4. **Que tipos de dolor tratan?**
-   - Musculoesqueletico, neuropatico, postquirurgico, oncologico, cefaleas, lumbalgia, lesiones deportivas
-
-5. **Que especialidades conforman el equipo?**
-   - Medicina del dolor, anestesiologia, psicologia y rehabilitacion
-
-6. **Ofrecen telemedicina?**
-   - Si, para seguimiento y casos que no requieran examen fisico presencial
-
-7. **Que es el programa Paciente Experto?**
-   - Programa que empodera a pacientes que culminaron tratamiento para ser testimonio y guia de otros
-
-### Tab 3: Procedimientos (3 preguntas)
-
-8. **Realizan procedimientos intervencionistas?**
-   - Si: bloqueos, infiltraciones guiadas, radiofrecuencia, neuromodulacion
-
-9. **Requieren hospitalizacion?**
-   - La mayoria son ambulatorios; entregamos instrucciones de preparacion y cuidados
-
-10. **Cuando vere mejoria?**
-    - Depende del diagnostico; la mejoria es progresiva y se evalua en controles
-
-### Tab 4: Ubicacion y Pagos (2 preguntas)
-
-11. **Donde estan ubicados?**
-    - Carrera 16 # 97-46, Edificio Torre 97, Torre 2, Consultorios 705-706, Bogota
-    - Parqueadero en la zona, accesibilidad para movilidad reducida
-
-12. **Atienden por aseguradora o particular?**
-    - Modalidad particular. No gestionamos tramites con aseguradoras ni reembolsos
-    - Medios de pago: efectivo, tarjetas y transferencia
+Corregir inconsistencias de información en toda la landing, agregar teléfono fijo donde falta, unificar formatos de teléfono, agregar dirección completa, incluir el programa "Paciente Experto" en beneficios, y cambiar "Respuesta en 2 horas" a "menos de 2 horas".
 
 ---
 
 ## Cambios por Archivo
 
-### 1. `src/components/FAQSection.tsx` (Cambio Principal)
+### 1. `src/components/FinalCTAV3.tsx`
+**Problema**: Dirección solo dice "Bogotá, Colombia"
+**Corrección**: Agregar dirección completa
 
-**Transformacion completa:**
-- Importar Tabs de Radix UI
-- Crear estructura de datos con categorias
-- Renderizar tabs navegables con preguntas por categoria
-- Animaciones Framer Motion por tab
-
-**Estructura de datos propuesta:**
-
-```typescript
-const faqCategories = [
-  {
-    id: "citas",
-    label: "Citas",
-    icon: Calendar,
-    faqs: [
-      { question: "...", answer: "..." },
-      // ...
-    ]
-  },
-  {
-    id: "servicios",
-    label: "Servicios", 
-    icon: Stethoscope,
-    faqs: [...]
-  },
-  // ...
-];
-```
-
-### 2. `src/components/Footer.tsx`
-
-- Linea 120: Cambiar email de `info@findolor.com` a `administracion@findolor.com`
-
-### 3. `src/components/CTASection.tsx`
-
-- Lineas 52-53: Agregar direccion completa en lugar de solo "Bogota, Colombia"
+| Línea | Antes | Después |
+|-------|-------|---------|
+| 102 | `Bogotá, Colombia` | `Cra 16 # 97-46, Torre 97` |
 
 ---
 
-## Diseno Visual de Tabs
+### 2. `src/components/HeroV2.tsx`
+**Problema**: "Respuesta en 2 horas" en trustPoints
+**Corrección**: Cambiar a "menos de 2 horas"
 
-```text
-[ Citas ]  [ Servicios ]  [ Procedimientos ]  [ Ubicacion ]
-     ^
-  Activo: fondo primary, texto blanco
-  Inactivo: fondo muted, texto gris
-
-+--------------------------------------------------------+
-| (icon) Pregunta frecuente de la categoria?       [v]   |
-+--------------------------------------------------------+
-| Respuesta expandible con informacion detallada         |
-+--------------------------------------------------------+
-```
+| Línea | Antes | Después |
+|-------|-------|---------|
+| 12 | `Respuesta en 2 horas` | `Respuesta en menos de 2 horas` |
 
 ---
 
-## Beneficios de la Nueva Estructura
+### 3. `src/components/HeroV3.tsx`
+**Problema**: "Respuesta en 2 horas" en trustPoints
+**Corrección**: Cambiar a "menos de 2 horas"
 
-1. **Navegacion clara**: Usuario encuentra rapidamente lo que busca
-2. **Reduccion de friccion**: Menos scroll, informacion organizada
-3. **SEO mejorado**: Contenido estructurado por temas
-4. **Informacion correcta**: Sin referencias a aseguradoras, datos de contacto actualizados
-5. **Diferenciador**: Programa Paciente Experto visible
+| Línea | Antes | Después |
+|-------|-------|---------|
+| 10 | `Respuesta en 2 horas` | `Respuesta en menos de 2 horas` |
 
 ---
 
-## Archivos a Modificar
+### 4. `src/components/BenefitsV3.tsx`
+**Problema**: Falta "Programa Paciente Experto" como diferenciador
+**Corrección**: Reemplazar "Convenios con aseguradoras" (ítem 6) con Paciente Experto
+
+| Línea | Antes | Después |
+|-------|-------|---------|
+| 42-47 | `title: "Convenios con aseguradoras"` + descripción aseguradoras | `title: "Programa Paciente Experto"` + `description: "Pacientes que culminaron su tratamiento se convierten en guías y testimonio para otros que inician su camino hacia el bienestar."` |
+
+Se usará el icono `Users` (importar) en lugar de `BadgeCheck`.
+
+---
+
+### 5. `src/components/BenefitsV2.tsx`
+**Problema**: Beneficio "Convenios con EPS" menciona aseguradoras (omitir por ahora según instrucciones)
+**Corrección**: Reemplazar con Paciente Experto
+
+| Línea | Antes | Después |
+|-------|-------|---------|
+| 28-31 | `title: "Convenios con EPS"` + Sura, Seguros Bolívar, etc. | `title: "Programa Paciente Experto"` + descripción del programa |
+
+Cambiar icono de `Shield` a `Users` para este beneficio.
+
+---
+
+### 6. `src/components/Footer.tsx`
+**Problema**: Formato de teléfonos inconsistente (sin espacios correctos)
+**Corrección**: Unificar formato a `318 691 2799` y `601 673 6707`
+
+| Línea | Antes | Después |
+|-------|-------|---------|
+| 102 | `318 6912799` | `318 691 2799` |
+| 111 | `601 6736707` | `601 673 6707` |
+
+---
+
+### 7. `src/components/ContactForm.tsx`
+**Problema**: Formato de teléfonos inconsistente
+**Corrección**: Unificar formato
+
+| Línea | Antes | Después |
+|-------|-------|---------|
+| 67 | `318 6912799` | `318 691 2799` |
+| 74 | `601 6736707` | `601 673 6707` |
+
+---
+
+### 8. `src/components/ClickToCallButton.tsx`
+**Problema**: Falta teléfono fijo en tooltip
+**Corrección**: Mantener solo celular en tooltip (es botón de llamada móvil)
+
+Sin cambio necesario - el botón es específico para llamar al celular desde móvil.
+
+---
+
+### 9. `src/components/FinalCTAV2.tsx`
+**Problema**: No tiene información de contacto (teléfonos/dirección)
+**Corrección**: Agregar sección de contacto similar a FinalCTAV3
+
+Agregar después de los botones CTA (después de línea 58):
+- Teléfono celular: 318 691 2799
+- Teléfono fijo: 601 673 6707
+- Dirección resumida
+
+---
+
+### 10. `src/components/MultiStepForm.tsx`
+**Problema**: Solo muestra un teléfono en el mensaje de confirmación
+**Corrección**: Agregar también el teléfono fijo
+
+| Línea | Antes | Después |
+|-------|-------|---------|
+| 115 | `También puedes llamarnos: 318 691 2799` | `También puedes llamarnos: 318 691 2799 / 601 673 6707` |
+
+---
+
+### 11. `src/components/EmpathySection.tsx`
+**Problema**: Teléfono con formato incorrecto
+**Corrección**: Unificar formato
+
+| Línea | Antes | Después |
+|-------|-------|---------|
+| 82 | `318 6912799` | `318 691 2799` |
+
+---
+
+### 12. `src/components/QuickBenefits.tsx`
+**Problema**: Menciona "Convenio con principales EPS"
+**Corrección**: Cambiar a algo neutral o relacionado con Paciente Experto
+
+| Línea | Antes | Después |
+|-------|-------|---------|
+| 13-16 | `text: "Convenio con principales EPS"` | `text: "Programa Paciente Experto"` + `highlight: "Paciente Experto"` |
+
+---
+
+## Resumen de Cambios
 
 | Archivo | Tipo de Cambio |
 |---------|----------------|
-| `src/components/FAQSection.tsx` | Reescritura con Tabs + nuevo contenido |
-| `src/components/Footer.tsx` | Correccion email (1 linea) |
-| `src/components/CTASection.tsx` | Agregar direccion completa |
+| FinalCTAV3.tsx | Dirección completa |
+| HeroV2.tsx | "menos de 2 horas" |
+| HeroV3.tsx | "menos de 2 horas" |
+| BenefitsV3.tsx | Paciente Experto reemplaza aseguradoras |
+| BenefitsV2.tsx | Paciente Experto reemplaza aseguradoras |
+| Footer.tsx | Formato teléfonos |
+| ContactForm.tsx | Formato teléfonos |
+| FinalCTAV2.tsx | Agregar info contacto |
+| MultiStepForm.tsx | Agregar teléfono fijo |
+| EmpathySection.tsx | Formato teléfono |
+| QuickBenefits.tsx | Paciente Experto |
 
+---
+
+## Notas Técnicas
+
+### Programa Paciente Experto - Descripción a usar:
+> "Pacientes que culminaron su tratamiento se convierten en guías y testimonio para otros que inician su camino hacia el bienestar."
+
+### Formato de teléfonos estándar:
+- Celular: `318 691 2799` (con espacios)
+- Fijo: `601 673 6707` (con espacios)
+
+### Dirección estándar corta (para CTAs):
+- `Cra 16 # 97-46, Torre 97, Bogotá`
+
+### Dirección completa (para Footer/contacto):
+- `Carrera 16 # 97-46, Edificio Torre 97, Torre 2, Consultorios 705-706, Bogotá`
+
+---
+
+## Componentes que mantienen aseguradoras (según instrucciones):
+
+Los siguientes componentes seguirán mostrando logos de aseguradoras hasta nueva orden:
+- `TrustBar.tsx`
+- `TrustBadges.tsx`
+- `SocialProofV2.tsx` (sección de convenios al final)
+- `MultiStepForm.tsx` (opciones de entidad en paso 2)
+- `ContactForm.tsx` (opciones de entidad en select)
