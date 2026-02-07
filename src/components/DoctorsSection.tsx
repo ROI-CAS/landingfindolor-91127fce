@@ -43,15 +43,15 @@ export function DoctorsSection() {
           className="max-w-4xl mx-auto"
         >
           <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div className="grid md:grid-cols-2 gap-0">
-              {/* Image */}
-              <div className="relative h-80 md:h-auto">
+            <div className="flex flex-col md:flex-row">
+              {/* Image - matches content height */}
+              <div className="relative w-full md:w-72 flex-shrink-0">
                 <img
                   src={doctor.image}
                   alt={doctor.name}
-                  className="w-full h-full object-cover object-[center_15%]"
+                  className="w-full h-64 md:h-full object-cover object-[center_15%]"
                 />
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
+                <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
                   <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                   <span className="text-sm font-semibold">{doctor.rating}</span>
                   <span className="text-xs text-muted-foreground">({doctor.reviews} reseñas)</span>
