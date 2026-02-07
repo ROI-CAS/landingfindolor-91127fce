@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { MultiStepForm } from "./MultiStepForm";
 import { Shield, Clock, Award, Star, ChevronDown } from "lucide-react";
-import { useAppointments } from "@/context/AppointmentContext";
+
 import heroImage from "@/assets/hero-latina.jpg";
 
 const logo = "/images/findolor-logo.svg";
@@ -13,7 +13,6 @@ const trustPoints = [
 ];
 
 export function HeroV2() {
-  const { citasDisponibles } = useAppointments();
   const scrollToContent = () => {
     window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
   };
@@ -58,11 +57,6 @@ export function HeroV2() {
             transition={{ duration: 0.6 }}
             className="text-white"
           >
-            {/* Urgency Badge - sincronizado con contexto global */}
-            <div className="inline-flex items-center gap-2 bg-secondary/20 border border-secondary/40 text-secondary px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
-              Solo {citasDisponibles} citas disponibles hoy
-            </div>
 
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Especialistas en{" "}
