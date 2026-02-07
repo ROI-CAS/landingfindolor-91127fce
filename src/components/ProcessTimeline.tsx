@@ -7,28 +7,24 @@ const steps = [
     number: "01",
     title: "Agenda tu Cita",
     description: "Completa el formulario y te contactamos en menos de 2 horas para confirmar.",
-    duration: "5 minutos",
   },
   {
     icon: Stethoscope,
     number: "02",
     title: "Valoración Inicial",
     description: "Evaluación integral con nuestros especialistas para entender tu caso.",
-    duration: "45 minutos",
   },
   {
     icon: Pill,
     number: "03",
     title: "Plan de Tratamiento",
     description: "Diseñamos un plan personalizado con las mejores opciones para tu caso.",
-    duration: "1 semana",
   },
   {
     icon: HeartPulse,
     number: "04",
     title: "Acompañamiento Continuo",
     description: "Te acompañamos durante tu proceso de recuperación con seguimiento personalizado.",
-    duration: "Continuo",
   },
 ];
 
@@ -81,10 +77,7 @@ export function ProcessTimeline() {
                 {/* Content */}
                 <div className="text-center">
                   <h3 className="text-xl font-bold text-foreground mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground text-sm mb-3">{step.description}</p>
-                  <span className="inline-flex items-center gap-1 text-xs text-primary font-medium bg-primary/10 px-3 py-1 rounded-full">
-                    ⏱ {step.duration}
-                  </span>
+                  <p className="text-muted-foreground text-sm">{step.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -115,9 +108,6 @@ export function ProcessTimeline() {
                 <span className="text-primary font-bold text-sm">{step.number}</span>
                 <h3 className="text-lg font-bold text-foreground">{step.title}</h3>
                 <p className="text-muted-foreground text-sm mt-1">{step.description}</p>
-                <span className="inline-flex items-center gap-1 text-xs text-primary font-medium mt-2">
-                  ⏱ {step.duration}
-                </span>
               </div>
             </motion.div>
           ))}
