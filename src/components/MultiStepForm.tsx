@@ -23,7 +23,6 @@ const especialidades = [
   { id: "dolor", label: "Medicina del dolor", icon: "💊" },
   { id: "paliativos", label: "Cuidados paliativos", icon: "🤲" },
   { id: "anestesia", label: "Anestesia", icon: "💉" },
-  { id: "fisioterapia", label: "Fisioterapia", icon: "🏃" },
 ];
 
 const entidades = [
@@ -329,12 +328,6 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
                 </div>
               </div>
 
-              {/* Urgency message - sincronizado con contexto global */}
-              <div className="bg-primary/10 border border-primary/30 rounded-xl p-4 text-center">
-                <p className="text-sm font-medium text-foreground">
-                  🕐 Solo quedan <strong className="text-primary">{citasDisponibles} citas disponibles</strong> hoy
-                </p>
-              </div>
 
               {/* Policy checkbox */}
               <div className="flex items-start space-x-3">
