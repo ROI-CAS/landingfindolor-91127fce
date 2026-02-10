@@ -150,16 +150,16 @@ export function BookingCalendar() {
                   <style>{`
                     .booking-calendar-wrapper iframe {
                       width: 100%;
-                      min-height: 700px;
-                      height: calc(95vh - 120px);
+                      min-height: 500px;
+                      height: calc(80vh - 120px);
                       border: none;
                       border-radius: 12px;
                       background: white;
                     }
                     @media (max-width: 768px) {
                       .booking-calendar-wrapper iframe {
-                        min-height: 600px;
-                        height: calc(90vh - 100px);
+                        min-height: 450px;
+                        height: calc(85vh - 100px);
                         border-radius: 8px;
                       }
                     }
