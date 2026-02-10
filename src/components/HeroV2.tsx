@@ -132,7 +132,7 @@ export function HeroV2() {
 
               <div className="relative z-10">
                 <Tabs defaultValue="callback" className="w-full">
-                  <TabsList className="grid grid-cols-2 w-full mb-5 h-auto p-1">
+                  <TabsList className="grid grid-cols-2 w-full mb-4 h-auto p-1">
                     <TabsTrigger 
                       value="callback" 
                       className="flex items-center gap-2 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
@@ -149,15 +149,15 @@ export function HeroV2() {
                     </TabsTrigger>
                   </TabsList>
 
-                  <div className="min-h-[400px] flex flex-col">
+                  <div className="min-h-[380px] flex flex-col">
                     <TabsContent value="callback" className="mt-0 flex-1 data-[state=inactive]:hidden animate-fade-in">
                       <MultiStepForm formSource="hero" />
                     </TabsContent>
 
                     <TabsContent value="calendar" className="mt-0 flex-1 data-[state=inactive]:hidden animate-fade-in">
-                      <div className="text-center space-y-4 flex flex-col items-center justify-center min-h-[360px]">
-                        <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-                          <CalendarDays className="w-7 h-7 text-primary" />
+                      <div className="text-center space-y-3 flex flex-col items-center justify-center min-h-[340px]">
+                        <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                          <CalendarDays className="w-6 h-6 text-primary" />
                         </div>
                         <div>
                           <h3 className="text-lg font-bold text-foreground mb-1">

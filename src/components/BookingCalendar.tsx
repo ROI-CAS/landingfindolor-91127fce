@@ -54,7 +54,7 @@ export function BookingCalendar() {
           className="max-w-2xl mx-auto"
         >
           <Tabs defaultValue="callback" className="w-full">
-            <TabsList className="grid grid-cols-2 w-full max-w-md mx-auto mb-8 h-auto p-1">
+            <TabsList className="grid grid-cols-2 w-full max-w-md mx-auto mb-6 h-auto p-1">
               <TabsTrigger 
                 value="callback" 
                 className="flex items-center gap-2 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
@@ -74,7 +74,7 @@ export function BookingCalendar() {
             </TabsList>
 
             {/* Tab 1: Callback form */}
-            <div className="min-h-[480px]">
+            <div className="min-h-[440px]">
               <TabsContent value="callback" className="mt-0 data-[state=inactive]:hidden animate-fade-in">
                 <Card className="border-border/60 shadow-xl">
                   <CardContent className="p-6 md:p-8">
@@ -87,9 +87,9 @@ export function BookingCalendar() {
               <TabsContent value="calendar" className="mt-0 data-[state=inactive]:hidden animate-fade-in">
                 <Card className="border-border/60 shadow-xl">
                   <CardContent className="p-6 md:p-8">
-                    <div className="text-center space-y-6 flex flex-col items-center justify-center min-h-[400px]">
-                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-                        <CalendarDays className="w-8 h-8 text-primary" />
+                    <div className="text-center space-y-4 flex flex-col items-center justify-center min-h-[360px]">
+                       <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                         <CalendarDays className="w-7 h-7 text-primary" />
                       </div>
                       
                       <div>

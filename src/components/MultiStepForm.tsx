@@ -127,7 +127,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
   return (
     <div className="w-full max-w-lg mx-auto">
       {/* Progress Steps */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-5">
         {steps.map((step, index) => (
           <div key={step.id} className="flex items-center">
             <div
@@ -165,7 +165,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
         >
           {currentStep === 1 && (
             <div className="space-y-3">
-              <div className="text-center mb-4">
+              <div className="text-center mb-3">
                 <h3 className="text-xl font-bold text-foreground">
                   ¿Qué tipo de atención necesitas?
                 </h3>
@@ -204,7 +204,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
 
           {currentStep === 2 && (
             <div className="space-y-3">
-              <div className="text-center mb-4">
+              <div className="text-center mb-3">
                 <h3 className="text-lg font-bold text-foreground">
                   Selecciona tu cobertura
                 </h3>
@@ -251,7 +251,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
 
           {currentStep === 3 && (
             <div className="space-y-3">
-              <div className="text-center mb-4">
+              <div className="text-center mb-3">
                 <h3 className="text-lg font-bold text-foreground">
                   Tus datos de contacto
                 </h3>
