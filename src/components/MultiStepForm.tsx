@@ -209,7 +209,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
                   Selecciona tu cobertura
                 </h3>
                 <p className="text-muted-foreground text-sm mt-1">
-                  Selecciona tu forma de pago
+                  Elige cómo cubrirás tu consulta
                 </p>
               </div>
               <div className="space-y-2">
