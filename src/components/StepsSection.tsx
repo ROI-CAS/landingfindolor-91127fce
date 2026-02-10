@@ -37,7 +37,7 @@ export function StepsSection() {
             Reserva Tu Cita en 3 Sencillos Pasos
           </h2>
           <p className="section-subheading mx-auto">
-            Agendar tu valoración es fácil y rápido.
+            Agendar tu valoración médica es fácil y rápido.
           </p>
         </motion.div>
 

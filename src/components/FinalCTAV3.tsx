@@ -54,7 +54,7 @@ export function FinalCTAV3() {
               className="bg-background text-primary hover:bg-background/95 text-base md:text-lg px-6 md:px-8 py-5 md:py-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl"
             >
               <a href="#agendar">
-                Agendar Valoración
+                Agendar Valoración Médica
                 <ArrowRight className="w-5 h-5 ml-2" />
               </a>
             </Button>

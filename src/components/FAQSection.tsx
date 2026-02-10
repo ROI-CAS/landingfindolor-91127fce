@@ -17,7 +17,7 @@ const faqCategories = [
       {
         question: "¿Puedo agendar mi primera cita sin remisión médica?",
         answer:
-          "Sí, puedes agendar tu valoración inicial directamente con nosotros sin necesidad de una remisión previa. Nuestro equipo médico realizará una evaluación completa para determinar el mejor plan de tratamiento para tu caso.",
+          "Sí, puedes agendar tu valoración médica inicial directamente con nosotros sin necesidad de una remisión previa. Nuestro equipo médico realizará una evaluación completa para determinar el mejor plan de tratamiento para tu caso.",
       },
       {
         question: "¿Cómo agendo una cita?",

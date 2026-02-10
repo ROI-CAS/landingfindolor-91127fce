@@ -138,7 +138,7 @@ export function BookingCalendar() {
                 Selecciona fecha y hora
               </DrawerTitle>
               <p className="text-sm text-primary-foreground/80">
-                Elige el momento más conveniente para tu valoración
+                Elige el momento más conveniente para tu valoración médica
               </p>
             </DrawerHeader>
             

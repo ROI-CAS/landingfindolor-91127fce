@@ -41,7 +41,7 @@ export function FinalCTAV2() {
               className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6 rounded-xl shadow-lg"
             >
               <a href="#agendar">
-                Solicitar Valoración
+                Solicitar Valoración Médica
                 <ArrowRight className="w-5 h-5 ml-2" />
               </a>
             </Button>

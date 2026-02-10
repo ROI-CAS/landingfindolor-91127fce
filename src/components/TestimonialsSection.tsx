@@ -48,7 +48,7 @@ export function TestimonialsSection() {
           <p className="section-subheading mx-auto">
             Nuestros pacientes destacan la atención profesional, el
             acompañamiento humano y la confianza que sienten al recibir
-            valoración en Findolor.
+            valoración médica en FinDolor.
           </p>
         </motion.div>
 

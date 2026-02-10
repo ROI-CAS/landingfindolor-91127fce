@@ -171,7 +171,7 @@ export function HeroV3() {
                   Agenda tu Valoración Médica
                 </h2>
                 <p className="text-sm text-muted-foreground">
-                  Primera consulta sin compromiso
+                  Te contactamos para agendar tu cita
                 </p>
               </div>
               <MultiStepFormV3 />
