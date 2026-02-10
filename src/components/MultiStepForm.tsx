@@ -259,7 +259,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
                   Para confirmar tu cita
                 </p>
               </div>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <div className="space-y-2">
                   <Label htmlFor="nombre" className="flex items-center gap-2">
                     <User className="w-4 h-4" /> Nombre completo
