@@ -6,25 +6,25 @@ const steps = [
     icon: ClipboardCheck,
     number: "01",
     title: "Agenda tu Cita",
-    description: "Completa el formulario y te contactamos en menos de 2 horas para confirmar.",
+    description: "Completa el formulario y te contactaremos lo antes posible para confirmar.",
   },
   {
     icon: Stethoscope,
     number: "02",
     title: "Valoración Inicial",
-    description: "Evaluación integral con nuestros especialistas para entender tu caso.",
+    description: "Evaluación integral para entender tu caso y tus objetivos de manejo.",
   },
   {
     icon: Pill,
     number: "03",
     title: "Plan de Tratamiento",
-    description: "Diseñamos un plan personalizado con las mejores opciones para tu caso.",
+    description: "Definimos un plan personalizado con las opciones más adecuadas para ti.",
   },
   {
     icon: HeartPulse,
     number: "04",
     title: "Acompañamiento Continuo",
-    description: "Te acompañamos durante tu proceso de recuperación con seguimiento personalizado.",
+    description: "Seguimiento y ajustes según tu evolución, con acompañamiento cercano durante el proceso.",
   },
 ];
 
