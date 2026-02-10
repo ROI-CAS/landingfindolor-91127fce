@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const logo = "/images/findolor-logo.svg";
+const logo = "/images/findolor-logo.png";
 const PHONE_NUMBER = "573186912799";
 
 export function StickyHeader() {

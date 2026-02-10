@@ -90,11 +90,6 @@ const faqCategories = [
         answer:
           "Estamos ubicados en la Carrera 16 # 97-46, Edificio Torre 97, Torre 2, Consultorios 705-706, en Bogotá. La zona cuenta con parqueadero disponible y nuestras instalaciones tienen accesibilidad para personas con movilidad reducida.",
       },
-      {
-        question: "¿Atienden por aseguradora o modalidad particular?",
-        answer:
-          "Atendemos únicamente en modalidad particular. No gestionamos trámites con aseguradoras ni procesos de reembolso. Aceptamos pagos en efectivo, tarjetas débito/crédito y transferencia bancaria.",
-      },
     ],
   },
 ];
