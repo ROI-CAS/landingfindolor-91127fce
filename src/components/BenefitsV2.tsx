@@ -13,11 +13,6 @@ const benefits = [
     description: "Entendemos tu dolor. Cada paciente recibe un trato personalizado y empático.",
   },
   {
-    icon: Brain,
-    title: "Enfoque Multidisciplinario",
-    description: "Médicos, fisioterapeutas y psicólogos trabajando juntos por tu bienestar.",
-  },
-  {
     icon: Users,
     title: "Equipo con +20 Años",
     description: "Experiencia sólida en el manejo clínico del dolor y cuidados paliativos.",
