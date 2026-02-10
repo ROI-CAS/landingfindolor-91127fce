@@ -165,7 +165,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
         >
           {currentStep === 1 && (
             <div className="space-y-3">
-              <div className="text-center mb-4">
+              <div className="text-center mb-3">
                 <h3 className="text-xl font-bold text-foreground">
                   ¿Qué tipo de atención necesitas?
                 </h3>
