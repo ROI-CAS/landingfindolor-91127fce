@@ -187,7 +187,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
                           : "border-border hover:border-primary/50"
                       }`}
                     >
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 transition-colors ${
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-1.5 transition-colors ${
                         isSelected ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"
                       }`}>
                         <esp.icon className="w-6 h-6" />
