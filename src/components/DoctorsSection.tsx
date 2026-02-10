@@ -26,13 +26,13 @@ export function DoctorsSection() {
           className="text-center mb-12"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-            Director Médico
+            Gerente General
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4">
-            Especialista de Clase Mundial
+            Especialista con amplia experiencia
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Con más de 20 años de experiencia y formación internacional en las mejores instituciones
+            Más de 20 años de práctica clínica y actualización continua con formación internacional
           </p>
         </motion.div>
 
