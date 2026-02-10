@@ -212,19 +212,19 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
                   Elige cómo cubrirás tu consulta
                 </p>
               </div>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 gap-2">
                 {entidades.map((ent) => (
                   <button
                     key={ent.id}
                     type="button"
                     onClick={() => updateFormData("entidad", ent.id)}
-                    className={`w-full p-4 rounded-xl border-2 text-left transition-all duration-200 flex items-center justify-between ${
+                    className={`p-2.5 rounded-xl border-2 text-center transition-all duration-200 ${
                       formData.entidad === ent.id
                         ? "border-primary bg-primary/10 shadow-md"
                         : "border-border hover:border-primary/50"
                     }`}
                   >
-                    <span className="font-medium text-foreground">
+                    <span className="font-medium text-sm text-foreground">
                       {ent.label}
                     </span>
                   </button>
