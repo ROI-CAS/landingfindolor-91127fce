@@ -16,7 +16,7 @@ const badges = [
   },
   {
     icon: BadgeCheck,
-    text: "Médicos Verificados",
+    text: "Médicos especializados",
   },
 ];
 
