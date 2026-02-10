@@ -1,6 +1,11 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MultiStepForm } from "./MultiStepForm";
-import { Shield, Clock, Award, ChevronDown } from "lucide-react";
+import { Shield, Clock, Award, ChevronDown, Phone, CalendarDays, ArrowRight, Calendar, CheckCircle } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 import heroImage from "@/assets/hero-latina.jpg";
 
@@ -13,6 +18,20 @@ const trustPoints = [
 ];
 
 export function HeroV2() {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  useEffect(() => {
+    if (drawerOpen) {
+      const existingScript = document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]');
+      if (!existingScript) {
+        const script = document.createElement("script");
+        script.src = "https://link.msgsndr.com/js/form_embed.js";
+        script.type = "text/javascript";
+        script.async = true;
+        document.body.appendChild(script);
+      }
+    }
+  }, [drawerOpen]);
   const scrollToContent = () => {
     window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
   };
@@ -94,7 +113,7 @@ export function HeroV2() {
           >
             {/* Glassmorphism card */}
             <div
-              className="relative rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden"
+              className="relative rounded-3xl p-5 md:p-7 shadow-2xl overflow-hidden"
               style={{
                 background: "hsla(0, 0%, 100%, 0.92)",
                 backdropFilter: "blur(20px)",
@@ -112,19 +131,115 @@ export function HeroV2() {
               />
 
               <div className="relative z-10">
-                <div className="text-center mb-6">
-                  <h2 className="text-xl font-bold text-foreground mb-1">
-                    Solicita tu Valoración Médica
-                  </h2>
-                  <p className="text-sm text-muted-foreground">
-                    Te contactamos para agendar tu cita
-                  </p>
-                </div>
-                <MultiStepForm />
+                <Tabs defaultValue="callback" className="w-full">
+                  <TabsList className="grid grid-cols-2 w-full mb-5 h-auto p-1">
+                    <TabsTrigger 
+                      value="callback" 
+                      className="flex items-center gap-2 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                    >
+                      <Phone className="w-4 h-4" />
+                      <span>Te llamamos</span>
+                    </TabsTrigger>
+                    <TabsTrigger 
+                      value="calendar" 
+                      className="flex items-center gap-2 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                    >
+                      <CalendarDays className="w-4 h-4" />
+                      <span>Prefiero elegir</span>
+                    </TabsTrigger>
+                  </TabsList>
+
+                  <TabsContent value="callback" className="mt-0">
+                    <MultiStepForm formSource="hero" />
+                  </TabsContent>
+
+                  <TabsContent value="calendar" className="mt-0">
+                    <div className="text-center space-y-5">
+                      <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                        <CalendarDays className="w-7 h-7 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-foreground mb-1">
+                          Elige tu horario ideal
+                        </h3>
+                        <p className="text-muted-foreground text-sm">
+                          Visualiza nuestra disponibilidad y selecciona el día y hora que mejor se ajuste a ti
+                        </p>
+                      </div>
+                      <div className="grid grid-cols-3 gap-2 text-left">
+                        {[
+                          { icon: Clock, text: "Confirmación inmediata" },
+                          { icon: Calendar, text: "Horarios flexibles" },
+                          { icon: CheckCircle, text: "Sin filas ni esperas" },
+                        ].map((item, index) => (
+                          <div key={index} className="flex items-center gap-1.5 text-xs text-muted-foreground bg-muted/50 rounded-lg py-2 px-2.5">
+                            <item.icon className="w-3.5 h-3.5 text-primary shrink-0" />
+                            <span>{item.text}</span>
+                          </div>
+                        ))}
+                      </div>
+                      <Button 
+                        size="lg" 
+                        className="w-full btn-cta"
+                        onClick={() => setDrawerOpen(true)}
+                      >
+                        Abrir Calendario
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </div>
+                  </TabsContent>
+                </Tabs>
+
+                <p className="text-center text-xs text-muted-foreground mt-4">
+                  🔒 Tu información está protegida. Recibirás confirmación por WhatsApp y correo electrónico.
+                </p>
               </div>
             </div>
           </motion.div>
         </div>
+
+        {/* Drawer with calendar iframe */}
+        <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
+          <DrawerContent className="h-[95vh]">
+            <DrawerHeader className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-t-[10px] -mt-2 mx-0">
+              <DrawerTitle className="flex items-center gap-2 text-lg">
+                <Calendar className="w-5 h-5" />
+                Selecciona fecha y hora
+              </DrawerTitle>
+              <p className="text-sm text-primary-foreground/80">
+                Elige el momento más conveniente para tu valoración médica
+              </p>
+            </DrawerHeader>
+            <div className="p-4 md:p-6 overflow-y-auto flex-1">
+              {drawerOpen && (
+                <div className="booking-calendar-wrapper">
+                  <style>{`
+                    .booking-calendar-wrapper iframe {
+                      width: 100%;
+                      min-height: 700px;
+                      height: calc(95vh - 120px);
+                      border: none;
+                      border-radius: 12px;
+                      background: white;
+                    }
+                    @media (max-width: 768px) {
+                      .booking-calendar-wrapper iframe {
+                        min-height: 600px;
+                        height: calc(90vh - 100px);
+                        border-radius: 8px;
+                      }
+                    }
+                  `}</style>
+                  <iframe 
+                    src="https://api.leadconnectorhq.com/widget/booking/eXMBIpszBnRoCNW5sp4N" 
+                    id="hero-calendar-iframe"
+                    title="Calendario de citas Findolor"
+                  />
+                </div>
+              )}
+            </div>
+          </DrawerContent>
+        </Drawer>
 
         {/* Scroll indicator */}
         <motion.button
