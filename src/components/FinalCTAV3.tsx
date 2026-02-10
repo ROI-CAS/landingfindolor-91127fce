@@ -37,7 +37,7 @@ export function FinalCTAV3() {
 
           <p className="text-base sm:text-lg md:text-xl text-primary-foreground/80 mb-8 md:mb-10 leading-relaxed">
             Nuestro equipo está listo para acompañarte. Agenda tu valoración
-            inicial y descubre cómo podemos ayudarte.
+            médica inicial y descubre cómo podemos ayudarte.
           </p>
 
           {/* CTAs */}
