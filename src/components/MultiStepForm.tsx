@@ -381,7 +381,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
       </AnimatePresence>
 
       {/* Navigation Buttons */}
-      <div className="flex gap-3 mt-6">
+      <div className="flex gap-3 mt-4">
         {currentStep > 1 && (
           <Button
             type="button"

@@ -89,7 +89,7 @@ export function BenefitsV2() {
           </motion.div>
 
           {/* Right - Benefits Grid */}
-          <div className="grid sm:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-3 gap-4 items-start">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
@@ -97,15 +97,15 @@ export function BenefitsV2() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-5 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                className="p-5 rounded-2xl bg-card border border-border hover:border-primary/20 hover:shadow-md transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <benefit.icon className="w-6 h-6 text-primary" />
+                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
+                  <benefit.icon className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">
+                <h3 className="font-semibold text-foreground text-sm mb-1.5">
                   {benefit.title}
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs text-muted-foreground leading-relaxed">
                   {benefit.description}
                 </p>
               </motion.div>
