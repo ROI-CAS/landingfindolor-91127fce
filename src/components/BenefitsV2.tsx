@@ -54,8 +54,8 @@ export function BenefitsV2() {
             </span>
             
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">
-              Centro Especializado en{" "}
-              <span className="text-gradient">Manejo del Dolor</span>
+              IPS especializada en{" "}
+              <span className="text-gradient">dolor crónico y cuidados paliativos</span>
             </h2>
             
             <p className="text-muted-foreground text-lg mb-8">
