@@ -149,13 +149,13 @@ export function HeroV2() {
                     </TabsTrigger>
                   </TabsList>
 
-                  <div className="min-h-[420px] flex flex-col">
+                  <div className="min-h-[400px] flex flex-col">
                     <TabsContent value="callback" className="mt-0 flex-1 data-[state=inactive]:hidden animate-fade-in">
                       <MultiStepForm formSource="hero" />
                     </TabsContent>
 
                     <TabsContent value="calendar" className="mt-0 flex-1 data-[state=inactive]:hidden animate-fade-in">
-                      <div className="text-center space-y-5 flex flex-col items-center justify-center min-h-[380px]">
+                      <div className="text-center space-y-4 flex flex-col items-center justify-center min-h-[360px]">
                         <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
                           <CalendarDays className="w-7 h-7 text-primary" />
                         </div>

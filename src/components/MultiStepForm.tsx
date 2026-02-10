@@ -127,7 +127,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
   return (
     <div className="w-full max-w-lg mx-auto">
       {/* Progress Steps */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-6">
         {steps.map((step, index) => (
           <div key={step.id} className="flex items-center">
             <div
@@ -164,8 +164,8 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
           transition={{ duration: 0.3 }}
         >
           {currentStep === 1 && (
-            <div className="space-y-4">
-              <div className="text-center mb-6">
+            <div className="space-y-3">
+              <div className="text-center mb-4">
                 <h3 className="text-xl font-bold text-foreground">
                   ¿Qué tipo de atención necesitas?
                 </h3>
@@ -173,7 +173,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
                   Selecciona la especialidad que mejor se adapte a tu situación
                 </p>
               </div>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-2">
                 {especialidades.map((esp) => {
                   const isSelected = formData.especialidad === esp.id;
                   return (
@@ -181,16 +181,16 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
                       key={esp.id}
                       type="button"
                       onClick={() => updateFormData("especialidad", esp.id)}
-                      className={`p-4 rounded-xl border-2 text-center transition-all duration-200 hover:scale-[1.02] ${
+                      className={`p-3 rounded-xl border-2 text-center transition-all duration-200 hover:scale-[1.02] ${
                         isSelected
                           ? "border-primary bg-primary/10 shadow-md"
                           : "border-border hover:border-primary/50"
                       }`}
                     >
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 transition-colors ${
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-1.5 transition-colors ${
                         isSelected ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"
                       }`}>
-                        <esp.icon className="w-6 h-6" />
+                        <esp.icon className="w-5 h-5" />
                       </div>
                       <span className="font-medium text-sm text-foreground">
                         {esp.label}
@@ -203,9 +203,9 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
           )}
 
           {currentStep === 2 && (
-            <div className="space-y-4">
-              <div className="text-center mb-6">
-                <h3 className="text-xl font-bold text-foreground">
+            <div className="space-y-3">
+              <div className="text-center mb-4">
+                <h3 className="text-lg font-bold text-foreground">
                   Selecciona tu cobertura
                 </h3>
                 <p className="text-muted-foreground text-sm mt-1">
@@ -250,16 +250,16 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
           )}
 
           {currentStep === 3 && (
-            <div className="space-y-4">
-              <div className="text-center mb-6">
-                <h3 className="text-xl font-bold text-foreground">
+            <div className="space-y-3">
+              <div className="text-center mb-4">
+                <h3 className="text-lg font-bold text-foreground">
                   Tus datos de contacto
                 </h3>
                 <p className="text-muted-foreground text-sm mt-1">
                   Para confirmar tu cita
                 </p>
               </div>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <div className="space-y-2">
                   <Label htmlFor="nombre" className="flex items-center gap-2">
                     <User className="w-4 h-4" /> Nombre completo
@@ -316,9 +316,9 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
           )}
 
           {currentStep === 4 && (
-            <div className="space-y-6">
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="space-y-4">
+              <div className="text-center mb-3">
+                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                   <Sparkles className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground">
@@ -381,7 +381,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
       </AnimatePresence>
 
       {/* Navigation Buttons */}
-      <div className="flex gap-3 mt-8">
+      <div className="flex gap-3 mt-6">
         {currentStep > 1 && (
           <Button
             type="button"
