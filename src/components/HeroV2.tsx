@@ -7,6 +7,7 @@ import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import heroImage from "@/assets/hero-findolor-bg.jpg";
+import heroImageMobile from "@/assets/hero-findolor-mobile.jpg";
 const logo = "/images/findolor-logo.svg";
 const trustPoints = [{
   icon: Shield,
@@ -41,7 +42,10 @@ export function HeroV2() {
   return <section className="relative min-h-screen overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img src={heroImage} alt="Paciente aliviado" className="w-full h-full object-cover" />
+        <picture>
+          <source media="(max-width: 768px)" srcSet={heroImageMobile} />
+          <img src={heroImage} alt="Paciente aliviado" className="w-full h-full object-cover" />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a2332]/95 via-[#1a2332]/80 to-[#1a2332]/60" />
       </div>
 
