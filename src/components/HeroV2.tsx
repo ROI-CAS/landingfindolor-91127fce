@@ -60,7 +60,7 @@ export function HeroV2() {
       }} transition={{
         duration: 0.5
       }} className="flex items-center justify-between mb-8">
-          <img src={logo} alt="Findolor" className="w-auto brightness-200" style={{ height: '84px', width: '120px' }} />
+          <img src={logo} alt="Findolor" className="w-auto brightness-200" style={{ width: '190px', height: 'auto' }} />
         </motion.header>
 
         {/* Main Content */}
