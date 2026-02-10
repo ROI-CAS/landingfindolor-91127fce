@@ -190,7 +190,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
                       <div className={`w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-1.5 transition-colors ${
                         isSelected ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"
                       }`}>
-                        <esp.icon className="w-6 h-6" />
+                        <esp.icon className="w-5 h-5" />
                       </div>
                       <span className="font-medium text-sm text-foreground">
                         {esp.label}
