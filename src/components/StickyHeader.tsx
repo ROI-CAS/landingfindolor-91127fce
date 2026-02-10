@@ -50,7 +50,8 @@ export function StickyHeader() {
                   <img
                     src={logo}
                     alt="Findolor"
-                    className="h-9 md:h-10 w-auto"
+                    className="w-auto"
+                    style={{ height: '58px', width: '87px' }}
                   />
                 </a>
 
