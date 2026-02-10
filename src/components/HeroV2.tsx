@@ -149,7 +149,7 @@ export function HeroV2() {
                     </TabsTrigger>
                   </TabsList>
 
-                  <div className="min-h-[420px] flex flex-col">
+                  <div className="min-h-[400px] flex flex-col">
                     <TabsContent value="callback" className="mt-0 flex-1 data-[state=inactive]:hidden animate-fade-in">
                       <MultiStepForm formSource="hero" />
                     </TabsContent>
