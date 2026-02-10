@@ -24,7 +24,7 @@ const steps = [
     icon: HeartPulse,
     number: "04",
     title: "Acompañamiento Continuo",
-    description: "Te acompañamos durante tu proceso de recuperación con seguimiento personalizado.",
+    description: "Seguimiento y ajustes según tu evolución, con acompañamiento cercano durante el proceso.",
   },
 ];
 
