@@ -59,8 +59,7 @@ export function BenefitsV2() {
             </h2>
             
             <p className="text-muted-foreground text-lg mb-8">
-              No solo tratamos el dolor, tratamos a la persona completa. 
-              Nuestro enfoque integral busca mejorar tu calidad de vida.
+              En FinDolor no ofrecemos soluciones genéricas. Evaluamos tu caso de forma integral y diseñamos un plan de manejo personalizado para aliviar el dolor, mejorar tu funcionalidad y elevar tu calidad de vida, con acompañamiento cercano en cada etapa.
             </p>
 
             {/* Guarantees */}
