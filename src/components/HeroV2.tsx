@@ -1,6 +1,11 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MultiStepForm } from "./MultiStepForm";
-import { Shield, Clock, Award, ChevronDown } from "lucide-react";
+import { Shield, Clock, Award, ChevronDown, Phone, CalendarDays, ArrowRight, Calendar, CheckCircle } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 import heroImage from "@/assets/hero-latina.jpg";
 
