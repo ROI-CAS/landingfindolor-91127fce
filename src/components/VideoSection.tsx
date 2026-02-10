@@ -89,9 +89,9 @@ export function VideoSection() {
               <span className="text-primary">el manejo del dolor</span>
             </h2>
             <p className="text-muted-foreground mb-8 text-lg">
-              Combinamos las técnicas más avanzadas de medicina del dolor con un 
-              trato humano y cercano. Cada paciente recibe un plan de tratamiento 
-              personalizado basado en su diagnóstico específico.
+              Integramos valoración clínica, diagnóstico y un plan de tratamiento 
+              personalizado para cada paciente. Priorizamos opciones seguras y 
+              mínimamente invasivas, con acompañamiento cercano durante todo el proceso:
             </p>
 
             <ul className="space-y-4">

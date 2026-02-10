@@ -325,7 +325,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
                   ¡Ya casi está!
                 </h3>
                 <p className="text-muted-foreground text-sm mt-1">
-                  Confirma tus datos para agendar
+                  Confirma tus datos para que te contactemos tan pronto como sea posible
                 </p>
               </div>
 
