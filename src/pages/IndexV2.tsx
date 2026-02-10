@@ -26,7 +26,6 @@ const IndexV2 = () => {
       <DoctorsSection />
       <ProcessTimeline />
       <BenefitsV2 />
-      <ConditionsGrid />
       <BookingCalendar />
       <FAQSection />
       <FinalCTAV2 />
