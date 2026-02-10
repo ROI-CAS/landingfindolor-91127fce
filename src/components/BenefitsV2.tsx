@@ -25,9 +25,10 @@ const benefits = [
 ];
 
 const guarantees = [
-  "Valoración médica integral",
-  "Atención personalizada sin largas esperas",
-  "Acompañamiento continuo durante tu proceso",
+  "Valoración médica integral (historia clínica, examen y definición del plan)",
+  "Plan de tratamiento personalizado según tu diagnóstico y objetivos",
+  "Atención oportuna, sin esperas innecesarias",
+  "Acompañamiento continuo y seguimiento con ajustes según tu evolución",
 ];
 
 export function BenefitsV2() {
