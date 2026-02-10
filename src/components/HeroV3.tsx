@@ -3,7 +3,7 @@ import { MultiStepFormV3 } from "./MultiStepFormV3";
 import { Shield, Clock, Award, CheckCircle, ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-relief.jpg";
 
-const logo = "/images/findolor-logo.png";
+const logo = "/images/findolor-logo.webp";
 
 const trustPoints = [
   { icon: Shield, text: "Médicos certificados" },
