@@ -6,7 +6,7 @@ const steps = [
     icon: ClipboardCheck,
     number: "01",
     title: "Agenda tu Cita",
-    description: "Completa el formulario y te contactamos en menos de 2 horas para confirmar.",
+    description: "Completa el formulario y te contactaremos lo antes posible para confirmar.",
   },
   {
     icon: Stethoscope,
