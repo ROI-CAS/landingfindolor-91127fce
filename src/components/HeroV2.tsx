@@ -6,7 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import heroImage from "@/assets/hero-latina.jpg";
+import heroImage from "@/assets/hero-findolor-bg.jpg";
 const logo = "/images/findolor-logo.svg";
 const trustPoints = [{
   icon: Shield,
