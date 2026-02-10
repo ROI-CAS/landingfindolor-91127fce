@@ -89,7 +89,7 @@ export function BenefitsV2() {
           </motion.div>
 
           {/* Right - Benefits Grid */}
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-3 gap-4">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
