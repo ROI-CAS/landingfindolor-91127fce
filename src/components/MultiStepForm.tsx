@@ -139,7 +139,7 @@ export function MultiStepForm({
         </div>
       </motion.div>;
   }
-  return <div className="w-full max-w-lg mx-auto mb-[57px]">
+  return <div className="w-full max-w-lg mx-auto my-0 mb-[35px]">
       {/* Progress Steps */}
       <div className="flex items-center justify-between mb-5">
         {steps.map((step, index) => <div key={step.id} className="flex items-center">
@@ -164,7 +164,7 @@ export function MultiStepForm({
       }} transition={{
         duration: 0.3
       }}>
-          {currentStep === 1 && <div className="space-y-3">
+          {currentStep === 1 && <div className="space-y-3 my-0">
               <div className="text-center mb-3">
                 <h3 className="text-xl font-bold text-foreground px-0 py-[16px] pt-[24px] pb-0">
                   ¿Qué tipo de atención necesitas?
@@ -173,7 +173,7 @@ export function MultiStepForm({
                   Selecciona la especialidad que mejor se adapte a tu situación
                 </p>
               </div>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-3 gap-2 mb-[42px]">
                 {especialidades.map(esp => {
               const isSelected = formData.especialidad === esp.id;
               return <button key={esp.id} type="button" onClick={() => updateFormData("especialidad", esp.id)} className={`p-3 rounded-xl border-2 text-center transition-all duration-200 hover:scale-[1.02] ${isSelected ? "border-primary bg-primary/10 shadow-md" : "border-border hover:border-primary/50"}`}>
