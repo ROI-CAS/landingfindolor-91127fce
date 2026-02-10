@@ -12,7 +12,7 @@ const steps = [
     icon: Stethoscope,
     number: "02",
     title: "Valoración Inicial",
-    description: "Evaluación integral con nuestros especialistas para entender tu caso.",
+    description: "Evaluación integral para entender tu caso y tus objetivos de manejo.",
   },
   {
     icon: Pill,
