@@ -127,7 +127,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
   return (
     <div className="w-full max-w-lg mx-auto">
       {/* Progress Steps */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-6">
         {steps.map((step, index) => (
           <div key={step.id} className="flex items-center">
             <div
