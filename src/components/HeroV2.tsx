@@ -7,6 +7,7 @@ import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import heroImage from "@/assets/hero-findolor-bg.jpg";
+import heroImageMobile from "@/assets/hero-findolor-mobile.jpg";
 const logo = "/images/findolor-logo.svg";
 const trustPoints = [{
   icon: Shield,
