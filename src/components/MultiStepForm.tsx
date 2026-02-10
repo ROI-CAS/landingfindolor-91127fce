@@ -181,7 +181,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
                       key={esp.id}
                       type="button"
                       onClick={() => updateFormData("especialidad", esp.id)}
-                      className={`p-4 rounded-xl border-2 text-center transition-all duration-200 hover:scale-[1.02] ${
+                      className={`p-3 rounded-xl border-2 text-center transition-all duration-200 hover:scale-[1.02] ${
                         isSelected
                           ? "border-primary bg-primary/10 shadow-md"
                           : "border-border hover:border-primary/50"
