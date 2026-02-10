@@ -1,35 +1,19 @@
 
-# Plan: Actualizar seccion del Doctor
+# Plan: Actualizar textos del ProcessTimeline
 
-## Cambios en `src/components/DoctorsSection.tsx`
+## Cambios en `src/components/ProcessTimeline.tsx`
 
-### 1. Titulo de la seccion
-- **Antes:** "Especialista de Clase Mundial"
-- **Despues:** "Especialista con amplia experiencia"
+Solo se actualizan las descripciones de los 4 pasos (lineas 4-29):
 
-### 2. Subtitulo de la seccion
-- **Antes:** "Con mas de 20 anos de experiencia y formacion internacional en las mejores instituciones"
-- **Despues:** "Mas de 20 anos de practica clinica y actualizacion continua con formacion internacional"
+| Paso | Antes | Despues |
+|------|-------|---------|
+| 01 | "Completa el formulario y te contactamos en menos de 2 horas para confirmar." | "Completa el formulario y te contactaremos lo antes posible para confirmar." |
+| 02 | "Evaluacion integral con nuestros especialistas para entender tu caso." | "Evaluacion integral para entender tu caso y tus objetivos de manejo." |
+| 03 | "Disenamos un plan personalizado con las mejores opciones para tu caso." | "Definimos un plan personalizado con las opciones mas adecuadas para ti." |
+| 04 | "Te acompanamos durante tu proceso de recuperacion con seguimiento personalizado." | "Seguimiento y ajustes segun tu evolucion, con acompanamiento cercano durante el proceso." |
 
-### 3. Nombre del doctor
-- **Antes:** "Dr. Luis A. Garzon"
-- **Despues:** "Dr. Luis Alberto Garzon"
-
-### 4. Biografia / ficha del doctor
-- **Antes:** "Medico Anestesiologo especialista en medicina del dolor y cuidados paliativos. Director medico de Findolor."
-- **Despues:** "Gerente General de FinDolor. Referente en manejo del dolor y cuidados paliativos en Bogota, con liderazgo en servicios de dolor en Clinica Los Nogales y el Hospital de San Jose. Cofundador y director de posgrado en Medicina del Dolor y Cuidados Paliativos (FUCS)."
-
-### 5. Certificaciones actualizadas
-- **Antes:** ASRA, IASP, ACED
-- **Despues:** ACED, IASP, IAHPC, SCARE (segun la nueva informacion proporcionada)
-
-### 6. Etiqueta de rol
-- Cambiar la etiqueta superior de "Director Medico" a "Gerente General" para alinearse con la nueva ficha
-
----
+Los titulos, iconos y estructura visual se mantienen sin cambios.
 
 ## Detalle tecnico
 
-Solo se modifica el archivo `src/components/DoctorsSection.tsx`:
-- Actualizar el objeto `doctor` (lineas 6-16) con el nuevo nombre, bio y certificaciones
-- Actualizar los textos del encabezado de la seccion (lineas 28-36)
+Se modifica unicamente el array `steps` en las lineas 4-29 del archivo `src/components/ProcessTimeline.tsx`, actualizando el campo `description` de cada paso.
