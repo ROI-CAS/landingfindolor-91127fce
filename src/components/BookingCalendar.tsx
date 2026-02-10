@@ -74,7 +74,7 @@ export function BookingCalendar() {
             </TabsList>
 
             {/* Tab 1: Callback form */}
-            <div className="min-h-[480px]">
+            <div className="min-h-[440px]">
               <TabsContent value="callback" className="mt-0 data-[state=inactive]:hidden animate-fade-in">
                 <Card className="border-border/60 shadow-xl">
                   <CardContent className="p-6 md:p-8">
