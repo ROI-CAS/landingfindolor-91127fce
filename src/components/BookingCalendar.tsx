@@ -133,8 +133,8 @@ export function BookingCalendar() {
 
         {/* Drawer with calendar iframe */}
         <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
-          <DrawerContent className="h-[95vh]">
-            <DrawerHeader className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-t-[10px] -mt-2 mx-0">
+          <DrawerContent className="h-[85vh] md:h-[80vh] max-w-4xl mx-auto md:rounded-t-2xl">
+            <DrawerHeader className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-t-[10px] md:rounded-t-2xl -mt-2 mx-0">
               <DrawerTitle className="flex items-center gap-2 text-lg">
                 <Calendar className="w-5 h-5" />
                 Selecciona fecha y hora
@@ -144,7 +144,7 @@ export function BookingCalendar() {
               </p>
             </DrawerHeader>
             
-            <div className="p-4 md:p-6 overflow-y-auto flex-1">
+            <div className="p-3 md:p-6 overflow-y-auto flex-1">
               {drawerOpen && (
                 <div className="booking-calendar-wrapper">
                   <style>{`
