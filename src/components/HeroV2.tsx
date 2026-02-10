@@ -132,7 +132,7 @@ export function HeroV2() {
 
               <div className="relative z-10">
                 <Tabs defaultValue="callback" className="w-full">
-                  <TabsList className="grid grid-cols-2 w-full mb-5 h-auto p-1">
+                  <TabsList className="grid grid-cols-2 w-full mb-4 h-auto p-1">
                     <TabsTrigger 
                       value="callback" 
                       className="flex items-center gap-2 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
