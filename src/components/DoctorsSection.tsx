@@ -65,9 +65,9 @@ export function DoctorsSection() {
                     <h3 className="text-2xl font-bold text-foreground">{doctor.name}</h3>
                     <p className="text-primary font-medium">{doctor.specialty}</p>
                   </div>
-                  <button className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="https://www.linkedin.com/in/luis-alberto-garz%C3%B3n-fern%C3%A1ndez-214908126/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                     <Linkedin className="w-5 h-5" />
-                  </button>
+                  </a>
                 </div>
 
                 <p className="text-muted-foreground mb-6">{doctor.bio}</p>
