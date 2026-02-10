@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
-const logo = "/images/findolor-logo.svg";
+const logo = "/images/findolor-logo.png";
 
 export function Footer() {
   return (
