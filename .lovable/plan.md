@@ -1,55 +1,63 @@
 
 
-# Plan: Ajustes al Hero y Formulario
+# Plan: Ajustes al Formulario, Trust Badges, VideoSection y Calificacion Google
 
 ## Lista de Cambios
 
-### En `src/components/HeroV2.tsx`
+### 1. Formulario (`MultiStepForm.tsx`)
+- **Eliminar subtitulo "Selecciona tu forma de pago"** de la linea 212-213 en el paso 2
+- **Hacer las coberturas mas compactas**: reducir el padding de `p-4` a `p-2.5`, usar un grid de 2 columnas en vez de una lista vertical para que ocupe menos espacio
+- **Cambiar texto de confirmacion** (paso 4, linea 328): de "Confirma tus datos para agendar" a "Confirma tus datos para que te contactemos tan pronto como sea posible"
 
-1. **Eliminar "4.9/5 en Google Reviews"** del header superior (lineas 45-48)
-2. **Cambiar titulo** de "Especialistas en Manejo del Dolor" a "Especialistas en el **Manejo del Dolor Cronico y Cuidados Paliativos**"
-3. **Cambiar descripcion** por el nuevo texto de IPS con formato adecuado (separado en frases claras)
-4. **Cambiar "Medicos certificados"** por "Medicos especialistas en tratamiento del dolor cronico"
-5. **Cambiar "Respuesta en menos de 2 horas"** por "Respuesta oportuna"
-6. **Eliminar import de Star** (ya no se usa)
+### 2. Trust Badges (`TrustBadges.tsx`)
+- **Cambiar "Medicos Verificados"** por "Medicos especializados" (linea 19)
 
-### En `src/components/MultiStepForm.tsx`
+### 3. Calificacion de Google (recomendacion)
+- **No agregar el 3.7/5** de forma prominente. Una calificacion de 3.7 puede generar desconfianza en lugar de reforzar credibilidad. Se recomienda:
+  - Eliminar la estadistica "4.9/5 Calificacion en Google" que aparece actualmente en `SocialProofV2.tsx` (linea 48), ya que es incorrecta
+  - Reemplazarla por otra metrica de valor como "500+" pacientes atendidos o simplemente eliminarla
+  - Mantener las resenas individuales (que son de 4 y 5 estrellas) sin mostrar el promedio general
 
-7. **Reemplazar iconos emoji** por iconos Lucide premium/sofisticados:
-   - Medicina del dolor: `Heart` o `Activity` (monitor medico)
-   - Cuidados paliativos: `HandHeart` o `HeartHandshake`
-   - Anestesia: `Syringe`
-8. **Cambiar titulo paso 2** de "Como pagaras tu consulta?" a "Selecciona tu cobertura"
-9. **Quitar etiqueta "Sin esperas"** de la opcion Particular
-10. **Agregar opcion "Otro: especifica"** al listado de entidades con un campo de texto condicional que aparece al seleccionarla
+### 4. VideoSection (`VideoSection.tsx`)
+- **Reemplazar el parrafo descriptivo** (lineas 91-95) por: "Integramos valoracion clinica, diagnostico y un plan de tratamiento personalizado para cada paciente. Priorizamos opciones seguras y minimamente invasivas, con acompanamiento cercano durante todo el proceso:"
+- **Reemplazar los 4 beneficios** (lineas 6-11) por:
+  - Valoracion medica integral (historia clinica, examen y definicion del plan)
+  - Opciones de tratamiento minimamente invasivas segun cada caso
+  - Seguimiento continuo y personalizado durante tu evolucion
+  - Atencion especializada y coordinada entre las areas de dolor y cuidados paliativos
 
 ---
 
 ## Detalle Tecnico
 
-### Iconos premium para especialidades (paso 1)
+### Coberturas compactas (paso 2 del formulario)
 
-Se reemplazaran los emojis por iconos Lucide con un estilo mas refinado dentro de circulos con fondo degradado:
+El diseno actual usa botones de ancho completo apilados verticalmente con `p-4`, lo cual hace que el formulario se vea largo. Se cambiara a:
 
 ```text
-Antes:  💊 Medicina del dolor   🤲 Cuidados paliativos   💉 Anestesia
-Despues: Activity (icono)       HeartHandshake (icono)   Syringe (icono)
+Antes (vertical, 6 filas):
+[Particular          ]
+[Allianz             ]
+[Seguros Bolivar     ]
+[Seguros Alfa        ]
+[Sura                ]
+[Otro                ]
+
+Despues (grid 2 columnas, 3 filas):
+[Particular] [Allianz        ]
+[Seg.Bolivar] [Seguros Alfa  ]
+[Sura       ] [Otro          ]
 ```
 
-Los iconos se renderizaran dentro de un contenedor circular con fondo `bg-primary/10` y color `text-primary`, cambiando a `bg-primary text-white` cuando esten seleccionados.
+Se reduce el padding a `p-2.5` y se usa `grid grid-cols-2 gap-2` para compactar visualmente.
 
-### Campo "Otro" en entidades (paso 2)
+### Calificacion Google - Justificacion
 
-Se agrega una nueva opcion al array de entidades:
-- `{ id: "otro", label: "Otro" }`
+Una calificacion de 3.7/5 esta por debajo del umbral psicologico de confianza (generalmente 4.0+). Mostrarla podria ser contraproducente. En su lugar, se eliminara el "4.9/5" incorrecto del `SocialProofV2` y se reemplazara por una metrica mas neutral como "500+ Pacientes atendidos".
 
-Cuando el usuario seleccione "Otro", aparecera un campo de texto debajo para que especifique su cobertura. Se agregara un campo `entidadOtra` al estado del formulario.
-
-### Formato del texto descriptivo del Hero
-
-El texto largo se formateara con saltos visuales claros:
-
-> IPS especializada en dolor cronico y cuidados paliativos en Bogota. En FinDolor realizamos valoracion medica, diagnostico y tratamiento con enfoque integral, combinando estrategias farmacologicas e intervencionistas segun cada paciente. Acompanamos de forma cercana y segura a pacientes y familias durante todo el proceso.
-
-Se ajustara el `max-w` para que el texto no quede demasiado estrecho y se usara un tamano de fuente ligeramente menor (`text-base md:text-lg`) para que fluya mejor visualmente.
+### Archivos a modificar
+1. `src/components/MultiStepForm.tsx` - Formulario compacto y texto de confirmacion
+2. `src/components/TrustBadges.tsx` - Cambiar "Verificados" por "especializados"
+3. `src/components/SocialProofV2.tsx` - Corregir/eliminar calificacion falsa
+4. `src/components/VideoSection.tsx` - Nuevo texto descriptivo y beneficios
 
