@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 import { MultiStepForm } from "./MultiStepForm";
-import { Shield, Clock, Award, Star, ChevronDown } from "lucide-react";
+import { Shield, Clock, Award, ChevronDown } from "lucide-react";
 
 import heroImage from "@/assets/hero-latina.jpg";
 
 const logo = "/images/findolor-logo.svg";
 
 const trustPoints = [
-  { icon: Shield, text: "Médicos certificados" },
-  { icon: Clock, text: "Respuesta en menos de 2 horas" },
+  { icon: Shield, text: "Médicos especialistas en tratamiento del dolor crónico" },
+  { icon: Clock, text: "Respuesta oportuna" },
   { icon: Award, text: "+20 años experiencia" },
 ];
 
@@ -42,10 +42,6 @@ export function HeroV2() {
             alt="Findolor"
             className="h-12 md:h-14 w-auto brightness-200"
           />
-          <div className="hidden md:flex items-center gap-2 text-white/80">
-            <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-            <span className="text-sm">4.9/5 en Google Reviews</span>
-          </div>
         </motion.header>
 
         {/* Main Content */}
@@ -58,14 +54,16 @@ export function HeroV2() {
             className="text-white"
           >
 
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Especialistas en{" "}
-              <span className="text-secondary">Manejo del Dolor</span>
+            <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+              Especialistas en el{" "}
+              <span className="text-secondary">Manejo del Dolor Crónico y Cuidados Paliativos</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg">
-              Centro especializado en diagnóstico y tratamiento del dolor en Bogotá. 
-              Confía en nuestro equipo médico certificado.
+            <p className="text-base md:text-lg text-white/80 mb-8 max-w-xl leading-relaxed">
+              IPS especializada en dolor crónico y cuidados paliativos en Bogotá. En FinDolor realizamos valoración médica, diagnóstico y tratamiento con enfoque integral, combinando estrategias farmacológicas e intervencionistas según cada paciente.
+              <span className="block mt-3">
+                Acompañamos de forma cercana y segura a pacientes y familias durante todo el proceso.
+              </span>
             </p>
 
             {/* Trust Points */}

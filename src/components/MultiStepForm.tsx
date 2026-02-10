@@ -10,7 +10,10 @@ import {
   Stethoscope,
   Building2,
   MessageSquare,
-  Sparkles
+  Sparkles,
+  Activity,
+  HeartHandshake,
+  Syringe
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,17 +23,18 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useAppointments } from "@/context/AppointmentContext";
 
 const especialidades = [
-  { id: "dolor", label: "Medicina del dolor", icon: "💊" },
-  { id: "paliativos", label: "Cuidados paliativos", icon: "🤲" },
-  { id: "anestesia", label: "Anestesia", icon: "💉" },
+  { id: "dolor", label: "Medicina del dolor", icon: Activity },
+  { id: "paliativos", label: "Cuidados paliativos", icon: HeartHandshake },
+  { id: "anestesia", label: "Anestesia", icon: Syringe },
 ];
 
 const entidades = [
-  { id: "particular", label: "Particular", highlight: true },
+  { id: "particular", label: "Particular" },
   { id: "allianz", label: "Allianz" },
   { id: "bolivar", label: "Seguros Bolívar" },
   { id: "alfa", label: "Seguros Alfa" },
   { id: "sura", label: "Sura" },
+  { id: "otro", label: "Otro" },
 ];
 
 const steps = [
@@ -51,6 +55,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
   const [formData, setFormData] = useState({
     especialidad: "",
     entidad: "",
+    entidadOtra: "",
     nombre: "",
     telefono: "",
     email: "",
@@ -73,7 +78,6 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
   const handleSubmit = () => {
     if (!formData.acceptedPolicies) return;
     
-    // Log para analytics - permite diferenciar leads por ubicación
     console.log("[Lead] Form submitted", {
       source: formSource,
       ...formData
@@ -86,7 +90,10 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
   const canProceed = () => {
     switch (currentStep) {
       case 1: return formData.especialidad !== "";
-      case 2: return formData.entidad !== "";
+      case 2: {
+        if (formData.entidad === "otro") return formData.entidadOtra.trim() !== "";
+        return formData.entidad !== "";
+      }
       case 3: return formData.nombre && formData.telefono && formData.email;
       case 4: return formData.acceptedPolicies;
       default: return false;
@@ -107,7 +114,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
           ¡Solicitud Enviada!
         </h3>
         <p className="text-muted-foreground mb-6">
-          Te contactaremos en menos de 2 horas para confirmar tu cita.
+          Te contactaremos pronto para confirmar tu cita.
         </p>
         <div className="flex items-center justify-center gap-2 text-sm text-primary">
           <Phone className="w-4 h-4" />
@@ -167,23 +174,30 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
                 </p>
               </div>
               <div className="grid grid-cols-3 gap-3">
-                {especialidades.map((esp) => (
-                  <button
-                    key={esp.id}
-                    type="button"
-                    onClick={() => updateFormData("especialidad", esp.id)}
-                    className={`p-4 rounded-xl border-2 text-center transition-all duration-200 hover:scale-[1.02] ${
-                      formData.especialidad === esp.id
-                        ? "border-primary bg-primary/10 shadow-md"
-                        : "border-border hover:border-primary/50"
-                    }`}
-                  >
-                    <span className="text-2xl block mb-2">{esp.icon}</span>
-                    <span className="font-medium text-sm text-foreground">
-                      {esp.label}
-                    </span>
-                  </button>
-                ))}
+                {especialidades.map((esp) => {
+                  const isSelected = formData.especialidad === esp.id;
+                  return (
+                    <button
+                      key={esp.id}
+                      type="button"
+                      onClick={() => updateFormData("especialidad", esp.id)}
+                      className={`p-4 rounded-xl border-2 text-center transition-all duration-200 hover:scale-[1.02] ${
+                        isSelected
+                          ? "border-primary bg-primary/10 shadow-md"
+                          : "border-border hover:border-primary/50"
+                      }`}
+                    >
+                      <div className={`w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 transition-colors ${
+                        isSelected ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"
+                      }`}>
+                        <esp.icon className="w-6 h-6" />
+                      </div>
+                      <span className="font-medium text-sm text-foreground">
+                        {esp.label}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           )}
@@ -192,7 +206,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
             <div className="space-y-4">
               <div className="text-center mb-6">
                 <h3 className="text-xl font-bold text-foreground">
-                  ¿Cómo pagarás tu consulta?
+                  Selecciona tu cobertura
                 </h3>
                 <p className="text-muted-foreground text-sm mt-1">
                   Selecciona tu forma de pago
@@ -213,14 +227,25 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
                     <span className="font-medium text-foreground">
                       {ent.label}
                     </span>
-                    {ent.highlight && (
-                      <span className="text-xs bg-secondary text-secondary-foreground px-2 py-1 rounded-full">
-                        Sin esperas
-                      </span>
-                    )}
                   </button>
                 ))}
               </div>
+              {/* Campo condicional para "Otro" */}
+              {formData.entidad === "otro" && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="mt-3"
+                >
+                  <Input
+                    value={formData.entidadOtra}
+                    onChange={(e) => updateFormData("entidadOtra", e.target.value)}
+                    placeholder="Especifica tu cobertura"
+                    className="h-12 text-base"
+                  />
+                </motion.div>
+              )}
             </div>
           )}
 
@@ -313,9 +338,11 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
                   </span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Entidad:</span>
+                  <span className="text-muted-foreground">Cobertura:</span>
                   <span className="font-medium text-foreground">
-                    {entidades.find(e => e.id === formData.entidad)?.label}
+                    {formData.entidad === "otro"
+                      ? formData.entidadOtra
+                      : entidades.find(e => e.id === formData.entidad)?.label}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm">
@@ -327,7 +354,6 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
                   <span className="font-medium text-foreground">{formData.telefono}</span>
                 </div>
               </div>
-
 
               {/* Policy checkbox */}
               <div className="flex items-start space-x-3">
