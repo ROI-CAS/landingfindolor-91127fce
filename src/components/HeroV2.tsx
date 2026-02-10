@@ -9,7 +9,7 @@ const logo = "/images/findolor-logo.svg";
 const trustPoints = [
   { icon: Shield, text: "Médicos especialistas en tratamiento del dolor crónico" },
   { icon: Clock, text: "Respuesta oportuna" },
-  { icon: Award, text: "+20 años experiencia" },
+  { icon: Award, text: "+20 años de experiencia" },
 ];
 
 export function HeroV2() {
