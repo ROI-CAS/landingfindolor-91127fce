@@ -3,7 +3,6 @@ import { SocialProofV2 } from "@/components/SocialProofV2";
 import { DoctorsSection } from "@/components/DoctorsSection";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { BenefitsV2 } from "@/components/BenefitsV2";
-import { ConditionsGrid } from "@/components/ConditionsGrid";
 import { FAQSection } from "@/components/FAQSection";
 import { FinalCTAV2 } from "@/components/FinalCTAV2";
 import { Footer } from "@/components/Footer";
@@ -27,7 +26,6 @@ const IndexV2 = () => {
       <DoctorsSection />
       <ProcessTimeline />
       <BenefitsV2 />
-      <ConditionsGrid />
       <BookingCalendar />
       <FAQSection />
       <FinalCTAV2 />

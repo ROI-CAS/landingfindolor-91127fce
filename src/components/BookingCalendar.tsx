@@ -34,10 +34,6 @@ export function BookingCalendar() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
-            <Calendar className="w-4 h-4" />
-            Agenda en línea
-          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Agenda Tu Cita Ahora
           </h2>
@@ -142,7 +138,7 @@ export function BookingCalendar() {
                 Selecciona fecha y hora
               </DrawerTitle>
               <p className="text-sm text-primary-foreground/80">
-                Elige el momento más conveniente para tu valoración
+                Elige el momento más conveniente para tu valoración médica
               </p>
             </DrawerHeader>
             

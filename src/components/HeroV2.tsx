@@ -114,7 +114,7 @@ export function HeroV2() {
               <div className="relative z-10">
                 <div className="text-center mb-6">
                   <h2 className="text-xl font-bold text-foreground mb-1">
-                    Solicita tu Valoración
+                    Solicita tu Valoración Médica
                   </h2>
                   <p className="text-sm text-muted-foreground">
                     Te contactamos para agendar tu cita

@@ -88,7 +88,7 @@ export function ExitIntentPopup() {
                     className="h-12"
                   />
                   <Button type="submit" className="w-full h-12" size="lg">
-                    Descargar Guía Gratis
+                    Descargar Guía Informativa
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </form>

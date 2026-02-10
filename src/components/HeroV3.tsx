@@ -168,10 +168,10 @@ export function HeroV3() {
             <div className="bg-background rounded-2xl md:rounded-3xl p-5 sm:p-6 md:p-8 shadow-2xl border border-border/50">
               <div className="text-center mb-5 md:mb-6">
                 <h2 className="text-lg sm:text-xl font-bold text-foreground mb-1">
-                  Agenda tu Valoración
+                  Agenda tu Valoración Médica
                 </h2>
                 <p className="text-sm text-muted-foreground">
-                  Primera consulta sin compromiso
+                  Te contactamos para agendar tu cita
                 </p>
               </div>
               <MultiStepFormV3 />
