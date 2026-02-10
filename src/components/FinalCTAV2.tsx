@@ -29,7 +29,7 @@ export function FinalCTAV2() {
           </h2>
           
           <p className="text-xl text-white/80 mb-10">
-            Solicita tu valoración inicial con nuestros especialistas. 
+            Solicita tu valoración médica inicial con nuestros especialistas. 
             <strong className="text-white"> Te contactamos hoy</strong> para orientarte sobre tu caso.
           </p>
 
