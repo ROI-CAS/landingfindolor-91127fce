@@ -1,179 +1,55 @@
 
-# Plan: Sincronización de Información y Mejoras de Conversión
 
-## Resumen
+# Plan: Ajustes al Hero y Formulario
 
-Corregir inconsistencias de información en toda la landing, agregar teléfono fijo donde falta, unificar formatos de teléfono, agregar dirección completa, incluir el programa "Paciente Experto" en beneficios, y cambiar "Respuesta en 2 horas" a "menos de 2 horas".
+## Lista de Cambios
 
----
+### En `src/components/HeroV2.tsx`
 
-## Cambios por Archivo
+1. **Eliminar "4.9/5 en Google Reviews"** del header superior (lineas 45-48)
+2. **Cambiar titulo** de "Especialistas en Manejo del Dolor" a "Especialistas en el **Manejo del Dolor Cronico y Cuidados Paliativos**"
+3. **Cambiar descripcion** por el nuevo texto de IPS con formato adecuado (separado en frases claras)
+4. **Cambiar "Medicos certificados"** por "Medicos especialistas en tratamiento del dolor cronico"
+5. **Cambiar "Respuesta en menos de 2 horas"** por "Respuesta oportuna"
+6. **Eliminar import de Star** (ya no se usa)
 
-### 1. `src/components/FinalCTAV3.tsx`
-**Problema**: Dirección solo dice "Bogotá, Colombia"
-**Corrección**: Agregar dirección completa
+### En `src/components/MultiStepForm.tsx`
 
-| Línea | Antes | Después |
-|-------|-------|---------|
-| 102 | `Bogotá, Colombia` | `Cra 16 # 97-46, Torre 97` |
-
----
-
-### 2. `src/components/HeroV2.tsx`
-**Problema**: "Respuesta en 2 horas" en trustPoints
-**Corrección**: Cambiar a "menos de 2 horas"
-
-| Línea | Antes | Después |
-|-------|-------|---------|
-| 12 | `Respuesta en 2 horas` | `Respuesta en menos de 2 horas` |
+7. **Reemplazar iconos emoji** por iconos Lucide premium/sofisticados:
+   - Medicina del dolor: `Heart` o `Activity` (monitor medico)
+   - Cuidados paliativos: `HandHeart` o `HeartHandshake`
+   - Anestesia: `Syringe`
+8. **Cambiar titulo paso 2** de "Como pagaras tu consulta?" a "Selecciona tu cobertura"
+9. **Quitar etiqueta "Sin esperas"** de la opcion Particular
+10. **Agregar opcion "Otro: especifica"** al listado de entidades con un campo de texto condicional que aparece al seleccionarla
 
 ---
 
-### 3. `src/components/HeroV3.tsx`
-**Problema**: "Respuesta en 2 horas" en trustPoints
-**Corrección**: Cambiar a "menos de 2 horas"
+## Detalle Tecnico
 
-| Línea | Antes | Después |
-|-------|-------|---------|
-| 10 | `Respuesta en 2 horas` | `Respuesta en menos de 2 horas` |
+### Iconos premium para especialidades (paso 1)
 
----
+Se reemplazaran los emojis por iconos Lucide con un estilo mas refinado dentro de circulos con fondo degradado:
 
-### 4. `src/components/BenefitsV3.tsx`
-**Problema**: Falta "Programa Paciente Experto" como diferenciador
-**Corrección**: Reemplazar "Convenios con aseguradoras" (ítem 6) con Paciente Experto
+```text
+Antes:  💊 Medicina del dolor   🤲 Cuidados paliativos   💉 Anestesia
+Despues: Activity (icono)       HeartHandshake (icono)   Syringe (icono)
+```
 
-| Línea | Antes | Después |
-|-------|-------|---------|
-| 42-47 | `title: "Convenios con aseguradoras"` + descripción aseguradoras | `title: "Programa Paciente Experto"` + `description: "Pacientes que culminaron su tratamiento se convierten en guías y testimonio para otros que inician su camino hacia el bienestar."` |
+Los iconos se renderizaran dentro de un contenedor circular con fondo `bg-primary/10` y color `text-primary`, cambiando a `bg-primary text-white` cuando esten seleccionados.
 
-Se usará el icono `Users` (importar) en lugar de `BadgeCheck`.
+### Campo "Otro" en entidades (paso 2)
 
----
+Se agrega una nueva opcion al array de entidades:
+- `{ id: "otro", label: "Otro" }`
 
-### 5. `src/components/BenefitsV2.tsx`
-**Problema**: Beneficio "Convenios con EPS" menciona aseguradoras (omitir por ahora según instrucciones)
-**Corrección**: Reemplazar con Paciente Experto
+Cuando el usuario seleccione "Otro", aparecera un campo de texto debajo para que especifique su cobertura. Se agregara un campo `entidadOtra` al estado del formulario.
 
-| Línea | Antes | Después |
-|-------|-------|---------|
-| 28-31 | `title: "Convenios con EPS"` + Sura, Seguros Bolívar, etc. | `title: "Programa Paciente Experto"` + descripción del programa |
+### Formato del texto descriptivo del Hero
 
-Cambiar icono de `Shield` a `Users` para este beneficio.
+El texto largo se formateara con saltos visuales claros:
 
----
+> IPS especializada en dolor cronico y cuidados paliativos en Bogota. En FinDolor realizamos valoracion medica, diagnostico y tratamiento con enfoque integral, combinando estrategias farmacologicas e intervencionistas segun cada paciente. Acompanamos de forma cercana y segura a pacientes y familias durante todo el proceso.
 
-### 6. `src/components/Footer.tsx`
-**Problema**: Formato de teléfonos inconsistente (sin espacios correctos)
-**Corrección**: Unificar formato a `318 691 2799` y `601 673 6707`
+Se ajustara el `max-w` para que el texto no quede demasiado estrecho y se usara un tamano de fuente ligeramente menor (`text-base md:text-lg`) para que fluya mejor visualmente.
 
-| Línea | Antes | Después |
-|-------|-------|---------|
-| 102 | `318 6912799` | `318 691 2799` |
-| 111 | `601 6736707` | `601 673 6707` |
-
----
-
-### 7. `src/components/ContactForm.tsx`
-**Problema**: Formato de teléfonos inconsistente
-**Corrección**: Unificar formato
-
-| Línea | Antes | Después |
-|-------|-------|---------|
-| 67 | `318 6912799` | `318 691 2799` |
-| 74 | `601 6736707` | `601 673 6707` |
-
----
-
-### 8. `src/components/ClickToCallButton.tsx`
-**Problema**: Falta teléfono fijo en tooltip
-**Corrección**: Mantener solo celular en tooltip (es botón de llamada móvil)
-
-Sin cambio necesario - el botón es específico para llamar al celular desde móvil.
-
----
-
-### 9. `src/components/FinalCTAV2.tsx`
-**Problema**: No tiene información de contacto (teléfonos/dirección)
-**Corrección**: Agregar sección de contacto similar a FinalCTAV3
-
-Agregar después de los botones CTA (después de línea 58):
-- Teléfono celular: 318 691 2799
-- Teléfono fijo: 601 673 6707
-- Dirección resumida
-
----
-
-### 10. `src/components/MultiStepForm.tsx`
-**Problema**: Solo muestra un teléfono en el mensaje de confirmación
-**Corrección**: Agregar también el teléfono fijo
-
-| Línea | Antes | Después |
-|-------|-------|---------|
-| 115 | `También puedes llamarnos: 318 691 2799` | `También puedes llamarnos: 318 691 2799 / 601 673 6707` |
-
----
-
-### 11. `src/components/EmpathySection.tsx`
-**Problema**: Teléfono con formato incorrecto
-**Corrección**: Unificar formato
-
-| Línea | Antes | Después |
-|-------|-------|---------|
-| 82 | `318 6912799` | `318 691 2799` |
-
----
-
-### 12. `src/components/QuickBenefits.tsx`
-**Problema**: Menciona "Convenio con principales EPS"
-**Corrección**: Cambiar a algo neutral o relacionado con Paciente Experto
-
-| Línea | Antes | Después |
-|-------|-------|---------|
-| 13-16 | `text: "Convenio con principales EPS"` | `text: "Programa Paciente Experto"` + `highlight: "Paciente Experto"` |
-
----
-
-## Resumen de Cambios
-
-| Archivo | Tipo de Cambio |
-|---------|----------------|
-| FinalCTAV3.tsx | Dirección completa |
-| HeroV2.tsx | "menos de 2 horas" |
-| HeroV3.tsx | "menos de 2 horas" |
-| BenefitsV3.tsx | Paciente Experto reemplaza aseguradoras |
-| BenefitsV2.tsx | Paciente Experto reemplaza aseguradoras |
-| Footer.tsx | Formato teléfonos |
-| ContactForm.tsx | Formato teléfonos |
-| FinalCTAV2.tsx | Agregar info contacto |
-| MultiStepForm.tsx | Agregar teléfono fijo |
-| EmpathySection.tsx | Formato teléfono |
-| QuickBenefits.tsx | Paciente Experto |
-
----
-
-## Notas Técnicas
-
-### Programa Paciente Experto - Descripción a usar:
-> "Pacientes que culminaron su tratamiento se convierten en guías y testimonio para otros que inician su camino hacia el bienestar."
-
-### Formato de teléfonos estándar:
-- Celular: `318 691 2799` (con espacios)
-- Fijo: `601 673 6707` (con espacios)
-
-### Dirección estándar corta (para CTAs):
-- `Cra 16 # 97-46, Torre 97, Bogotá`
-
-### Dirección completa (para Footer/contacto):
-- `Carrera 16 # 97-46, Edificio Torre 97, Torre 2, Consultorios 705-706, Bogotá`
-
----
-
-## Componentes que mantienen aseguradoras (según instrucciones):
-
-Los siguientes componentes seguirán mostrando logos de aseguradoras hasta nueva orden:
-- `TrustBar.tsx`
-- `TrustBadges.tsx`
-- `SocialProofV2.tsx` (sección de convenios al final)
-- `MultiStepForm.tsx` (opciones de entidad en paso 2)
-- `ContactForm.tsx` (opciones de entidad en select)
