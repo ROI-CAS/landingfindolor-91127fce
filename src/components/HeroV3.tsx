@@ -3,7 +3,7 @@ import { MultiStepFormV3 } from "./MultiStepFormV3";
 import { Shield, Clock, Award, CheckCircle, ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-relief.jpg";
 
-const logo = "/images/findolor-logo.png";
+const logo = "/images/findolor-logo.webp";
 
 const trustPoints = [
   { icon: Shield, text: "Médicos certificados" },
@@ -58,7 +58,8 @@ export function HeroV3() {
           <img
             src={logo}
             alt="Findolor - Centro de Manejo del Dolor"
-            className="h-10 md:h-12 lg:h-14 w-auto brightness-200"
+            className="w-auto brightness-200"
+            style={{ height: '84px', width: '120px' }}
           />
           <div className="hidden md:flex items-center gap-2 text-background/80">
             <CheckCircle className="w-5 h-5 text-secondary" />

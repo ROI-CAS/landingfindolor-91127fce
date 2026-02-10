@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const logo = "/images/findolor-logo.png";
+const logo = "/images/findolor-logo.webp";
 const PHONE_NUMBER = "573186912799";
 
 export function StickyHeader() {
@@ -50,7 +50,8 @@ export function StickyHeader() {
                   <img
                     src={logo}
                     alt="Findolor"
-                    className="h-9 md:h-10 w-auto"
+                    className="w-auto"
+                    style={{ height: '58px', width: '87px' }}
                   />
                 </a>
 

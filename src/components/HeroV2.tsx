@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import heroImage from "@/assets/hero-findolor-bg.jpg";
 import heroImageMobile from "@/assets/hero-findolor-mobile.jpg";
-const logo = "/images/findolor-logo.png";
+const logo = "/images/findolor-logo.webp";
 const trustPoints = [{
   icon: Shield,
   text: "Médicos especialistas en tratamiento del dolor crónico"
@@ -60,7 +60,7 @@ export function HeroV2() {
       }} transition={{
         duration: 0.5
       }} className="flex items-center justify-between mb-8">
-          <img src={logo} alt="Findolor" className="h-12 md:h-14 w-auto brightness-200" />
+          <img src={logo} alt="Findolor" className="w-auto brightness-200" style={{ height: '84px', width: '120px' }} />
         </motion.header>
 
         {/* Main Content */}

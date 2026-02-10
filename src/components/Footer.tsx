@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
-const logo = "/images/findolor-logo.png";
+const logo = "/images/findolor-logo.webp";
 
 export function Footer() {
   return (
@@ -11,7 +11,8 @@ export function Footer() {
             <img
               src={logo}
               alt="Findolor"
-              className="h-16 w-auto mb-6 brightness-200"
+            className="w-auto mb-6 brightness-200"
+            style={{ height: '100px', width: '143px' }}
             />
             <p className="text-white/80 leading-relaxed max-w-md mb-6">
               Centro médico especializado en el manejo del dolor crónico y
