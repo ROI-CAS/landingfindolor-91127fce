@@ -316,9 +316,9 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
           )}
 
           {currentStep === 4 && (
-            <div className="space-y-6">
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="space-y-4">
+              <div className="text-center mb-3">
+                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                   <Sparkles className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground">
