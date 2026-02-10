@@ -50,7 +50,7 @@ export function BenefitsV2() {
           >
             <span className="inline-flex items-center gap-2 text-primary font-medium text-sm mb-4">
               <Sparkles className="w-4 h-4" />
-              ¿Por qué elegirnos?
+              ¿Por qué elegir FinDolor?
             </span>
             
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">
