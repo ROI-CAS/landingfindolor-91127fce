@@ -192,7 +192,7 @@ export function HeroV2() {
                   </div>
                 </Tabs>
 
-                <p className="text-center text-xs text-muted-foreground mt-4">
+                <p className="text-center text-xs text-muted-foreground mt-2">
                   🔒 Tu información está protegida. Recibirás confirmación por WhatsApp y correo electrónico.
                 </p>
               </div>
