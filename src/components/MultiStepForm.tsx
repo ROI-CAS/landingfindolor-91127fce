@@ -203,9 +203,9 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
           )}
 
           {currentStep === 2 && (
-            <div className="space-y-4">
-              <div className="text-center mb-6">
-                <h3 className="text-xl font-bold text-foreground">
+            <div className="space-y-3">
+              <div className="text-center mb-4">
+                <h3 className="text-lg font-bold text-foreground">
                   Selecciona tu cobertura
                 </h3>
                 <p className="text-muted-foreground text-sm mt-1">
