@@ -4,10 +4,10 @@ import { useState } from "react";
 import videoThumbnail from "@/assets/video-thumbnail.jpg";
 
 const benefits = [
-  "Valoración médica integral",
-  "Opciones de tratamiento mínimamente invasivas",
-  "Seguimiento personalizado durante tu proceso",
-  "Equipo multidisciplinario especializado",
+  "Valoración médica integral (historia clínica, examen y definición del plan)",
+  "Opciones de tratamiento mínimamente invasivas según cada caso",
+  "Seguimiento continuo y personalizado durante tu evolución",
+  "Atención especializada y coordinada entre las áreas de dolor y cuidados paliativos",
 ];
 
 export function VideoSection() {
