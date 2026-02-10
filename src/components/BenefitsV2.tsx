@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { 
   Heart, 
-  Brain, 
   Users,
   Sparkles,
   CheckCircle
@@ -12,11 +11,6 @@ const benefits = [
     icon: Heart,
     title: "Atención Humanizada",
     description: "Entendemos tu dolor. Cada paciente recibe un trato personalizado y empático.",
-  },
-  {
-    icon: Brain,
-    title: "Enfoque Multidisciplinario",
-    description: "Médicos, fisioterapeutas y psicólogos trabajando juntos por tu bienestar.",
   },
   {
     icon: Users,
@@ -31,9 +25,10 @@ const benefits = [
 ];
 
 const guarantees = [
-  "Valoración médica integral",
-  "Atención personalizada sin largas esperas",
-  "Acompañamiento continuo durante tu proceso",
+  "Valoración médica integral (historia clínica, examen y definición del plan)",
+  "Plan de tratamiento personalizado según tu diagnóstico y objetivos",
+  "Atención oportuna, sin esperas innecesarias",
+  "Acompañamiento continuo y seguimiento con ajustes según tu evolución",
 ];
 
 export function BenefitsV2() {
@@ -55,17 +50,16 @@ export function BenefitsV2() {
           >
             <span className="inline-flex items-center gap-2 text-primary font-medium text-sm mb-4">
               <Sparkles className="w-4 h-4" />
-              ¿Por qué elegirnos?
+              ¿Por qué elegir FinDolor?
             </span>
             
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">
-              Centro Especializado en{" "}
-              <span className="text-gradient">Manejo del Dolor</span>
+              IPS especializada en{" "}
+              <span className="text-gradient">dolor crónico y cuidados paliativos</span>
             </h2>
             
             <p className="text-muted-foreground text-lg mb-8">
-              No solo tratamos el dolor, tratamos a la persona completa. 
-              Nuestro enfoque integral busca mejorar tu calidad de vida.
+              En FinDolor no ofrecemos soluciones genéricas. Evaluamos tu caso de forma integral y diseñamos un plan de manejo personalizado para aliviar el dolor, mejorar tu funcionalidad y elevar tu calidad de vida, con acompañamiento cercano en cada etapa.
             </p>
 
             {/* Guarantees */}
