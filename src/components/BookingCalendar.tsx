@@ -54,7 +54,7 @@ export function BookingCalendar() {
           className="max-w-2xl mx-auto"
         >
           <Tabs defaultValue="callback" className="w-full">
-            <TabsList className="grid grid-cols-2 w-full max-w-md mx-auto mb-8 h-auto p-1">
+            <TabsList className="grid grid-cols-2 w-full max-w-md mx-auto mb-6 h-auto p-1">
               <TabsTrigger 
                 value="callback" 
                 className="flex items-center gap-2 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
