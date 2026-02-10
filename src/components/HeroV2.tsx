@@ -149,45 +149,47 @@ export function HeroV2() {
                     </TabsTrigger>
                   </TabsList>
 
-                  <TabsContent value="callback" className="mt-0">
-                    <MultiStepForm formSource="hero" />
-                  </TabsContent>
+                  <div className="min-h-[420px] flex flex-col">
+                    <TabsContent value="callback" className="mt-0 flex-1 data-[state=inactive]:hidden animate-fade-in">
+                      <MultiStepForm formSource="hero" />
+                    </TabsContent>
 
-                  <TabsContent value="calendar" className="mt-0">
-                    <div className="text-center space-y-5">
-                      <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-                        <CalendarDays className="w-7 h-7 text-primary" />
+                    <TabsContent value="calendar" className="mt-0 flex-1 data-[state=inactive]:hidden animate-fade-in">
+                      <div className="text-center space-y-5 flex flex-col items-center justify-center min-h-[380px]">
+                        <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                          <CalendarDays className="w-7 h-7 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-bold text-foreground mb-1">
+                            Elige tu horario ideal
+                          </h3>
+                          <p className="text-muted-foreground text-sm">
+                            Visualiza nuestra disponibilidad y selecciona el día y hora que mejor se ajuste a ti
+                          </p>
+                        </div>
+                        <div className="grid grid-cols-3 gap-2 text-left w-full">
+                          {[
+                            { icon: Clock, text: "Confirmación inmediata" },
+                            { icon: Calendar, text: "Horarios flexibles" },
+                            { icon: CheckCircle, text: "Sin filas ni esperas" },
+                          ].map((item, index) => (
+                            <div key={index} className="flex items-center gap-1.5 text-xs text-muted-foreground bg-muted/50 rounded-lg py-2 px-2.5">
+                              <item.icon className="w-3.5 h-3.5 text-primary shrink-0" />
+                              <span>{item.text}</span>
+                            </div>
+                          ))}
+                        </div>
+                        <Button 
+                          size="lg" 
+                          className="w-full btn-cta"
+                          onClick={() => setDrawerOpen(true)}
+                        >
+                          Abrir Calendario
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
                       </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-foreground mb-1">
-                          Elige tu horario ideal
-                        </h3>
-                        <p className="text-muted-foreground text-sm">
-                          Visualiza nuestra disponibilidad y selecciona el día y hora que mejor se ajuste a ti
-                        </p>
-                      </div>
-                      <div className="grid grid-cols-3 gap-2 text-left">
-                        {[
-                          { icon: Clock, text: "Confirmación inmediata" },
-                          { icon: Calendar, text: "Horarios flexibles" },
-                          { icon: CheckCircle, text: "Sin filas ni esperas" },
-                        ].map((item, index) => (
-                          <div key={index} className="flex items-center gap-1.5 text-xs text-muted-foreground bg-muted/50 rounded-lg py-2 px-2.5">
-                            <item.icon className="w-3.5 h-3.5 text-primary shrink-0" />
-                            <span>{item.text}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <Button 
-                        size="lg" 
-                        className="w-full btn-cta"
-                        onClick={() => setDrawerOpen(true)}
-                      >
-                        Abrir Calendario
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    </div>
-                  </TabsContent>
+                    </TabsContent>
+                  </div>
                 </Tabs>
 
                 <p className="text-center text-xs text-muted-foreground mt-4">

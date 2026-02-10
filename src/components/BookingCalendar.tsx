@@ -74,58 +74,60 @@ export function BookingCalendar() {
             </TabsList>
 
             {/* Tab 1: Callback form */}
-            <TabsContent value="callback" className="mt-0">
-              <Card className="border-border/60 shadow-xl">
-                <CardContent className="p-6 md:p-8">
-                  <MultiStepForm formSource="booking-section" />
-                </CardContent>
-              </Card>
-            </TabsContent>
+            <div className="min-h-[480px]">
+              <TabsContent value="callback" className="mt-0 data-[state=inactive]:hidden animate-fade-in">
+                <Card className="border-border/60 shadow-xl">
+                  <CardContent className="p-6 md:p-8">
+                    <MultiStepForm formSource="booking-section" />
+                  </CardContent>
+                </Card>
+              </TabsContent>
 
-            {/* Tab 2: Self-scheduling */}
-            <TabsContent value="calendar" className="mt-0">
-              <Card className="border-border/60 shadow-xl">
-                <CardContent className="p-6 md:p-8">
-                  <div className="text-center space-y-6">
-                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-                      <CalendarDays className="w-8 h-8 text-primary" />
-                    </div>
-                    
-                    <div>
-                      <h3 className="text-xl font-bold text-foreground mb-2">
-                        Elige tu horario ideal
-                      </h3>
-                      <p className="text-muted-foreground text-sm">
-                        Visualiza nuestra disponibilidad y selecciona el día y hora que mejor se ajuste a ti
-                      </p>
-                    </div>
+              {/* Tab 2: Self-scheduling */}
+              <TabsContent value="calendar" className="mt-0 data-[state=inactive]:hidden animate-fade-in">
+                <Card className="border-border/60 shadow-xl">
+                  <CardContent className="p-6 md:p-8">
+                    <div className="text-center space-y-6 flex flex-col items-center justify-center min-h-[400px]">
+                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                        <CalendarDays className="w-8 h-8 text-primary" />
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-xl font-bold text-foreground mb-2">
+                          Elige tu horario ideal
+                        </h3>
+                        <p className="text-muted-foreground text-sm">
+                          Visualiza nuestra disponibilidad y selecciona el día y hora que mejor se ajuste a ti
+                        </p>
+                      </div>
 
-                    {/* Benefits list */}
-                    <div className="grid sm:grid-cols-3 gap-3 text-left">
-                      {[
-                        { icon: Clock, text: "Confirmación inmediata" },
-                        { icon: Calendar, text: "Horarios flexibles" },
-                        { icon: CheckCircle, text: "Sin filas ni esperas" },
-                      ].map((item, index) => (
-                        <div key={index} className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/50 rounded-xl py-3 px-4">
-                          <item.icon className="w-4 h-4 text-primary shrink-0" />
-                          <span>{item.text}</span>
-                        </div>
-                      ))}
-                    </div>
+                      {/* Benefits list */}
+                      <div className="grid sm:grid-cols-3 gap-3 text-left w-full">
+                        {[
+                          { icon: Clock, text: "Confirmación inmediata" },
+                          { icon: Calendar, text: "Horarios flexibles" },
+                          { icon: CheckCircle, text: "Sin filas ni esperas" },
+                        ].map((item, index) => (
+                          <div key={index} className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/50 rounded-xl py-3 px-4">
+                            <item.icon className="w-4 h-4 text-primary shrink-0" />
+                            <span>{item.text}</span>
+                          </div>
+                        ))}
+                      </div>
 
-                    <Button 
-                      size="lg" 
-                      className="w-full sm:w-auto btn-cta"
-                      onClick={() => setDrawerOpen(true)}
-                    >
-                      Abrir Calendario
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
+                      <Button 
+                        size="lg" 
+                        className="w-full sm:w-auto btn-cta"
+                        onClick={() => setDrawerOpen(true)}
+                      >
+                        Abrir Calendario
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+            </div>
           </Tabs>
         </motion.div>
 
