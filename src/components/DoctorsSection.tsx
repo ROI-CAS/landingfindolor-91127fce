@@ -4,15 +4,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import drGarzonImage from "@/assets/dr-garzon.png";
 
 const doctor = {
-  name: "Dr. Luis A. Garzón",
+  name: "Dr. Luis Alberto Garzón",
   specialty: "Anestesiología, Medicina del Dolor y Cuidados Paliativos",
   image: drGarzonImage,
   experience: "20+ años",
   education: "Especialista Certificado",
-  certifications: ["ASRA", "IASP", "ACED"],
+  certifications: ["ACED", "IASP", "IAHPC", "SCARE"],
   rating: 4.9,
   reviews: 456,
-  bio: "Médico Anestesiólogo especialista en medicina del dolor y cuidados paliativos. Director médico de Findolor.",
+  bio: "Gerente General de FinDolor. Referente en manejo del dolor y cuidados paliativos en Bogotá, con liderazgo en servicios de dolor en Clínica Los Nogales y el Hospital de San José. Cofundador y director de posgrado en Medicina del Dolor y Cuidados Paliativos (FUCS).",
 };
 
 export function DoctorsSection() {
@@ -26,13 +26,13 @@ export function DoctorsSection() {
           className="text-center mb-12"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-            Director Médico
+            Gerente General
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4">
-            Especialista de Clase Mundial
+            Especialista con amplia experiencia
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Con más de 20 años de experiencia y formación internacional en las mejores instituciones
+            Más de 20 años de práctica clínica y actualización continua con formación internacional
           </p>
         </motion.div>
 
