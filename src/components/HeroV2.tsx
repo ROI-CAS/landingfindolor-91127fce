@@ -114,7 +114,7 @@ export function HeroV2() {
         }} transition={{
           duration: 0.6,
           delay: 0.2
-        }} className="relative">
+        }} className="relative opacity-100 shadow-2xl">
             {/* Glassmorphism card */}
             <div className="relative rounded-3xl p-5 md:p-7 shadow-2xl overflow-hidden" style={{
             background: "hsla(0, 0%, 100%, 0.92)",
@@ -169,7 +169,7 @@ export function HeroV2() {
                         }, {
                           icon: CheckCircle,
                           text: "Sin filas ni esperas"
-                        }].map((item, index) => <div key={index} className="items-center gap-1.5 text-xs text-muted-foreground bg-muted/50 rounded-lg py-2 px-2.5 flex flex-row mb-[54px]">
+                        }].map((item, index) => <div key={index} className="gap-1.5 text-xs text-muted-foreground bg-muted/50 rounded-lg py-2 px-2.5 flex-row mb-[12px] flex items-center justify-start">
                               <item.icon className="w-3.5 h-3.5 text-primary shrink-0" />
                               <span>{item.text}</span>
                             </div>)}
