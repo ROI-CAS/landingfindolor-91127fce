@@ -89,7 +89,7 @@ export function BenefitsV2() {
           </motion.div>
 
           {/* Right - Benefits Grid */}
-          <div className="grid sm:grid-cols-3 gap-4 items-start">
+          <div className="grid grid-cols-2 gap-4 items-start">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
@@ -97,17 +97,23 @@ export function BenefitsV2() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-5 rounded-2xl bg-card border border-border hover:border-primary/20 hover:shadow-md transition-all duration-300"
+                className={`p-5 rounded-2xl bg-card border border-border hover:border-primary/20 hover:shadow-md transition-all duration-300 ${
+                  index === 2 ? "col-span-2 flex items-center gap-5 p-6" : ""
+                }`}
               >
-                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
-                  <benefit.icon className="w-5 h-5 text-primary" />
+                <div className={`rounded-xl bg-primary/10 flex items-center justify-center shrink-0 ${
+                  index === 2 ? "w-14 h-14" : "w-11 h-11 mb-3"
+                }`}>
+                  <benefit.icon className={`text-primary ${index === 2 ? "w-7 h-7" : "w-5 h-5"}`} />
                 </div>
-                <h3 className="font-semibold text-foreground text-sm mb-1.5">
-                  {benefit.title}
-                </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  {benefit.description}
-                </p>
+                <div>
+                  <h3 className={`font-semibold text-foreground mb-1.5 ${index === 2 ? "text-base" : "text-sm"}`}>
+                    {benefit.title}
+                  </h3>
+                  <p className={`text-muted-foreground leading-relaxed ${index === 2 ? "text-sm" : "text-xs"}`}>
+                    {benefit.description}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>

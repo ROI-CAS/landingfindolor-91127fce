@@ -155,9 +155,9 @@ export function HeroV2() {
                     </TabsContent>
 
                     <TabsContent value="calendar" className="mt-0 flex-1 data-[state=inactive]:hidden animate-fade-in">
-                      <div className="text-center space-y-4 flex flex-col items-center justify-center min-h-[360px]">
-                        <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-                          <CalendarDays className="w-7 h-7 text-primary" />
+                      <div className="text-center space-y-3 flex flex-col items-center justify-center min-h-[340px]">
+                        <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                          <CalendarDays className="w-6 h-6 text-primary" />
                         </div>
                         <div>
                           <h3 className="text-lg font-bold text-foreground mb-1">
