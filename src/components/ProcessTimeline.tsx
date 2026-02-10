@@ -18,7 +18,7 @@ const steps = [
     icon: Pill,
     number: "03",
     title: "Plan de Tratamiento",
-    description: "Diseñamos un plan personalizado con las mejores opciones para tu caso.",
+    description: "Definimos un plan personalizado con las opciones más adecuadas para ti.",
   },
   {
     icon: HeartPulse,
