@@ -1,55 +1,29 @@
 
+## Plan de mejoras UX/UI
 
-# Plan: Quitar secciones, unificar formulario y corregir ortografia
+### Problema 1: Formulario del Hero - Espaciado excesivo
+El formulario en el hero tiene demasiado espacio interno entre elementos. Se reducira el `min-h` del contenedor de tabs y se ajustaran los espacios internos para que el contenido sea mas compacto y proporcionado.
 
-## 1. Quitar seccion "¿Que condiciones abordamos?" (ConditionsGrid)
+### Problema 2: Los 3 cards de beneficios - Layout 2+1
+Cambiar el grid de `sm:grid-cols-3` (3 columnas iguales) a un layout de 2 arriba + 1 abajo que ocupe el ancho completo de las 2 columnas superiores. Esto mejora la legibilidad y rompe la monotonia visual.
 
-**Archivo:** `src/pages/IndexV2.tsx`
-- Eliminar la linea `import { ConditionsGrid }` y `<ConditionsGrid />` del render
+### Detalles tecnicos
 
-## 2. Quitar etiqueta "Agenda en linea" del BookingCalendar
+**HeroV2.tsx:**
+- Reducir `min-h-[400px]` a `min-h-[380px]` en el contenedor de tabs
+- Reducir `space-y-4` a `space-y-3` en la pestana "Prefiero elegir"
+- Reducir `min-h-[360px]` a `min-h-[340px]` en el contenido de calendario
+- Reducir el icono central de `w-14 h-14` a `w-12 h-12` y el icono interno de `w-7 h-7` a `w-6 h-6`
+- Reducir `mb-5` del TabsList a `mb-4`
 
-**Archivo:** `src/components/BookingCalendar.tsx`
-- Eliminar el `div` con "Agenda en linea" (lineas 37-40)
+**BenefitsV2.tsx:**
+- Cambiar el grid de `sm:grid-cols-3` a `grid-cols-2` con el tercer card usando `col-span-2` para ocupar el ancho completo
+- Aumentar ligeramente el padding y tipografia del tercer card para que se vea equilibrado como card destacado
+- Centrar el contenido del tercer card horizontalmente para que no se vea estirado
 
-## 3. Unificar formulario del Hero con el de BookingCalendar
+**MultiStepForm.tsx:**
+- Reducir `mb-6` del progress steps a `mb-5`
+- Reducir `mb-4` de los encabezados de cada step a `mb-3`
 
-El formulario que se muestra en la imagen de referencia ya es el mismo `MultiStepForm` que esta en el hero y en la seccion de agendamiento. No se requiere ningun cambio estructural, ya que ambos usan el mismo componente.
-
-## 4. Corregir "valoracion" a "valoracion medica" en todo el sitio
-
-| Archivo | Antes | Despues |
-|---------|-------|---------|
-| `HeroV2.tsx` (linea 117) | "Solicita tu Valoracion" | "Solicita tu Valoracion Medica" |
-| `FinalCTAV2.tsx` (linea 32) | "Solicita tu valoracion inicial" | "Solicita tu valoracion medica inicial" |
-| `FinalCTAV2.tsx` (linea 44) | "Solicitar Valoracion" | "Solicitar Valoracion Medica" |
-| `BookingCalendar.tsx` (linea 145) | "tu valoracion" | "tu valoracion medica" |
-| `FAQSection.tsx` (linea 20) | "tu valoracion inicial" | "tu valoracion medica inicial" |
-| `StepsSection.tsx` (linea 40) | "tu valoracion es facil" | "tu valoracion medica es facil" |
-| `TestimonialsSection.tsx` (linea 51) | "valoracion en Findolor" | "valoracion medica en FinDolor" |
-| `WhatsAppButton.tsx` (linea 7) | "valoracion del dolor" | "valoracion medica del dolor" |
-| `FinalCTAV3.tsx` (lineas 39, 57) | "valoracion" sin "medica" | Agregar "medica" |
-| `HeroV3.tsx` (linea 171) | "Agenda tu Valoracion" | "Agenda tu Valoracion Medica" |
-
-**Nota:** `VideoSection.tsx` usa "valoracion clinica" que es correcto y no requiere cambio. `BenefitsV2.tsx` ya tiene "Valoracion medica integral".
-
-## 5. Revision de ortografia general
-
-- `ExitIntentPopup.tsx` (linea 91): "Descargar Guia Gratis" -- la palabra "Gratis" viola las restricciones de Google Ads. Cambiar a "Descargar Guia Informativa".
-- No se detectaron errores ortograficos adicionales (tildes, caracteres especiales estan correctos en el codigo fuente).
-
-## Detalle tecnico
-
-Archivos modificados:
-1. `src/pages/IndexV2.tsx` -- eliminar ConditionsGrid
-2. `src/components/BookingCalendar.tsx` -- quitar "Agenda en linea"
-3. `src/components/HeroV2.tsx` -- "Valoracion Medica"
-4. `src/components/FinalCTAV2.tsx` -- "valoracion medica"
-5. `src/components/FAQSection.tsx` -- "valoracion medica"
-6. `src/components/StepsSection.tsx` -- "valoracion medica"
-7. `src/components/TestimonialsSection.tsx` -- "valoracion medica"
-8. `src/components/WhatsAppButton.tsx` -- "valoracion medica"
-9. `src/components/ExitIntentPopup.tsx` -- quitar "Gratis"
-10. `src/components/FinalCTAV3.tsx` -- "valoracion medica"
-11. `src/components/HeroV3.tsx` -- "valoracion medica"
-
+**BookingCalendar.tsx:**
+- Aplicar los mismos ajustes de espaciado que en el hero para mantener consistencia visual entre ambos formularios
