@@ -173,7 +173,7 @@ export function MultiStepForm({ formSource = "hero" }: MultiStepFormProps) {
                   Selecciona la especialidad que mejor se adapte a tu situación
                 </p>
               </div>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-2">
                 {especialidades.map((esp) => {
                   const isSelected = formData.especialidad === esp.id;
                   return (
