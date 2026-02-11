@@ -51,11 +51,6 @@ export function DoctorsSection() {
                   alt={doctor.name}
                   className="w-full h-64 md:h-full object-cover object-[center_15%]"
                 />
-                <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
-                  <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  <span className="text-sm font-semibold">{doctor.rating}</span>
-                  <span className="text-xs text-muted-foreground">({doctor.reviews} reseñas)</span>
-                </div>
               </div>
 
               {/* Content */}
