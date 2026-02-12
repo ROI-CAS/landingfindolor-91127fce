@@ -7,7 +7,7 @@ import { BenefitsV2 } from "@/components/BenefitsV2";
 import { FAQSection } from "@/components/FAQSection";
 import { FinalCTAV2 } from "@/components/FinalCTAV2";
 import { Footer } from "@/components/Footer";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+
 import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 import { TrustBadges } from "@/components/TrustBadges";
 import { BookingCalendar } from "@/components/BookingCalendar";
@@ -39,7 +39,7 @@ const IndexV2 = () => {
       <FAQSection />
       <FinalCTAV2 />
       <Footer />
-      <WhatsAppButton />
+      
       <ClickToCallButton />
       <LiveCounter />
       <ExitIntentPopup />
