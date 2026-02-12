@@ -229,3 +229,65 @@
   .animate-delay-400 { animation-delay: 400ms; }
   .animate-delay-500 { animation-delay: 500ms; }
 }
+
+/* ===== LeadConnector Chat Widget Enhancement ===== */
+
+/* Pulse ring around chat widget */
+#lc_chat_layout {
+  position: relative;
+}
+
+#lc_chat_layout::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: hsl(199 76% 52% / 0.35);
+  animation: widget-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes widget-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Animated tooltip */
+#lc_chat_layout::after {
+  content: '💬 ¿Necesitas ayuda?';
+  position: absolute;
+  bottom: 20px;
+  right: 75px;
+  background: hsl(0 0% 100%);
+  color: hsl(0 0% 29%);
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px -4px hsl(0 0% 0% / 0.15);
+  white-space: nowrap;
+  pointer-events: none;
+  animation: tooltip-bounce 3s ease-in-out infinite, tooltip-fade-in 0.5s ease-out 1s both;
+  z-index: 9999;
+}
+
+@keyframes tooltip-bounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-6px); }
+}
+
+@keyframes tooltip-fade-in {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
