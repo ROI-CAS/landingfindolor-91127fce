@@ -6,7 +6,7 @@ import { TestimonialsV3 } from "@/components/TestimonialsV3";
 import { FAQSection } from "@/components/FAQSection";
 import { FinalCTAV3 } from "@/components/FinalCTAV3";
 import { Footer } from "@/components/Footer";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+
 import { VersionSwitcherV3 } from "@/components/VersionSwitcherV3";
 
 const IndexV3 = () => {
@@ -21,7 +21,7 @@ const IndexV3 = () => {
       <FAQSection />
       <FinalCTAV3 />
       <Footer />
-      <WhatsAppButton />
+      
     </div>
   );
 };
