@@ -16,14 +16,7 @@ import { VideoSection } from "@/components/VideoSection";
 import { LiveCounter } from "@/components/LiveCounter";
 
 const IndexV2 = () => {
-  // Prevent auto-scroll to #agendar on page load/refresh
-  useEffect(() => {
-    if (window.location.hash) {
-      window.scrollTo(0, 0);
-      // Remove hash without triggering scroll
-      history.replaceState(null, "", window.location.pathname + window.location.search);
-    }
-  }, []);
+  // No useEffect that strips hash — allow anchor navigation
   return (
     <div className="min-h-screen bg-background">
       <StickyHeader />
