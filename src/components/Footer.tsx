@@ -164,6 +164,19 @@ export function Footer() {
           </div>
         </div>
       </div>
+      <script>
+function sendHeight() {
+  const height = document.documentElement.scrollHeight;
+  window.parent.postMessage(
+    { height: height },
+    "*"
+  );
+}
+
+window.addEventListener("load", sendHeight);
+window.addEventListener("resize", sendHeight);
+setInterval(sendHeight, 500);
+</script>
     </footer>
   );
 }
