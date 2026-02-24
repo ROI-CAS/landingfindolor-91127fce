@@ -11,13 +11,12 @@ export function Footer() {
             <img
               src={logo}
               alt="Findolor"
-            className="w-auto mb-6 brightness-200"
-            style={{ height: '100px', width: '143px' }}
+              className="w-auto mb-6 brightness-200"
+              style={{ height: "100px", width: "143px" }}
             />
             <p className="text-white/80 leading-relaxed max-w-md mb-6">
-              Centro médico especializado en el manejo del dolor crónico y
-              cuidados paliativos. Más de 20 años de experiencia brindando
-              atención integral y personalizada en Bogotá.
+              Centro médico especializado en el manejo del dolor crónico y cuidados paliativos. Más de 20 años de
+              experiencia brindando atención integral y personalizada en Bogotá.
             </p>
             {/* Social links */}
             <div className="flex gap-4">
@@ -56,34 +55,22 @@ export function Footer() {
             <h4 className="font-semibold text-lg mb-6 text-white">Enlaces Rápidos</h4>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="#"
-                  className="text-white/70 hover:text-primary transition-colors"
-                >
+                <a href="#" className="text-white/70 hover:text-primary transition-colors">
                   Inicio
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-white/70 hover:text-primary transition-colors"
-                >
+                <a href="#" className="text-white/70 hover:text-primary transition-colors">
                   Sobre Nosotros
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-white/70 hover:text-primary transition-colors"
-                >
+                <a href="#" className="text-white/70 hover:text-primary transition-colors">
                   Servicios
                 </a>
               </li>
               <li>
-                <a
-                  href="#contacto"
-                  className="text-white/70 hover:text-primary transition-colors"
-                >
+                <a href="#contacto" className="text-white/70 hover:text-primary transition-colors">
                   Contacto
                 </a>
               </li>
@@ -113,7 +100,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-              <a
+                <a
                   href="mailto:administracion@findolor.com"
                   className="flex items-center gap-3 text-white/70 hover:text-primary transition-colors"
                 >
@@ -138,9 +125,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/20 flex flex-col items-center gap-4 text-center">
-          <p className="text-white/60 text-sm">
-            © {new Date().getFullYear()} Findolor. Todos los derechos reservados.
-          </p>
+          <p className="text-white/60 text-sm">© {new Date().getFullYear()} Findolor. Todos los derechos reservados.</p>
           <p className="text-white/50 text-xs max-w-md">
             Los resultados del tratamiento pueden variar según las condiciones individuales de cada paciente.
           </p>
@@ -164,19 +149,6 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <script>
-function sendHeight() {
-  const height = document.documentElement.scrollHeight;
-  window.parent.postMessage(
-    { height: height },
-    "*"
-  );
-}
-
-window.addEventListener("load", sendHeight);
-window.addEventListener("resize", sendHeight);
-setInterval(sendHeight, 500);
-</script>
     </footer>
   );
 }
