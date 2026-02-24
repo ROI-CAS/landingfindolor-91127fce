@@ -1,28 +1,26 @@
 
-# Plan: Ocultar popup de salida y formularios de citas
+# Plan: Agregar formulario de contacto en la parte inferior y conectar boton "Agendar Cita"
 
 ## Resumen
-Se ocultaran temporalmente tres elementos de la pagina:
-1. **Popup de salida (Exit Intent)** - la ventana que aparece al intentar salir
-2. **Formulario del Hero** - el formulario de agendamiento en la parte superior
-3. **Seccion "Agenda Tu Cita Ahora"** - la seccion completa con las pestanas de agendamiento
-
-Los componentes no se eliminaran, solo se comentaran/removeran de `IndexV2.tsx` y `HeroV2.tsx` para poder reactivarlos facilmente en el futuro.
+Se agregara una seccion con el mismo formulario "Te llamamos" (MultiStepForm) en la parte inferior de la pagina, antes del FinalCTAV2. El boton "Agendar Cita" del menu sticky navegara a esta seccion.
 
 ---
 
 ## Cambios tecnicos
 
 ### 1. `src/pages/IndexV2.tsx`
-- Remover `<ExitIntentPopup />` del render (linea 45)
-- Remover `<BookingCalendar />` del render (linea 38)
-- Limpiar los imports correspondientes (lineas 11, 13)
+- Agregar una nueva seccion con `id="agendar"` que contenga el `MultiStepForm` con el mismo estilo glassmorphism del Hero
+- Ubicarla entre `<FAQSection />` y `<FinalCTAV2 />`
+- Incluir titulo, icono de telefono y el mensaje de proteccion de datos, igual que en el Hero
+- Importar `MultiStepForm` y los iconos necesarios (`Phone`)
 
-### 2. `src/components/HeroV2.tsx`
-- Remover el formulario `<MultiStepForm />` y las pestanas de agendamiento del Hero
-- Reemplazar esa area con un CTA simple (boton de WhatsApp o llamada) para que el Hero no quede vacio en ese lado
-- Mantener la estructura visual del Hero (titulo, subtitulo, badges de confianza)
+### 2. `src/components/StickyHeader.tsx`
+- El boton "Agendar Cita" ya apunta a `#agendar`, asi que funcionara automaticamente con la nueva seccion
+
+### 3. `src/components/FinalCTAV2.tsx`
+- El boton "Solicitar Valoracion Medica" ya apunta a `#agendar`, tambien funcionara automaticamente
 
 ### Notas
-- Los archivos de componentes (`ExitIntentPopup.tsx`, `BookingCalendar.tsx`, `MultiStepForm.tsx`) se mantienen intactos para poder reactivarlos despues
-- Los botones de CTA en `FinalCTAV2` que apuntan a `#agendar` seguiran funcionando pero no encontraran la seccion; se pueden ajustar para que apunten a WhatsApp directamente
+- El formulario inferior usara `formSource="booking"` para diferenciarlo del Hero en analytics
+- Se mantiene el mismo diseno visual (glassmorphism card) para consistencia
+- No se modifica ningun componente existente, solo se agrega la seccion en IndexV2
