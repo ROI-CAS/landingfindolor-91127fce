@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { Shield, Clock, Award, ChevronDown, Phone, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Shield, Clock, Award, ChevronDown, Phone } from "lucide-react";
+import { MultiStepForm } from "./MultiStepForm";
 import heroImage from "@/assets/hero-findolor-bg.jpg";
 import heroImageMobile from "@/assets/hero-findolor-mobile.jpg";
 const logo = "/images/findolor-logo.webp";
@@ -90,7 +90,7 @@ export function HeroV2() {
             </div>
           </motion.div>
 
-          {/* Right - CTA Buttons */}
+          {/* Right - Form with Glassmorphism */}
           <motion.div initial={{
           opacity: 0,
           y: 30
@@ -100,28 +100,28 @@ export function HeroV2() {
         }} transition={{
           duration: 0.6,
           delay: 0.2
-        }} className="flex flex-col items-center lg:items-start gap-4">
-            <div className="relative rounded-3xl p-6 md:p-8 w-full max-w-md" style={{
-              background: "hsla(0, 0%, 100%, 0.12)",
+        }} className="relative opacity-100 shadow-2xl">
+            <div className="relative rounded-3xl p-5 md:p-7 shadow-2xl overflow-hidden" style={{
+              background: "hsla(0, 0%, 100%, 0.92)",
               backdropFilter: "blur(20px)",
               WebkitBackdropFilter: "blur(20px)",
-              border: "1px solid hsla(0, 0%, 100%, 0.2)",
+              border: "1px solid hsla(0, 0%, 100%, 0.6)",
+              boxShadow: "0 25px 50px -12px hsla(0, 0%, 0%, 0.25), 0 0 0 1px hsla(0, 0%, 100%, 0.1) inset"
             }}>
-              <h3 className="text-white text-xl font-bold mb-2 text-center">¿Necesitas una valoración?</h3>
-              <p className="text-white/70 text-sm mb-6 text-center">Contáctanos y te orientamos sin compromiso</p>
-              <div className="flex flex-col gap-3">
-                <Button size="lg" className="w-full btn-cta text-base" asChild>
-                  <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="w-5 h-5 mr-2" />
-                    Escríbenos por WhatsApp
-                  </a>
-                </Button>
-                <Button size="lg" variant="outline" className="w-full text-base border-white/30 text-white hover:bg-white/10" asChild>
-                  <a href="tel:+573001234567">
-                    <Phone className="w-5 h-5 mr-2" />
-                    Llámanos ahora
-                  </a>
-                </Button>
+              <div className="absolute inset-0 opacity-30 pointer-events-none" style={{
+                background: "radial-gradient(circle at top right, hsla(199, 76%, 52%, 0.08), transparent 50%)"
+              }} />
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Phone className="w-4 h-4 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground">Te llamamos</h3>
+                </div>
+                <MultiStepForm formSource="hero" />
+                <p className="text-center text-xs text-muted-foreground mt-2">
+                  🔒 Tu información está protegida. Recibirás confirmación por WhatsApp y correo electrónico.
+                </p>
               </div>
             </div>
           </motion.div>
