@@ -72,30 +72,16 @@ export function ExitIntentPopup() {
               {/* Content */}
               <div className="p-6">
                 <h4 className="text-xl font-bold text-foreground mb-2">
-                  Guía Informativa: "10 Ejercicios para el Cuidado de la Espalda"
+                  ¿Te vas sin agendar tu cita?
                 </h4>
                 <p className="text-muted-foreground text-sm mb-6">
-                  Descarga nuestra guía elaborada por especialistas con recomendaciones para el cuidado de tu espalda.
+                  Agenda ahora y da el primer paso para recuperar tu bienestar.
                 </p>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <Input
-                    type="email"
-                    placeholder="Tu correo electrónico"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="h-12"
-                  />
-                  <Button type="submit" className="w-full h-12" size="lg">
-                    Descargar Guía Informativa
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </form>
-
-                <p className="text-xs text-muted-foreground text-center mt-4">
-                  No spam. Puedes cancelar cuando quieras.
-                </p>
+                <Button onClick={() => { setIsVisible(false); document.getElementById('agendar')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full h-12" size="lg">
+                  Agendar mi cita
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
               </div>
             </div>
           </motion.div>
