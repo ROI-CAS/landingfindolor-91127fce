@@ -96,7 +96,7 @@ const faqCategories = [
 
 export function FAQSection() {
   return (
-    <section className="py-20 lg:py-28 bg-background">
+    <section id="faq" className="py-20 lg:py-28 bg-background">
       <div className="container max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

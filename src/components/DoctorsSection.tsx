@@ -17,7 +17,7 @@ const doctor = {
 
 export function DoctorsSection() {
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="equipo" className="py-20 bg-muted/30">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
