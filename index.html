@@ -148,14 +148,5 @@
       data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" 
       data-widget-id="698e554df88183166dbb0d82">
     </script>
-    <script>
-      function sendHeight() {
-        const height = document.documentElement.scrollHeight;
-        window.parent.postMessage({ height: height }, "*");
-      }
-      window.addEventListener("load", sendHeight);
-      window.addEventListener("resize", sendHeight);
-      setInterval(sendHeight, 500);
-    </script>
   </body>
 </html>
