@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { Shield, Clock, Award, ChevronDown, Phone, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Shield, Clock, Award, ChevronDown, Phone } from "lucide-react";
+import { MultiStepForm } from "./MultiStepForm";
 import heroImage from "@/assets/hero-findolor-bg.jpg";
 import heroImageMobile from "@/assets/hero-findolor-mobile.jpg";
 const logo = "/images/findolor-logo.webp";
