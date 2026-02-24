@@ -90,7 +90,7 @@ export function HeroV2() {
             </div>
           </motion.div>
 
-          {/* Right - Form with Glassmorphism */}
+          {/* Right - CTA Buttons */}
           <motion.div initial={{
           opacity: 0,
           y: 30
@@ -100,119 +100,32 @@ export function HeroV2() {
         }} transition={{
           duration: 0.6,
           delay: 0.2
-        }} className="relative opacity-100 shadow-2xl">
-            {/* Glassmorphism card */}
-            <div className="relative rounded-3xl p-5 md:p-7 shadow-2xl overflow-hidden" style={{
-            background: "hsla(0, 0%, 100%, 0.92)",
-            backdropFilter: "blur(20px)",
-            WebkitBackdropFilter: "blur(20px)",
-            border: "1px solid hsla(0, 0%, 100%, 0.6)",
-            boxShadow: "0 25px 50px -12px hsla(0, 0%, 0%, 0.25), 0 0 0 1px hsla(0, 0%, 100%, 0.1) inset"
-          }}>
-              {/* Decorative gradient overlay */}
-              <div className="absolute inset-0 opacity-30 pointer-events-none" style={{
-              background: "radial-gradient(circle at top right, hsla(199, 76%, 52%, 0.08), transparent 50%)"
-            }} />
-
-              <div className="relative z-10">
-                <Tabs defaultValue="callback" className="w-full">
-                  <TabsList className="grid grid-cols-2 w-full mb-4 h-auto p-1">
-                    <TabsTrigger value="callback" className="flex items-center gap-2 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-                      <Phone className="w-4 h-4" />
-                      <span>Te llamamos</span>
-                    </TabsTrigger>
-                    <TabsTrigger value="calendar" className="flex items-center gap-2 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
-                      <CalendarDays className="w-4 h-4" />
-                      <span>Prefiero elegir</span>
-                    </TabsTrigger>
-                  </TabsList>
-
-                  <div className="min-h-[380px] flex flex-col">
-                    <TabsContent value="callback" className="mt-0 flex-1 data-[state=inactive]:hidden animate-fade-in">
-                      <MultiStepForm formSource="hero" />
-                    </TabsContent>
-
-                    <TabsContent value="calendar" className="mt-0 flex-1 data-[state=inactive]:hidden animate-fade-in">
-                      <div className="text-center space-y-3 flex flex-col items-center justify-center min-h-[340px] mb-0">
-                        <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-                          <CalendarDays className="w-6 h-6 text-primary" />
-                        </div>
-                        <div>
-                          <h3 className="text-lg font-bold text-foreground mb-1">
-                            Elige tu horario ideal
-                          </h3>
-                          <p className="text-muted-foreground text-sm mb-0">
-                            Visualiza nuestra disponibilidad y selecciona el día y hora que mejor se ajuste a ti
-                          </p>
-                        </div>
-                        <div className="grid grid-cols-3 gap-2 text-left w-full">
-                          {[{
-                          icon: Clock,
-                          text: "Confirmación inmediata"
-                        }, {
-                          icon: Calendar,
-                          text: "Horarios flexibles"
-                        }, {
-                          icon: CheckCircle,
-                          text: "Sin filas ni esperas"
-                        }].map((item, index) => <div key={index} className="gap-1.5 text-xs text-muted-foreground bg-muted/50 rounded-lg py-2 px-2.5 flex-row mb-[12px] flex items-center justify-start">
-                              <item.icon className="w-3.5 h-3.5 text-primary shrink-0" />
-                              <span>{item.text}</span>
-                            </div>)}
-                        </div>
-                        <Button size="lg" className="w-full btn-cta" onClick={() => setDrawerOpen(true)}>
-                          Abrir Calendario
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </Button>
-                      </div>
-                    </TabsContent>
-                  </div>
-                </Tabs>
-
-                <p className="text-center text-xs text-muted-foreground mt-2">
-                  🔒 Tu información está protegida. Recibirás confirmación por WhatsApp y correo electrónico.
-                </p>
+        }} className="flex flex-col items-center lg:items-start gap-4">
+            <div className="relative rounded-3xl p-6 md:p-8 w-full max-w-md" style={{
+              background: "hsla(0, 0%, 100%, 0.12)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              border: "1px solid hsla(0, 0%, 100%, 0.2)",
+            }}>
+              <h3 className="text-white text-xl font-bold mb-2 text-center">¿Necesitas una valoración?</h3>
+              <p className="text-white/70 text-sm mb-6 text-center">Contáctanos y te orientamos sin compromiso</p>
+              <div className="flex flex-col gap-3">
+                <Button size="lg" className="w-full btn-cta text-base" asChild>
+                  <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="w-5 h-5 mr-2" />
+                    Escríbenos por WhatsApp
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" className="w-full text-base border-white/30 text-white hover:bg-white/10" asChild>
+                  <a href="tel:+573001234567">
+                    <Phone className="w-5 h-5 mr-2" />
+                    Llámanos ahora
+                  </a>
+                </Button>
               </div>
             </div>
           </motion.div>
         </div>
-
-        {/* Drawer with calendar iframe */}
-        <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
-          <DrawerContent className="h-[85vh] md:h-[80vh] max-w-4xl mx-auto md:rounded-t-2xl">
-            <DrawerHeader className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-t-[10px] md:rounded-t-2xl -mt-2 mx-0">
-              <DrawerTitle className="flex items-center gap-2 text-lg">
-                <Calendar className="w-5 h-5" />
-                Selecciona fecha y hora
-              </DrawerTitle>
-              <p className="text-sm text-primary-foreground/80">
-                Elige el momento más conveniente para tu valoración médica
-              </p>
-            </DrawerHeader>
-            <div className="p-3 md:p-6 overflow-y-auto flex-1">
-              {drawerOpen && <div className="booking-calendar-wrapper">
-                  <style>{`
-                    .booking-calendar-wrapper iframe {
-                      width: 100%;
-                      min-height: 500px;
-                      height: calc(80vh - 120px);
-                      border: none;
-                      border-radius: 12px;
-                      background: white;
-                    }
-                    @media (max-width: 768px) {
-                      .booking-calendar-wrapper iframe {
-                        min-height: 450px;
-                        height: calc(85vh - 100px);
-                        border-radius: 8px;
-                      }
-                    }
-                  `}</style>
-                  <iframe src="https://api.leadconnectorhq.com/widget/booking/eXMBIpszBnRoCNW5sp4N" id="hero-calendar-iframe" title="Calendario de citas Findolor" />
-                </div>}
-            </div>
-          </DrawerContent>
-        </Drawer>
 
         {/* Scroll indicator */}
         <motion.button onClick={scrollToContent} initial={{

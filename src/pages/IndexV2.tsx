@@ -39,7 +39,6 @@ const IndexV2 = () => {
       
       <ClickToCallButton />
       <LiveCounter />
-      <ExitIntentPopup />
     </div>
   );
 };
