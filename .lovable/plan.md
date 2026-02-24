@@ -1,29 +1,28 @@
 
-## Plan de mejoras UX/UI
+# Plan: Ocultar popup de salida y formularios de citas
 
-### Problema 1: Formulario del Hero - Espaciado excesivo
-El formulario en el hero tiene demasiado espacio interno entre elementos. Se reducira el `min-h` del contenedor de tabs y se ajustaran los espacios internos para que el contenido sea mas compacto y proporcionado.
+## Resumen
+Se ocultaran temporalmente tres elementos de la pagina:
+1. **Popup de salida (Exit Intent)** - la ventana que aparece al intentar salir
+2. **Formulario del Hero** - el formulario de agendamiento en la parte superior
+3. **Seccion "Agenda Tu Cita Ahora"** - la seccion completa con las pestanas de agendamiento
 
-### Problema 2: Los 3 cards de beneficios - Layout 2+1
-Cambiar el grid de `sm:grid-cols-3` (3 columnas iguales) a un layout de 2 arriba + 1 abajo que ocupe el ancho completo de las 2 columnas superiores. Esto mejora la legibilidad y rompe la monotonia visual.
+Los componentes no se eliminaran, solo se comentaran/removeran de `IndexV2.tsx` y `HeroV2.tsx` para poder reactivarlos facilmente en el futuro.
 
-### Detalles tecnicos
+---
 
-**HeroV2.tsx:**
-- Reducir `min-h-[400px]` a `min-h-[380px]` en el contenedor de tabs
-- Reducir `space-y-4` a `space-y-3` en la pestana "Prefiero elegir"
-- Reducir `min-h-[360px]` a `min-h-[340px]` en el contenido de calendario
-- Reducir el icono central de `w-14 h-14` a `w-12 h-12` y el icono interno de `w-7 h-7` a `w-6 h-6`
-- Reducir `mb-5` del TabsList a `mb-4`
+## Cambios tecnicos
 
-**BenefitsV2.tsx:**
-- Cambiar el grid de `sm:grid-cols-3` a `grid-cols-2` con el tercer card usando `col-span-2` para ocupar el ancho completo
-- Aumentar ligeramente el padding y tipografia del tercer card para que se vea equilibrado como card destacado
-- Centrar el contenido del tercer card horizontalmente para que no se vea estirado
+### 1. `src/pages/IndexV2.tsx`
+- Remover `<ExitIntentPopup />` del render (linea 45)
+- Remover `<BookingCalendar />` del render (linea 38)
+- Limpiar los imports correspondientes (lineas 11, 13)
 
-**MultiStepForm.tsx:**
-- Reducir `mb-6` del progress steps a `mb-5`
-- Reducir `mb-4` de los encabezados de cada step a `mb-3`
+### 2. `src/components/HeroV2.tsx`
+- Remover el formulario `<MultiStepForm />` y las pestanas de agendamiento del Hero
+- Reemplazar esa area con un CTA simple (boton de WhatsApp o llamada) para que el Hero no quede vacio en ese lado
+- Mantener la estructura visual del Hero (titulo, subtitulo, badges de confianza)
 
-**BookingCalendar.tsx:**
-- Aplicar los mismos ajustes de espaciado que en el hero para mantener consistencia visual entre ambos formularios
+### Notas
+- Los archivos de componentes (`ExitIntentPopup.tsx`, `BookingCalendar.tsx`, `MultiStepForm.tsx`) se mantienen intactos para poder reactivarlos despues
+- Los botones de CTA en `FinalCTAV2` que apuntan a `#agendar` seguiran funcionando pero no encontraran la seccion; se pueden ajustar para que apunten a WhatsApp directamente
