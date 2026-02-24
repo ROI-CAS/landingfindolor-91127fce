@@ -8,9 +8,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { FinalCTAV2 } from "@/components/FinalCTAV2";
 import { Footer } from "@/components/Footer";
 
-import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 import { TrustBadges } from "@/components/TrustBadges";
-import { BookingCalendar } from "@/components/BookingCalendar";
 import { StickyHeader } from "@/components/StickyHeader";
 import { ClickToCallButton } from "@/components/ClickToCallButton";
 import { VideoSection } from "@/components/VideoSection";
@@ -35,14 +33,12 @@ const IndexV2 = () => {
       <DoctorsSection />
       <ProcessTimeline />
       <BenefitsV2 />
-      <BookingCalendar />
       <FAQSection />
       <FinalCTAV2 />
       <Footer />
       
       <ClickToCallButton />
       <LiveCounter />
-      <ExitIntentPopup />
     </div>
   );
 };
