@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Phone } from "lucide-react";
 import { Phone } from "lucide-react";
 import { HeroV2 } from "@/components/HeroV2";
 import { SocialProofV2 } from "@/components/SocialProofV2";
