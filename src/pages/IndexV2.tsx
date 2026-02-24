@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Phone } from "lucide-react";
 import { HeroV2 } from "@/components/HeroV2";
 import { SocialProofV2 } from "@/components/SocialProofV2";
@@ -15,7 +17,19 @@ import { VideoSection } from "@/components/VideoSection";
 import { LiveCounter } from "@/components/LiveCounter";
 
 const IndexV2 = () => {
-  // No useEffect that strips hash — allow anchor navigation
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace("#", "");
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  }, [hash]);
   return (
     <div className="min-h-screen bg-background">
       <StickyHeader />
