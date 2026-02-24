@@ -52,7 +52,7 @@ const stats = [
 
 export function SocialProofV2() {
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="testimonios" className="py-20 bg-muted/30">
       <div className="container">
         {/* Stats Bar */}
         <motion.div
