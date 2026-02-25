@@ -64,6 +64,17 @@ const Gracias = () => {
           </div>
         </div>
 
+        {/* Blog link */}
+        <a
+          href="https://www.findolor.com/blog-de-manejo-del-dolor-y-cuidados-paliativos/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button variant="secondary" size="lg" className="gap-2 w-full">
+            Visita nuestro blog sobre manejo del dolor
+          </Button>
+        </a>
+
         {/* Back button */}
         <Link to="/">
           <Button variant="outline" size="lg" className="gap-2">
