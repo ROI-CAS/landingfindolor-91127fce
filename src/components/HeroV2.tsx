@@ -26,7 +26,7 @@ export function HeroV2() {
       <div className="absolute inset-0 z-0">
         <picture>
           <source media="(max-width: 768px)" srcSet={heroImageMobile} />
-          <img src={heroImage} alt="Paciente aliviado" className="w-full h-full object-cover" />
+          <img src={heroImage} alt="Paciente aliviado" className="w-full h-full object-cover" fetchPriority="high" />
         </picture>
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a2332]/95 via-[#1a2332]/80 to-[#1a2332]/60" />
       </div>
