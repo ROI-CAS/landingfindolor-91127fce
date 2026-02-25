@@ -32,6 +32,9 @@ export function VideoSection() {
                     src={videoThumbnail} 
                     alt="Video institucional Findolor" 
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    width={640}
+                    height={360}
                   />
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/40" />
                   <div className="absolute inset-0 flex items-center justify-center">

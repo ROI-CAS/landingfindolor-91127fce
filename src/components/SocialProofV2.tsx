@@ -184,6 +184,9 @@ export function SocialProofV2() {
                 src={`/images/insurers/${insurer}.png`}
                 alt={insurer}
                 className="h-10 md:h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
+                loading="lazy"
+                width={120}
+                height={48}
               />
             ))}
           </div>

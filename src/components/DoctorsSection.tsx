@@ -50,6 +50,9 @@ export function DoctorsSection() {
                   src={doctor.image}
                   alt={doctor.name}
                   className="w-full h-64 md:h-full object-cover object-[center_15%]"
+                  loading="lazy"
+                  width={288}
+                  height={400}
                 />
               </div>
 

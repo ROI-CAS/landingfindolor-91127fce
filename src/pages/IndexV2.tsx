@@ -1,20 +1,24 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
 import { Phone } from "lucide-react";
 import { HeroV2 } from "@/components/HeroV2";
-import { SocialProofV2 } from "@/components/SocialProofV2";
-import { DoctorsSection } from "@/components/DoctorsSection";
-import { ProcessTimeline } from "@/components/ProcessTimeline";
-import { BenefitsV2 } from "@/components/BenefitsV2";
-import { FAQSection } from "@/components/FAQSection";
-import { FinalCTAV2 } from "@/components/FinalCTAV2";
-import { Footer } from "@/components/Footer";
-import { MultiStepForm } from "@/components/MultiStepForm";
 import { TrustBadges } from "@/components/TrustBadges";
 import { StickyHeader } from "@/components/StickyHeader";
-import { ClickToCallButton } from "@/components/ClickToCallButton";
-import { VideoSection } from "@/components/VideoSection";
-import { LiveCounter } from "@/components/LiveCounter";
+import { MultiStepForm } from "@/components/MultiStepForm";
+
+// Lazy load below-fold components
+const SocialProofV2 = lazy(() => import("@/components/SocialProofV2").then(m => ({ default: m.SocialProofV2 })));
+const VideoSection = lazy(() => import("@/components/VideoSection").then(m => ({ default: m.VideoSection })));
+const DoctorsSection = lazy(() => import("@/components/DoctorsSection").then(m => ({ default: m.DoctorsSection })));
+const ProcessTimeline = lazy(() => import("@/components/ProcessTimeline").then(m => ({ default: m.ProcessTimeline })));
+const BenefitsV2 = lazy(() => import("@/components/BenefitsV2").then(m => ({ default: m.BenefitsV2 })));
+const FAQSection = lazy(() => import("@/components/FAQSection").then(m => ({ default: m.FAQSection })));
+const FinalCTAV2 = lazy(() => import("@/components/FinalCTAV2").then(m => ({ default: m.FinalCTAV2 })));
+const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
+const ClickToCallButton = lazy(() => import("@/components/ClickToCallButton").then(m => ({ default: m.ClickToCallButton })));
+const LiveCounter = lazy(() => import("@/components/LiveCounter").then(m => ({ default: m.LiveCounter })));
+
+const SectionFallback = () => <div className="py-20" />;
 
 const IndexV2 = () => {
   const { hash } = useLocation();
@@ -35,12 +39,24 @@ const IndexV2 = () => {
       <StickyHeader />
       <HeroV2 />
       <TrustBadges />
-      <SocialProofV2 />
-      <VideoSection />
-      <DoctorsSection />
-      <ProcessTimeline />
-      <BenefitsV2 />
-      <FAQSection />
+      <Suspense fallback={<SectionFallback />}>
+        <SocialProofV2 />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <VideoSection />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <DoctorsSection />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <ProcessTimeline />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <BenefitsV2 />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <FAQSection />
+      </Suspense>
 
       {/* Sección de agendamiento inferior */}
       <section id="agendar" className="py-16 md:py-20 bg-muted/30">
@@ -77,11 +93,19 @@ const IndexV2 = () => {
         </div>
       </section>
 
-      <FinalCTAV2 />
-      <Footer />
+      <Suspense fallback={<SectionFallback />}>
+        <FinalCTAV2 />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <Footer />
+      </Suspense>
       
-      <ClickToCallButton />
-      <LiveCounter />
+      <Suspense fallback={null}>
+        <ClickToCallButton />
+      </Suspense>
+      <Suspense fallback={null}>
+        <LiveCounter />
+      </Suspense>
     </div>
   );
 };
