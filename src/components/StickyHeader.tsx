@@ -60,6 +60,7 @@ export function StickyHeader() {
                   {/* Click-to-Call - visible on mobile */}
                   <a
                     href={`tel:+${PHONE_NUMBER}`}
+                    onClick={() => (window as any).gtag_report_conversion?.(`tel:+${PHONE_NUMBER}`)}
                     className="md:hidden"
                   >
                     <Button
@@ -74,6 +75,7 @@ export function StickyHeader() {
                   {/* Desktop phone */}
                   <a
                     href={`tel:+${PHONE_NUMBER}`}
+                    onClick={() => (window as any).gtag_report_conversion?.(`tel:+${PHONE_NUMBER}`)}
                     className="hidden md:flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     <Phone className="w-4 h-4" />
