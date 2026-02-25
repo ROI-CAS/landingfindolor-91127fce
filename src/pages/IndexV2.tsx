@@ -61,6 +61,14 @@ const IndexV2 = () => {
       {/* Sección de agendamiento inferior */}
       <section id="agendar" className="py-16 md:py-20 bg-muted/30">
         <div className="container max-w-lg mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+              Da el primer paso hacia una vida sin dolor
+            </h2>
+            <p className="text-muted-foreground text-sm md:text-base">
+              Solicita tu valoración médica y recibe orientación personalizada de nuestro equipo especialista
+            </p>
+          </div>
           <div
             className="relative rounded-3xl p-5 md:p-7 shadow-2xl overflow-hidden"
             style={{
