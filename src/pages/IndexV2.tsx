@@ -78,14 +78,17 @@ const IndexV2 = () => {
               }}
             />
             <div className="relative z-10">
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-1">
                 <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                   <Phone className="w-4 h-4 text-primary" />
                 </div>
                 <h3 className="text-lg font-bold text-foreground">Te llamamos</h3>
               </div>
+              <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                Nuestro equipo médico se comunicará contigo para orientarte y agendar tu valoración médica en el menor tiempo posible.
+              </p>
               <MultiStepForm formSource="booking-section" />
-              <p className="text-center text-xs text-muted-foreground mt-2">
+              <p className="text-center text-xs text-muted-foreground mt-3">
                 🔒 Tu información está protegida. Recibirás confirmación por WhatsApp y correo electrónico.
               </p>
             </div>
