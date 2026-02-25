@@ -13,6 +13,7 @@ export function ClickToCallButton() {
   return (
     <motion.a
       href={`tel:+${PHONE_NUMBER}`}
+      onClick={() => (window as any).gtag_report_conversion?.(`tel:+${PHONE_NUMBER}`)}
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1, type: "spring", stiffness: 200 }}
