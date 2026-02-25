@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, CheckCircle, User, Phone, Mail, Stethoscope, Building2, MessageSquare, Sparkles, Activity, HeartHandshake, Syringe } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -62,12 +63,12 @@ interface MultiStepFormProps {
 export function MultiStepForm({
   formSource = "hero"
 }: MultiStepFormProps) {
+  const navigate = useNavigate();
   const {
     citasDisponibles,
     registrarConsulta
   } = useAppointments();
   const [currentStep, setCurrentStep] = useState(1);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     especialidad: "",
     entidad: "",
@@ -97,7 +98,7 @@ export function MultiStepForm({
       ...formData
     });
     registrarConsulta();
-    setIsSubmitted(true);
+    navigate("/gracias");
   };
   const canProceed = () => {
     switch (currentStep) {
@@ -116,29 +117,6 @@ export function MultiStepForm({
         return false;
     }
   };
-  if (isSubmitted) {
-    return <motion.div initial={{
-      opacity: 0,
-      scale: 0.9
-    }} animate={{
-      opacity: 1,
-      scale: 1
-    }} className="text-center py-12">
-        <div className="w-20 h-20 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-          <CheckCircle className="w-10 h-10 text-secondary" />
-        </div>
-        <h3 className="text-2xl font-bold text-foreground mb-3">
-          ¡Solicitud Enviada!
-        </h3>
-        <p className="text-muted-foreground mb-6">
-          Te contactaremos pronto para confirmar tu cita.
-        </p>
-        <div className="flex items-center justify-center gap-2 text-sm text-primary">
-          <Phone className="w-4 h-4" />
-          <span>También puedes llamarnos: 318 691 2799 / 601 673 6707</span>
-        </div>
-      </motion.div>;
-  }
   return <div className="w-full max-w-lg mx-auto my-0 mb-[35px]">
       {/* Progress Steps */}
       <div className="flex items-center justify-between mb-5">
