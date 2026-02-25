@@ -36,10 +36,6 @@ const IndexV2 = () => {
   }, [hash]);
   return (
     <div className="min-h-screen bg-background">
-      {/* BANNER DE PRUEBA - ELIMINAR DESPUÉS */}
-      <div className="bg-yellow-400 text-black text-center py-3 font-bold text-lg">
-        🚧 PRUEBA LOVABLE - Si ves esto, los cambios se están sincronizando correctamente 🚧
-      </div>
       <StickyHeader />
       <HeroV2 />
       <TrustBadges />
