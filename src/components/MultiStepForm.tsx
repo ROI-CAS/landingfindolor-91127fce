@@ -93,10 +93,25 @@ export function MultiStepForm({
   };
   const handleSubmit = () => {
     if (!formData.acceptedPolicies) return;
-    console.log("[Lead] Form submitted", {
-      source: formSource,
-      ...formData
-    });
+
+    const payload = {
+      formSource,
+      especialidad: especialidades.find(e => e.id === formData.especialidad)?.label || formData.especialidad,
+      entidad: formData.entidad === "otro" ? formData.entidadOtra : entidades.find(e => e.id === formData.entidad)?.label || formData.entidad,
+      nombre: formData.nombre,
+      telefono: formData.telefono,
+      email: formData.email,
+      mensaje: formData.mensaje,
+    };
+
+    // Fire-and-forget: no bloquea la navegación
+    fetch("https://services.leadconnectorhq.com/hooks/6jIqC8dVIpPZSaRRRora/webhook-trigger/37367ef5-1ca4-4cad-acb8-23fbfb8f033a", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    }).catch(err => console.error("[Webhook] Error:", err));
+
+    console.log("[Lead] Form submitted", payload);
     registrarConsulta();
     navigate("/gracias");
   };
