@@ -242,22 +242,22 @@ export function MultiStepForm({
                   <Label htmlFor="nombre" className="flex items-center gap-2">
                     <User className="w-4 h-4" /> Nombre completo <span className="text-destructive">*</span>
                   </Label>
-                  <Input id="nombre" value={formData.nombre} onChange={e => updateFormData("nombre", e.target.value)} placeholder="¿Cómo te llamas?" className="h-12 text-base" required />
-                  {formData.nombre === "" && currentStep === 3 && <p className="text-xs text-destructive">Este campo es obligatorio</p>}
+                  <Input id="nombre" value={formData.nombre} onChange={e => updateFormData("nombre", e.target.value)} onBlur={() => handleBlur("nombre")} placeholder="¿Cómo te llamas?" className="h-12 text-base" required />
+                  {showError("nombre", formData.nombre) && <p className="text-xs text-destructive">Campo requerido</p>}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="telefono" className="flex items-center gap-2">
                     <Phone className="w-4 h-4" /> Teléfono <span className="text-destructive">*</span>
                   </Label>
-                  <Input id="telefono" type="tel" value={formData.telefono} onChange={e => updateFormData("telefono", e.target.value)} placeholder="Para llamarte y confirmar" className="h-12 text-base" required />
-                  {formData.telefono === "" && currentStep === 3 && <p className="text-xs text-destructive">Este campo es obligatorio</p>}
+                  <Input id="telefono" type="tel" value={formData.telefono} onChange={e => updateFormData("telefono", e.target.value)} onBlur={() => handleBlur("telefono")} placeholder="Para llamarte y confirmar" className="h-12 text-base" required />
+                  {showError("telefono", formData.telefono) && <p className="text-xs text-destructive">Campo requerido</p>}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email" className="flex items-center gap-2">
                     <Mail className="w-4 h-4" /> Email <span className="text-destructive">*</span>
                   </Label>
-                  <Input id="email" type="email" value={formData.email} onChange={e => updateFormData("email", e.target.value)} placeholder="Para enviarte los detalles" className="h-12 text-base" required />
-                  {formData.email === "" && currentStep === 3 && <p className="text-xs text-destructive">Este campo es obligatorio</p>}
+                  <Input id="email" type="email" value={formData.email} onChange={e => updateFormData("email", e.target.value)} onBlur={() => handleBlur("email")} placeholder="Para enviarte los detalles" className="h-12 text-base" required />
+                  {showError("email", formData.email) && <p className="text-xs text-destructive">Campo requerido</p>}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="mensaje" className="flex items-center gap-2">
