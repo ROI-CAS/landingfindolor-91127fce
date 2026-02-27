@@ -1,28 +1,35 @@
 
 
-## Análisis UX: Validación de campos obligatorios
+## Plan: Configurar webhook para ambos formularios MultiStepForm
 
-### Problema actual
-Los mensajes de error aparecen inmediatamente al llegar al paso 3, antes de que el usuario intente escribir. Esto es mala práctica UX — genera ansiedad y sensación negativa desde el inicio.
+### Contexto
+Ambos formularios (hero y booking-section) usan el mismo componente `MultiStepForm` con un prop `formSource` que ya distingue entre "hero" (Form 1, arriba) y "booking-section" (Form 2, abajo). Se enviaran los datos al mismo webhook pero incluyendo el campo `formSource` para poder identificar cual formulario convierte mejor.
 
-### Mejor práctica: Validación "on blur" + "on submit"
+### Cambios
 
-El estándar UX es mostrar errores solo cuando:
-1. El usuario toca un campo y lo deja vacío (blur), o
-2. El usuario intenta avanzar al siguiente paso sin completar los campos
+**`src/components/MultiStepForm.tsx`** - Modificar `handleSubmit` para:
+1. Hacer un `fetch` POST al webhook `https://services.leadconnectorhq.com/hooks/6jIqC8dVIpPZSaRRRora/webhook-trigger/37367ef5-1ca4-4cad-acb8-23fbfb8f033a`
+2. Enviar un JSON con todos los campos del formulario: `especialidad`, `entidad`, `nombre`, `telefono`, `email`, `mensaje`, y `formSource` (que sera "hero" o "booking-section")
+3. Resolver los labels legibles de especialidad y entidad antes de enviar (en vez de los IDs internos)
+4. El fetch sera fire-and-forget (no bloquear la navegacion a /gracias si falla el webhook)
+5. Mantener la redireccion a `/gracias` despues de disparar el webhook
 
-### Cambios propuestos
+### Payload que se enviara al webhook
 
-**`src/components/MultiStepForm.tsx`**:
-- Agregar estado `touchedFields` que rastrea qué campos el usuario ya tocó (onBlur)
-- Agregar estado `attemptedNext` que se activa cuando intenta hacer clic en "Continuar" sin completar campos
-- Mostrar mensaje "Campo requerido" solo si el campo está vacío Y (`touchedFields[campo]` es true O `attemptedNext` es true)
-- Resetear `attemptedNext` cuando el usuario empieza a escribir
-- Texto del error: **"Campo requerido"** (corto, directo, sin redundancia)
+```json
+{
+  "formSource": "hero",
+  "especialidad": "Medicina del dolor",
+  "entidad": "Allianz",
+  "nombre": "Juan Perez",
+  "telefono": "3001234567",
+  "email": "juan@email.com",
+  "mensaje": "Tengo dolor de espalda"
+}
+```
 
-### Flujo resultante
-1. Usuario llega al paso 3 → no ve errores
-2. Toca "Nombre", escribe, y pasa a "Teléfono" → no ve errores
-3. Deja "Teléfono" vacío y pasa a "Email" → aparece error en Teléfono
-4. O intenta dar "Continuar" con campos vacíos → aparecen todos los errores de campos vacíos
+El campo `formSource` tendra valor `"hero"` para el formulario de arriba y `"booking-section"` para el de abajo, lo que permite comparar en el CRM cual formulario genera mas conversiones.
+
+### Archivos a modificar
+- `src/components/MultiStepForm.tsx` (unica modificacion)
 
