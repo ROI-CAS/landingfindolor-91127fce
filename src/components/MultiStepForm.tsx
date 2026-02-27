@@ -79,13 +79,29 @@ export function MultiStepForm({
     mensaje: "",
     acceptedPolicies: false
   });
+  const [touchedFields, setTouchedFields] = useState<Record<string, boolean>>({});
+  const [attemptedNext, setAttemptedNext] = useState(false);
+
+  const handleBlur = (field: string) => {
+    setTouchedFields(prev => ({ ...prev, [field]: true }));
+  };
+
+  const showError = (field: string, value: string) => {
+    return value.trim() === "" && (touchedFields[field] || attemptedNext);
+  };
+
   const updateFormData = (field: string, value: string | boolean) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
     }));
+    if (attemptedNext) setAttemptedNext(false);
   };
   const nextStep = () => {
+    if (currentStep === 3 && !canProceed()) {
+      setAttemptedNext(true);
+      return;
+    }
     if (currentStep < 4) setCurrentStep(prev => prev + 1);
   };
   const prevStep = () => {
