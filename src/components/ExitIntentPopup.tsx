@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Gift, ArrowRight } from "lucide-react";
+import { X, HeartPulse, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
