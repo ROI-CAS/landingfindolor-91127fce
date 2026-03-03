@@ -64,7 +64,7 @@ export function HeroV2() {
             </h1>
 
             <p className="text-base md:text-lg text-white/80 mb-8 max-w-xl leading-relaxed">
-              IPS especializada en dolor crónico y cuidados paliativos en Bogotá. En FinDolor realizamos valoración médica, diagnóstico y tratamiento con enfoque integral, combinando estrategias farmacológicas e intervencionistas según cada paciente.
+              IPS especializada en dolor crónico y cuidados paliativos. En FinDolor realizamos valoración médica, diagnóstico y tratamiento con enfoque integral, combinando estrategias farmacológicas e intervencionistas según cada paciente.
               <span className="block mt-3">
                 Acompañamos de forma cercana y segura a pacientes y familias durante todo el proceso.
               </span>
