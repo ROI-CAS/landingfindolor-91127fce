@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Award, GraduationCap, Star, Linkedin } from "lucide-react";
+import { Award, GraduationCap, Star, Linkedin, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import drGarzonImage from "@/assets/dr-garzon.png";
 
 const doctor = {
