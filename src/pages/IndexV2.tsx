@@ -17,7 +17,6 @@ const FinalCTAV2 = lazy(() => import("@/components/FinalCTAV2").then(m => ({ def
 const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
 const ClickToCallButton = lazy(() => import("@/components/ClickToCallButton").then(m => ({ default: m.ClickToCallButton })));
 const LiveCounter = lazy(() => import("@/components/LiveCounter").then(m => ({ default: m.LiveCounter })));
-const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton").then(m => ({ default: m.WhatsAppButton })));
 const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup").then(m => ({ default: m.ExitIntentPopup })));
 
 const SectionFallback = () => <div className="py-20" />;
@@ -118,9 +117,6 @@ const IndexV2 = () => {
       </Suspense>
       <Suspense fallback={null}>
         <LiveCounter />
-      </Suspense>
-      <Suspense fallback={null}>
-        <WhatsAppButton />
       </Suspense>
       <Suspense fallback={null}>
         <ExitIntentPopup />
