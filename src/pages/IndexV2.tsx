@@ -119,9 +119,6 @@ const IndexV2 = () => {
         <LiveCounter />
       </Suspense>
       <Suspense fallback={null}>
-        <WhatsAppButton />
-      </Suspense>
-      <Suspense fallback={null}>
         <ExitIntentPopup />
       </Suspense>
     </div>
