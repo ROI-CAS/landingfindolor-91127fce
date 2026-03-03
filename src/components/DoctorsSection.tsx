@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Award, GraduationCap, Star, Linkedin } from "lucide-react";
+import { Award, GraduationCap, Star, Linkedin, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import drGarzonImage from "@/assets/dr-garzon.png";
 
 const doctor = {
@@ -100,6 +101,16 @@ export function DoctorsSection() {
                       {cert}
                     </span>
                   ))}
+                </div>
+
+                {/* CTA after credentials */}
+                <div className="mt-6 pt-6 border-t border-border">
+                  <Button asChild className="w-full sm:w-auto btn-cta h-12 px-6 rounded-xl text-base font-semibold">
+                    <a href="#agendar">
+                      Agenda tu valoración con nuestro especialista
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </a>
+                  </Button>
                 </div>
               </CardContent>
             </div>
