@@ -102,6 +102,16 @@ export function DoctorsSection() {
                     </span>
                   ))}
                 </div>
+
+                {/* CTA after credentials */}
+                <div className="mt-6 pt-6 border-t border-border">
+                  <Button asChild className="w-full sm:w-auto btn-cta h-12 px-6 rounded-xl text-base font-semibold">
+                    <a href="#agendar">
+                      Agenda tu valoración con nuestro especialista
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </a>
+                  </Button>
+                </div>
               </CardContent>
             </div>
           </Card>
