@@ -60,11 +60,11 @@ export function ExitIntentPopup() {
 
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                    <Gift className="w-6 h-6" />
+                    <HeartPulse className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold">¡Espera!</h3>
-                    <p className="text-sm text-white/80">Tenemos algo para ti</p>
+                    <h3 className="text-xl font-bold">¡No te vayas!</h3>
+                    <p className="text-sm text-white/80">Tu bienestar es nuestra prioridad</p>
                   </div>
                 </div>
               </div>
